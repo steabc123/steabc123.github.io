@@ -14,10 +14,10 @@
 <meta property="og:description" content="前言在搭建 Hexo 博客的过程中，遇到了一些问题和挑战，在此记录下来，方便以后查阅，也希望能帮助到同样在搭建博客的朋友们。 常见问题记录 1. GitHub SSH 连接问题  问题描述： 在使用 hexo deploy 部署到 GitHub 时，可能会遇到 SSH 连接失败的问题。 解决方案一：配置 SSH config 文件（路径：C:\Users\用户名\.ssh\config），添加以下">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2026-05-02T11:23:00.000Z">
-<meta property="article:modified_time" content="2026-05-03T01:59:59.246Z">
+<meta property="article:modified_time" content="2026-05-03T03:38:26.307Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="博客搭建">
+<meta property="article:tag" content="猫窝">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -111,7 +111,7 @@
 
 <p><strong>解决方案二：</strong><br>将 SSH 协议改为 HTTPS 协议，修改 <code>_config.yml</code> 中的 <code>deploy</code> 配置：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/用户名/用户名.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure>
-<p>主要改动：<br>将 repo: <a href="mailto:&#x67;&#x69;&#x74;&#x40;&#103;&#x69;&#x74;&#104;&#x75;&#98;&#46;&#x63;&#x6f;&#109;">git@github.com</a>:steabc123&#x2F;steabc123.github.io.git 改为 repo: <a target="_blank" rel="noopener" href="https://github.com/steabc123/steabc123.github.io.git">https://github.com/steabc123/steabc123.github.io.git</a><br>使用 HTTPS 的优点：<br>不受防火墙限制（使用 443 端口而不是 22 端口）<br>不需要配置 SSH key<br>更稳定可靠<br>注意事项： 使用 HTTPS 推送时，可能需要输入 GitHub 的用户名和密码（或个人访问令牌 Personal Access Token）。如果你还没有创建 Personal Access Token，可以：<br>访问 GitHub → Settings → Developer settings → Personal access tokens<br>生成一个新的 token（勾选 repo 权限）<br>推送时使用该 token 作为密码<br>修改完成后，再次运行：</p>
+<p>主要改动：<br>将 repo: <a href="mailto:&#x67;&#105;&#116;&#64;&#103;&#105;&#x74;&#x68;&#117;&#x62;&#46;&#x63;&#x6f;&#x6d;">git@github.com</a>:steabc123&#x2F;steabc123.github.io.git 改为 repo: <a target="_blank" rel="noopener" href="https://github.com/steabc123/steabc123.github.io.git">https://github.com/steabc123/steabc123.github.io.git</a><br>使用 HTTPS 的优点：<br>不受防火墙限制（使用 443 端口而不是 22 端口）<br>不需要配置 SSH key<br>更稳定可靠<br>注意事项： 使用 HTTPS 推送时，可能需要输入 GitHub 的用户名和密码（或个人访问令牌 Personal Access Token）。如果你还没有创建 Personal Access Token，可以：<br>访问 GitHub → Settings → Developer settings → Personal access tokens<br>生成一个新的 token（勾选 repo 权限）<br>推送时使用该 token 作为密码<br>修改完成后，再次运行：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run deploy</span><br></pre></td></tr></table></figure>
 <p>这样可以解决某些网络环境下无法通过默认端口（22）连接 GitHub 的问题。</p>
 </details>
@@ -198,11 +198,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/05/02/hexo%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" data-id="cuidwuBoNy-u1JWGvXwUZrdWh" data-title="hexo搭建过程遇到的一些问题" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/05/02/hexo%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" data-id="cuidY2vp4KGWrjFP77on6m8nn" data-title="hexo搭建过程遇到的一些问题" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="tag">博客搭建</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="tag">博客搭建</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%8C%AB%E7%AA%9D/" rel="tag">猫窝</a></li></ul>
 
     </footer>
   </div>
@@ -249,7 +249,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub-Pages/" rel="tag">GitHub Pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="tag">博客搭建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE/" rel="tag">域名配置</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub-Pages/" rel="tag">GitHub Pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="tag">博客搭建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE/" rel="tag">域名配置</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8C%AB%E7%AA%9D/" rel="tag">猫窝</a></li></ul>
     </div>
   </div>
 
@@ -259,7 +259,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/GitHub-Pages/" style="font-size: 10px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">博客搭建</a> <a href="/tags/%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE/" style="font-size: 10px;">域名配置</a>
+      <a href="/tags/GitHub-Pages/" style="font-size: 10px;">GitHub Pages</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">博客搭建</a> <a href="/tags/%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE/" style="font-size: 10px;">域名配置</a> <a href="/tags/%E7%8C%AB%E7%AA%9D/" style="font-size: 20px;">猫窝</a>
     </div>
   </div>
 
