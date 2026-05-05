@@ -4,11 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="解决网站标签页图片不显示, 我的小破站">
-    <meta name="description" content="前言网站标签页图片不显示的原因通常是配置文件中的路径设置不正确。
-解决方法如下：
-在你的 _config.yml 中添加 theme_config，以覆盖主题的默认 favicon 设置，而无需修改任何主题文件。
-重新生成网站，现在 HTM">
+    <meta name="keywords" content="切换matery主题踩坑总结, 我的小破站">
+    <meta name="description" content="前言最近给博客换了 hexo-theme-matery 主题，颜值确实高了不少，但部署到 GitHub Pages 时遇到了个让人头大的问题：GitHub 的 Secret Scanning 把我的推送给拦截了。\折腾了一下午才解决，记录一">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>解决网站标签页图片不显示 | 我的小破站</title>
+    <title>切换matery主题踩坑总结 | 我的小破站</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/cat.ico">
     
 
@@ -337,12 +334,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">解决网站标签页图片不显示</h1>
+                    <h1 class="description center-align post-title">切换matery主题踩坑总结</h1>
                 </div>
             </div>
         </div>
@@ -370,8 +367,12 @@
                                 <span class="chip bg-color">Hexo</span>
                             </a>
                         
-                            <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
-                                <span class="chip bg-color">博客搭建</span>
+                            <a href="/tags/GitHub-Pages/">
+                                <span class="chip bg-color">GitHub Pages</span>
+                            </a>
+                        
+                            <a href="/tags/%E4%B8%BB%E9%A2%98%E5%88%87%E6%8D%A2/">
+                                <span class="chip bg-color">主题切换</span>
                             </a>
                         
                     </div>
@@ -395,7 +396,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2026-05-03
+                    2026-05-05
                 </div>
                 
 
@@ -416,12 +417,59 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>网站标签页图片不显示的原因通常是配置文件中的路径设置不正确。</p>
-<h2 id="解决方法如下："><a href="#解决方法如下：" class="headerlink" title="解决方法如下："></a>解决方法如下：</h2><ol>
-<li>在你的 _config.yml 中添加 theme_config，以覆盖主题的默认 favicon 设置，而无需修改任何主题文件。</li>
-<li>重新生成网站，现在 HTML 包含 <link rel="shortcut icon" href="/cat.ico">。</li>
-<li>favicon 文件 cat.ico 已经在你的 source&#x2F; 目录中，并会被复制到 public&#x2F;，因此应该可以在浏览器标签页中正常显示。如果仍未显示，尝试清除浏览器缓存或检查文件路径。</li>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近给博客换了 hexo-theme-matery 主题，颜值确实高了不少，但部署到 GitHub Pages 时遇到了个让人头大的问题：<strong>GitHub 的 Secret Scanning 把我的推送给拦截了</strong>。\折腾了一下午才解决，记录一下踩坑过程，希望能帮到遇到同样问题的朋友。</p>
+<h2 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h2><p>执行 <code>hexo deploy</code> 后，报错信息如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">remote: error: GH013: Repository rule violations found <span class="keyword">for</span> refs/heads/main.</span><br><span class="line">remote: </span><br><span class="line">remote: - GITHUB PUSH PROTECTION</span><br><span class="line">remote:   —————————————————————————————————————————</span><br><span class="line">remote:     Resolve the following violations before pushing again</span><br><span class="line">remote: </span><br><span class="line">remote:     - Push cannot contain secrets</span><br><span class="line">remote: </span><br><span class="line">remote:       —— Tencent Cloud Secret ID ———————————————————————————</span><br><span class="line">remote:        locations:</span><br><span class="line">remote:          - commit: b39d474e080c28f5ee702ab6ffe2743823e6eb23</span><br><span class="line">remote:            path: libs/twikoo/twikoo.all.min.js:2</span><br></pre></td></tr></table></figure>
+
+<p>简单说就是：GitHub 认为我的代码里包含了腾讯云的 Secret ID，直接拒绝了推送。</p>
+<h2 id="问题定位"><a href="#问题定位" class="headerlink" title="问题定位"></a>问题定位</h2><p>一开始我也懵了，我哪来的腾讯云密钥？仔细一看报错路径：<code>libs/twikoo/twikoo.all.min.js</code>。</p>
+<p>这个文件是 Twikoo 评论系统的 SDK，里面集成了腾讯云的基础 SDK。GitHub 的 Secret Scanning 扫描到了一些类似 Secret ID 的特征字符串，触发了误报。</p>
+<p><strong>关键点</strong>：即使你只是用了 Twikoo 的官方 SDK，没有配置任何腾讯云密钥，这个误报依然会发生。因为 SDK 内部包含了腾讯云 SDK 的代码框架。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="方案一：使用-CDN-链接（推荐）"><a href="#方案一：使用-CDN-链接（推荐）" class="headerlink" title="方案一：使用 CDN 链接（推荐）"></a>方案一：使用 CDN 链接（推荐）</h3><p>最直接的办法就是不把这个文件放进 Git 仓库，改用 CDN 加载。</p>
+<h4 id="1-修改主题配置"><a href="#1-修改主题配置" class="headerlink" title="1. 修改主题配置"></a>1. 修改主题配置</h4><p>编辑 <code>themes/hexo-theme-matery/_config.yml</code>，找到 twikoo 的配置项：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 原来的配置</span></span><br><span class="line"><span class="attr">libs:</span></span><br><span class="line">  <span class="attr">js:</span></span><br><span class="line">    <span class="attr">twikoo:</span> <span class="string">/libs/twikoo/twikoo.all.min.js</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 改为 CDN 链接</span></span><br><span class="line"><span class="attr">libs:</span></span><br><span class="line">  <span class="attr">js:</span></span><br><span class="line">    <span class="attr">twikoo:</span> <span class="string">https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-删除本地文件"><a href="#2-删除本地文件" class="headerlink" title="2. 删除本地文件"></a>2. 删除本地文件</h4><p>删除主题目录下的文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">themes/hexo-theme-matery/source/libs/twikoo/twikoo.all.min.js</span><br></pre></td></tr></table></figure>
+
+<p>这样 Hexo 生成静态文件时就不会再包含这个 JS 文件了。</p>
+<h4 id="3-清理-Git-历史"><a href="#3-清理-Git-历史" class="headerlink" title="3. 清理 Git 历史"></a>3. 清理 Git 历史</h4><p>如果之前已经提交过这个文件，光删除是不够的，它还在 Git 历史里。需要彻底清理：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> .deploy_git</span><br><span class="line">git filter-branch --force --index-filter <span class="string">&quot;git rm --cached --ignore-unmatch libs/twikoo/twikoo.all.min.js&quot;</span> --prune-empty HEAD</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>注意</strong>：<code>.deploy_git</code> 是 Hexo 部署时使用的临时 Git 仓库，位于博客根目录下。</p>
+</blockquote>
+<h4 id="4-强制推送"><a href="#4-强制推送" class="headerlink" title="4. 强制推送"></a>4. 强制推送</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://github.com/你的用户名/你的仓库.git</span><br><span class="line">git push -f origin master:main</span><br></pre></td></tr></table></figure>
+
+<p>这里要注意分支映射，Hexo 默认推送到 <code>main</code> 分支，但本地可能是 <code>master</code>。</p>
+<h3 id="方案二：在-GitHub-上允许误报"><a href="#方案二：在-GitHub-上允许误报" class="headerlink" title="方案二：在 GitHub 上允许误报"></a>方案二：在 GitHub 上允许误报</h3><p>如果不想改配置，也可以去 GitHub 后台把这个检测标记为误报：</p>
+<p>访问报错信息中提供的链接：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/steabc123/steabc123.github.io/security/secret-scanning/unblock-secret/3DI75Z1ghEk2x8hBRdnv5fBcqTR</span><br></pre></td></tr></table></figure>
+
+<p>点击 “Allow secret” 即可。但这种方式不太推荐，毕竟每次更新都可能触发新的检测。</p>
+<h2 id="为什么推荐方案一？"><a href="#为什么推荐方案一？" class="headerlink" title="为什么推荐方案一？"></a>为什么推荐方案一？</h2><ol>
+<li><strong>避免误报</strong>：不再把包含敏感特征的第三方库提交到仓库，从根本上解决问题</li>
+<li><strong>减小仓库体积</strong>：<code>twikoo.all.min.js</code> 有 500+ KB，用 CDN 能显著减小仓库大小</li>
+<li><strong>自动更新</strong>：jsDelivr CDN 会自动提供最新版本，不用手动升级</li>
+<li><strong>加载速度</strong>：CDN 通常比 GitHub Pages 的加载速度更快</li>
 </ol>
+<h2 id="其他注意事项"><a href="#其他注意事项" class="headerlink" title="其他注意事项"></a>其他注意事项</h2><h3 id="关于-deploy-git-目录"><a href="#关于-deploy-git-目录" class="headerlink" title="关于 .deploy_git 目录"></a>关于 .deploy_git 目录</h3><p>Hexo 的 git 部署器会在博客根目录创建一个 <code>.deploy_git</code> 隐藏文件夹，这是实际执行 git push 的地方。很多人会忽略这个目录，导致清理历史时找错地方。</p>
+<h3 id="分支名称问题"><a href="#分支名称问题" class="headerlink" title="分支名称问题"></a>分支名称问题</h3><p>GitHub 现在默认主分支叫 <code>main</code>，但很多本地仓库还是 <code>master</code>。推送时需要做分支映射：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -f origin master:main</span><br></pre></td></tr></table></figure>
+
+<p>或者在 <code>_config.yml</code> 中明确指定：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/用户名/仓库.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span>  <span class="comment"># 确保和目标仓库一致</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="定期清理"><a href="#定期清理" class="headerlink" title="定期清理"></a>定期清理</h3><p>如果经常遇到类似问题，建议定期检查 <code>_config.yml</code> 中的 libs 配置，尽量使用 CDN 而不是本地文件。特别是：</p>
+<ul>
+<li>Valine</li>
+<li>Waline  </li>
+<li>Twikoo</li>
+<li>其他集成第三方服务的 SDK</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这次踩坑的核心教训是：<strong>不要把所有第三方库都塞进 Git 仓库</strong>。对于大型的、可能触发安全扫描的 JS 库，优先使用 CDN 方案。</p>
+<p>另外，遇到问题时要仔细看报错信息。GitHub 其实已经把问题路径和解决方案链接都给出来了，顺着提示走能省不少时间。</p>
+<p>希望这篇文章能帮你少踩一个坑。如果有帮助，欢迎留言交流！</p>
 
                 
             </div>
@@ -448,7 +496,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://steabc123.github.io/2026/05/03/%E8%A7%A3%E5%86%B3%E7%BD%91%E7%AB%99%E6%A0%87%E7%AD%BE%E9%A1%B5%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA/">https://steabc123.github.io/2026/05/03/%E8%A7%A3%E5%86%B3%E7%BD%91%E7%AB%99%E6%A0%87%E7%AD%BE%E9%A1%B5%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA/</a>
+                    <a href="https://steabc123.github.io/2026/05/05/%E5%88%87%E6%8D%A2matery%E4%B8%BB%E9%A2%98%E8%B8%A9%E5%9D%91%E6%80%BB%E7%BB%93/">https://steabc123.github.io/2026/05/05/%E5%88%87%E6%8D%A2matery%E4%B8%BB%E9%A2%98%E8%B8%A9%E5%9D%91%E6%80%BB%E7%BB%93/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -490,8 +538,12 @@
                                     <span class="chip bg-color">Hexo</span>
                                 </a>
                             
-                                <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
-                                    <span class="chip bg-color">博客搭建</span>
+                                <a href="/tags/GitHub-Pages/">
+                                    <span class="chip bg-color">GitHub Pages</span>
+                                </a>
+                            
+                                <a href="/tags/%E4%B8%BB%E9%A2%98%E5%88%87%E6%8D%A2/">
+                                    <span class="chip bg-color">主题切换</span>
                                 </a>
                             
                         </div>
@@ -570,9 +622,68 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2026/05/05/%E5%88%87%E6%8D%A2matery%E4%B8%BB%E9%A2%98%E8%B8%A9%E5%9D%91%E6%80%BB%E7%BB%93/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="切换matery主题踩坑总结">
+                        
+                        <span class="card-title">切换matery主题踩坑总结</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-05-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    技术笔记
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Hexo/">
+                        <span class="chip bg-color">Hexo</span>
+                    </a>
+                    
+                    <a href="/tags/GitHub-Pages/">
+                        <span class="chip bg-color">GitHub Pages</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%B8%BB%E9%A2%98%E5%88%87%E6%8D%A2/">
+                        <span class="chip bg-color">主题切换</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2026/05/05/%E5%88%87%E6%8D%A2matery%E4%B8%BB%E9%A2%98%E6%B5%8B%E8%AF%95/">
                     <div class="card-image">
@@ -590,9 +701,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2026-05-05
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-05-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -618,63 +729,6 @@
                     
                     <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
                         <span class="chip bg-color">博客搭建</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2026/05/03/%E8%A7%A3%E5%86%B3%E6%AF%8F%E6%AC%A1github%E9%83%A8%E7%BD%B2%E5%AE%8C%E6%88%90%E5%90%8E%E9%83%BD%E8%A6%81%E9%87%8D%E6%96%B0%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D%E7%9A%84%E9%97%AE%E9%A2%98%E7%9A%84%E6%B5%8B%E8%AF%95/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="解决每次github部署完成后都要重新绑定域名的问题">
-                        
-                        <span class="card-title">解决每次github部署完成后都要重新绑定域名的问题</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-05-03
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    技术笔记
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
-                    </a>
-                    
-                    <a href="/tags/GitHub-Pages/">
-                        <span class="chip bg-color">GitHub Pages</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE/">
-                        <span class="chip bg-color">域名配置</span>
                     </a>
                     
                 </div>

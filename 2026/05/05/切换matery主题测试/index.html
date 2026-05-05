@@ -4,11 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="解决网站标签页图片不显示, 我的小破站">
-    <meta name="description" content="前言网站标签页图片不显示的原因通常是配置文件中的路径设置不正确。
-解决方法如下：
-在你的 _config.yml 中添加 theme_config，以覆盖主题的默认 favicon 设置，而无需修改任何主题文件。
-重新生成网站，现在 HTM">
+    <meta name="keywords" content="Hexo 博客 matery 主题配置踩坑记录, 我的小破站">
+    <meta name="description" content="前言最近把博客主题从默认的 landscape 换成了 matery，过程中遇到了一些配置问题，这里记录一下关键的配置步骤，避免以后重复踩坑。
+分类和标签页面配置创建分类和标签页面时，很多人会漏掉关键字段，导致页面无法正常显示。
+分类页面在">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +19,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>解决网站标签页图片不显示 | 我的小破站</title>
+    <title>Hexo 博客 matery 主题配置踩坑记录 | 我的小破站</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/cat.ico">
     
 
@@ -337,12 +336,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">解决网站标签页图片不显示</h1>
+                    <h1 class="description center-align post-title">Hexo 博客 matery 主题配置踩坑记录</h1>
                 </div>
             </div>
         </div>
@@ -370,6 +369,10 @@
                                 <span class="chip bg-color">Hexo</span>
                             </a>
                         
+                            <a href="/tags/GitHub-Pages/">
+                                <span class="chip bg-color">GitHub Pages</span>
+                            </a>
+                        
                             <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
                                 <span class="chip bg-color">博客搭建</span>
                             </a>
@@ -395,7 +398,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2026-05-03
+                    2026-05-05
                 </div>
                 
 
@@ -416,12 +419,35 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>网站标签页图片不显示的原因通常是配置文件中的路径设置不正确。</p>
-<h2 id="解决方法如下："><a href="#解决方法如下：" class="headerlink" title="解决方法如下："></a>解决方法如下：</h2><ol>
-<li>在你的 _config.yml 中添加 theme_config，以覆盖主题的默认 favicon 设置，而无需修改任何主题文件。</li>
-<li>重新生成网站，现在 HTML 包含 <link rel="shortcut icon" href="/cat.ico">。</li>
-<li>favicon 文件 cat.ico 已经在你的 source&#x2F; 目录中，并会被复制到 public&#x2F;，因此应该可以在浏览器标签页中正常显示。如果仍未显示，尝试清除浏览器缓存或检查文件路径。</li>
-</ol>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近把博客主题从默认的 landscape 换成了 matery，过程中遇到了一些配置问题，这里记录一下关键的配置步骤，避免以后重复踩坑。</p>
+<h2 id="分类和标签页面配置"><a href="#分类和标签页面配置" class="headerlink" title="分类和标签页面配置"></a>分类和标签页面配置</h2><p>创建分类和标签页面时，很多人会漏掉关键字段，导致页面无法正常显示。</p>
+<h3 id="分类页面"><a href="#分类页面" class="headerlink" title="分类页面"></a>分类页面</h3><p>在 <code>source/categories/index.md</code> 中，必须包含以下配置：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">categories</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2026-05-05 12:50:23</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&quot;categories&quot;</span></span><br><span class="line"><span class="attr">layout:</span> <span class="string">&quot;categories&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="标签页面"><a href="#标签页面" class="headerlink" title="标签页面"></a>标签页面</h3><p>在 <code>source/tags/index.md</code> 中，同样需要完整配置：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">tags</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2026-05-05 12:51:03</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&quot;tags&quot;</span></span><br><span class="line"><span class="attr">layout:</span> <span class="string">&quot;tags&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>关键点：</strong></p>
+<ul>
+<li><code>type</code> 字段告诉 Hexo 这是什么类型的页面</li>
+<li><code>layout</code> 字段指定使用哪个模板渲染</li>
+<li>两个字段缺一不可，否则页面会是空白</li>
+</ul>
+<h2 id="修改-GitHub-链接"><a href="#修改-GitHub-链接" class="headerlink" title="修改 GitHub 链接"></a>修改 GitHub 链接</h2><p>matery 主题默认配置的是主题作者的 GitHub 链接，需要改成自己的。主要在主题的 <code>_config.yml</code> 中修改三处：</p>
+<h3 id="1-首页-Banner-按钮"><a href="#1-首页-Banner-按钮" class="headerlink" title="1. 首页 Banner 按钮"></a>1. 首页 Banner 按钮</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">indexbtn:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">Github</span></span><br><span class="line">  <span class="attr">icon:</span> <span class="string">fab</span> <span class="string">fa-github-alt</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">https://github.com/steabc123</span>  <span class="comment"># 改成自己的</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-社交链接"><a href="#2-社交链接" class="headerlink" title="2. 社交链接"></a>2. 社交链接</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">socialLink:</span></span><br><span class="line">  <span class="attr">github:</span> <span class="string">https://github.com/steabc123</span>  <span class="comment"># 改成自己的</span></span><br><span class="line">  <span class="attr">email:</span> <span class="string">your-email@example.com</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Header-角标"><a href="#3-Header-角标" class="headerlink" title="3. Header 角标"></a>3. Header 角标</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">githubLink:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">https://github.com/steabc123</span>  <span class="comment"># 改成自己的</span></span><br><span class="line">  <span class="attr">title:</span> <span class="string">Fork</span> <span class="string">Me</span></span><br></pre></td></tr></table></figure>
+
+<p>改完这三处，页面上所有的 GitHub 链接就都指向自己的主页了。</p>
+<h2 id="部署验证"><a href="#部署验证" class="headerlink" title="部署验证"></a>部署验证</h2><p>配置完成后，执行以下命令重新生成和部署：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>或者简写为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo cl &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>matery 主题的配置其实不难，关键是要看清楚文档，该填的字段别漏掉。特别是分类和标签页面的 <code>type</code> 和 <code>layout</code> 字段，少了任何一个都会导致页面渲染异常。</p>
 
                 
             </div>
@@ -448,7 +474,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://steabc123.github.io/2026/05/03/%E8%A7%A3%E5%86%B3%E7%BD%91%E7%AB%99%E6%A0%87%E7%AD%BE%E9%A1%B5%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA/">https://steabc123.github.io/2026/05/03/%E8%A7%A3%E5%86%B3%E7%BD%91%E7%AB%99%E6%A0%87%E7%AD%BE%E9%A1%B5%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA/</a>
+                    <a href="https://steabc123.github.io/2026/05/05/%E5%88%87%E6%8D%A2matery%E4%B8%BB%E9%A2%98%E6%B5%8B%E8%AF%95/">https://steabc123.github.io/2026/05/05/%E5%88%87%E6%8D%A2matery%E4%B8%BB%E9%A2%98%E6%B5%8B%E8%AF%95/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -488,6 +514,10 @@
                             
                                 <a href="/tags/Hexo/">
                                     <span class="chip bg-color">Hexo</span>
+                                </a>
+                            
+                                <a href="/tags/GitHub-Pages/">
+                                    <span class="chip bg-color">GitHub Pages</span>
                                 </a>
                             
                                 <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
@@ -574,13 +604,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2026/05/05/%E5%88%87%E6%8D%A2matery%E4%B8%BB%E9%A2%98%E6%B5%8B%E8%AF%95/">
+                <a href="/2026/05/05/%E5%88%87%E6%8D%A2matery%E4%B8%BB%E9%A2%98%E8%B8%A9%E5%9D%91%E6%80%BB%E7%BB%93/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Hexo 博客 matery 主题配置踩坑记录">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="切换matery主题踩坑总结">
                         
-                        <span class="card-title">Hexo 博客 matery 主题配置踩坑记录</span>
+                        <span class="card-title">切换matery主题踩坑总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -616,8 +646,8 @@
                         <span class="chip bg-color">GitHub Pages</span>
                     </a>
                     
-                    <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
-                        <span class="chip bg-color">博客搭建</span>
+                    <a href="/tags/%E4%B8%BB%E9%A2%98%E5%88%87%E6%8D%A2/">
+                        <span class="chip bg-color">主题切换</span>
                     </a>
                     
                 </div>
@@ -631,13 +661,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2026/05/03/%E8%A7%A3%E5%86%B3%E6%AF%8F%E6%AC%A1github%E9%83%A8%E7%BD%B2%E5%AE%8C%E6%88%90%E5%90%8E%E9%83%BD%E8%A6%81%E9%87%8D%E6%96%B0%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D%E7%9A%84%E9%97%AE%E9%A2%98%E7%9A%84%E6%B5%8B%E8%AF%95/">
+                <a href="/2026/05/03/%E8%A7%A3%E5%86%B3%E7%BD%91%E7%AB%99%E6%A0%87%E7%AD%BE%E9%A1%B5%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="解决每次github部署完成后都要重新绑定域名的问题">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="解决网站标签页图片不显示">
                         
-                        <span class="card-title">解决每次github部署完成后都要重新绑定域名的问题</span>
+                        <span class="card-title">解决网站标签页图片不显示</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -669,12 +699,8 @@
                         <span class="chip bg-color">Hexo</span>
                     </a>
                     
-                    <a href="/tags/GitHub-Pages/">
-                        <span class="chip bg-color">GitHub Pages</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE/">
-                        <span class="chip bg-color">域名配置</span>
+                    <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
+                        <span class="chip bg-color">博客搭建</span>
                     </a>
                     
                 </div>
