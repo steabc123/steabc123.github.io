@@ -1,550 +1,1170 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
 <head>
-  <meta charset="utf-8">
-  
-  
-  <title>我的小破站</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="我的小破站">
-<meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="我的小破站">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="steabc123">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="我的小破站" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/cat.ico">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+    <meta charset="utf-8">
+    <meta name="keywords" content="我的小破站">
+    <meta name="description" content="我的小破站">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
-  
+
+    <title>我的小破站</title>
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/cat.ico">
     
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
-  
-  
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+    <!-- index cover -->
+    <!-- <link rel="stylesheet preload" type="text/css" href="/css/indexcover.css"> -->
+    <style>
+        .carousel-control {
+            width: 45px;
+            height: 45px;
+            line-height: 55px;
+            border-radius: 45px;
+            background: transparent;
+            cursor: pointer;
+            z-index: 100;
+        }
+        
+        #prev-cover {
+            position: absolute;
+            top: 48%;
+            left: 8px;
+        }
+        
+        #next-cover {
+            position: absolute;
+            top: 48%;
+            right: 8px;;
+        }
+        
+        #prev-cover i {
+            margin-right: 3px;
+        }
+        
+        #next-cover i {
+            margin-left: 3px;
+        }
+        
+        .carousel-control:hover {
+            background-color: rgba(0, 0, 0, .4);
+        }
+        
+        .carousel-control i {
+            color: #fff;
+            font-size: 2.4rem;
+        }
+    </style>
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
 <meta name="generator" content="Hexo 8.1.1"></head>
 
+
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">我的小破站</a>
-      </h1>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">我的小破站</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
       
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">我的小破站</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+
+    <ul class="menu-list mobile-menu-list">
         
-          <a class="main-nav-link" href="/">Home</a>
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
         
-      </nav>
-      <nav id="sub-nav">
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
         
         
-          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/steabc123" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
         
-        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/steabc123" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
 </header>
 
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-解决网站标签页图片不显示" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/05/03/%E8%A7%A3%E5%86%B3%E7%BD%91%E7%AB%99%E6%A0%87%E7%AD%BE%E9%A1%B5%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA/" class="article-date">
-  <time class="dt-published" datetime="2026-05-03T09:10:24.000Z" itemprop="datePublished">2026-05-03</time>
-</a>
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/05/03/%E8%A7%A3%E5%86%B3%E7%BD%91%E7%AB%99%E6%A0%87%E7%AD%BE%E9%A1%B5%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA/">解决网站标签页图片不显示</a>
-    </h1>
-  
 
-      </header>
+<div class="carousel carousel-slider center index-cover" data-indicators="true" style="margin-top: -64px;">
     
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>网站标签页图片不显示的原因通常是配置文件中的路径设置不正确。</p>
-<h2 id="解决方法如下："><a href="#解决方法如下：" class="headerlink" title="解决方法如下："></a>解决方法如下：</h2><ol>
-<li>在你的 _config.yml 中添加 theme_config，以覆盖主题的默认 favicon 设置，而无需修改任何主题文件。</li>
-<li>重新生成网站，现在 HTML 包含 <link rel="shortcut icon" href="/cat.ico">。</li>
-<li>favicon 文件 cat.ico 已经在你的 source&#x2F; 目录中，并会被复制到 public&#x2F;，因此应该可以在浏览器标签页中正常显示。如果仍未显示，尝试清除浏览器缓存或检查文件路径。</li>
-</ol>
 
-      
+    <div class="carousel-item  white-text bg-cover about-cover">
+        <div class="container">
+            <div class="row">
+    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+        <div class="brand">
+            <div class="title center-align">
+                
+                    subtitle
+                
+            </div>
+
+            <div class="description center-align">
+                
+                <span id="subtitle"></span>
+                <script src="/libs/typed/typed.js"></script>
+                <script>
+                    var typed = new Typed("#subtitle", {
+                        strings: [ 
+                            
+                                "从来没有真正的绝境, 只有心灵的迷途",
+                            
+                                "Never really desperate, only the lost of the soul",
+                            
+                        ],
+                        startDelay: 300,
+                        typeSpeed: 100,
+                        loop: true,
+                        backSpeed: 50,
+                        showCursor: true
+                    });
+                </script>
+                
+            </div>
+        </div>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/05/03/%E8%A7%A3%E5%86%B3%E7%BD%91%E7%AB%99%E6%A0%87%E7%AD%BE%E9%A1%B5%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA/" data-id="cuidawIp6-LYlaKy2-tTcbR-e" data-title="解决网站标签页图片不显示" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="tag">博客搭建</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
+</div>
 
 
-
-  
-    <article id="post-解决每次github部署完成后都要重新绑定域名的问题的测试" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/05/03/%E8%A7%A3%E5%86%B3%E6%AF%8F%E6%AC%A1github%E9%83%A8%E7%BD%B2%E5%AE%8C%E6%88%90%E5%90%8E%E9%83%BD%E8%A6%81%E9%87%8D%E6%96%B0%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D%E7%9A%84%E9%97%AE%E9%A2%98%E7%9A%84%E6%B5%8B%E8%AF%95/" class="article-date">
-  <time class="dt-published" datetime="2026-05-03T02:52:02.000Z" itemprop="datePublished">2026-05-03</time>
-</a>
+<script>
+    // 每天切换 banner 图.  Switch banner image every day.
+    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
+    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+</script>
+<script>
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
+      var bannerUrl = "/medias/featureimages/" + Math.floor(Math.random() * 24) + '.jpg';
     
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/05/03/%E8%A7%A3%E5%86%B3%E6%AF%8F%E6%AC%A1github%E9%83%A8%E7%BD%B2%E5%AE%8C%E6%88%90%E5%90%8E%E9%83%BD%E8%A6%81%E9%87%8D%E6%96%B0%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D%E7%9A%84%E9%97%AE%E9%A2%98%E7%9A%84%E6%B5%8B%E8%AF%95/">解决每次github部署完成后都要重新绑定域名的问题</a>
-    </h1>
-  
+    $('.bg-cover.about-cover').css('background-image', 'url(' + bannerUrl + ')');
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在使用 Hexo 搭建博客并部署到 GitHub Pages 时，很多人会遇到一个问题：每次执行 <code>hexo deploy</code> 部署后，GitHub Pages 的自定义域名设置就会被清除，需要重新在 GitHub 仓库设置中绑定域名。</p>
-<p>这个问题非常烦人，但其实有一个简单的解决方案。</p>
-<h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><details>
-Hexo 在部署时会将 `public` 目录下的所有文件推送到 GitHub 仓库。如果在 `source` 目录下没有 `CNAME` 文件，或者该文件被 Hexo 渲染处理了，那么部署到 GitHub 后就会丢失域名配置信息。
+</script>
 
 
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><h3 id="步骤一：配置-skip-render"><a href="#步骤一：配置-skip-render" class="headerlink" title="步骤一：配置 skip_render"></a>步骤一：配置 skip_render</h3><p>在博客根目录的配置文件 <code>_config.yml</code> 中找到 <code>skip_render</code> 字段，添加 <code>CNAME</code>，用来指定不进行渲染的文件。</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">skip_render:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">CNAME</span></span><br></pre></td></tr></table></figure>
 
-<p>如果 <code>skip_render</code> 字段不存在，可以手动添加。</p>
-<h3 id="步骤二：创建-CNAME-文件"><a href="#步骤二：创建-CNAME-文件" class="headerlink" title="步骤二：创建 CNAME 文件"></a>步骤二：创建 CNAME 文件</h3><p>在 <code>/source</code> 目录中创建一个文件，文件名为 <code>CNAME</code>（注意没有扩展名）。</p>
-<h3 id="步骤三：填写域名"><a href="#步骤三：填写域名" class="headerlink" title="步骤三：填写域名"></a>步骤三：填写域名</h3><p>在 <code>CNAME</code> 文件中写入你的域名，<strong>只写域名，不需要添加 <code>http://</code> 或 <code>https://</code> 前缀</strong>。</p>
-<p>例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">blog.catj1.qzz.io</span><br></pre></td></tr></table></figure>
+            <div class="cover-btns">
+                <a href="#indexCard" class="waves-effect waves-light btn">
+                    <i class="fa fa-angle-double-down"></i>开始阅读
+                </a>
 
-<p>或者如果你的域名是：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">www.example.com</span><br></pre></td></tr></table></figure>
+                
+                    <a href="https://github.com/steabc123" class="waves-effect waves-light btn" target="_blank">
+                        <i class="fab fa-github-alt"></i>Github
+                    </a>
+                
+            </div>
+            <div class="cover-social-link">
+    <a href="https://github.com/steabc123" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
 
-<h2 id="验证配置"><a href="#验证配置" class="headerlink" title="验证配置"></a>验证配置</h2><p>完成以上配置后：</p>
-<ol>
-<li>执行 <code>hexo clean</code> 清理缓存</li>
-<li>执行 <code>hexo generate</code> 生成静态文件</li>
-<li>执行 <code>hexo deploy</code> 部署到 GitHub</li>
-<li>检查 GitHub 仓库中是否包含 <code>CNAME</code> 文件</li>
-<li>访问你的自定义域名，确认网站正常访问</li>
-</ol>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
-<li>CNAME 文件名必须是大写，且没有文件扩展名</li>
-<li>文件中只能包含域名，不要有空格或其他字符</li>
-<li>如果使用多个域名，每行写一个域名（但通常只需要一个）</li>
-<li>确保你的域名 DNS 解析已正确配置指向 GitHub Pages</li>
-</ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过在 <code>source</code> 目录添加 <code>CNAME</code> 文件并配置 <code>skip_render</code>，就可以永久解决每次部署后需要重新绑定域名的问题。这个配置会让 Hexo 在每次部署时都将 <code>CNAME</code> 文件一起推送到 GitHub，GitHub Pages 会自动识别并应用域名配置。 </p>
-</details>
 
-      
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+        </div>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/05/03/%E8%A7%A3%E5%86%B3%E6%AF%8F%E6%AC%A1github%E9%83%A8%E7%BD%B2%E5%AE%8C%E6%88%90%E5%90%8E%E9%83%BD%E8%A6%81%E9%87%8D%E6%96%B0%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D%E7%9A%84%E9%97%AE%E9%A2%98%E7%9A%84%E6%B5%8B%E8%AF%95/" data-id="cuidR4AR830UDi_rYghe7JHyJ" data-title="解决每次github部署完成后都要重新绑定域名的问题" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub-Pages/" rel="tag">GitHub Pages</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE/" rel="tag">域名配置</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-添加git仓库后测试" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/05/03/%E6%B7%BB%E5%8A%A0git%E4%BB%93%E5%BA%93%E5%90%8E%E6%B5%8B%E8%AF%95/" class="article-date">
-  <time class="dt-published" datetime="2026-05-03T02:41:01.000Z" itemprop="datePublished">2026-05-03</time>
-</a>
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+</div>
+
+<script>
+    $(function () {
+        let coverSlider = $('.carousel');
+
+        //用户触摸轮播自动 restartPlay 是否生效
+        let initUserPressedOrDraggedActive = false
+
+        //用户触摸轮播自动 restartPlay
+        function initUserPressedOrDragged(instance) {
+            setInterval(() => {
+                if (instance.pressed || instance.dragged) {
+                    // console.log('initUserPressedOrDragged: ',instance.pressed,instance.dragged)
+                    restartPlay()
+                }
+            }, 1000)
+        }
+
+        coverSlider.carousel({
+            duration: Number('120'),
+            fullWidth: true,
+            indicators: 'true' === 'true',
+            onCycleTo() {
+                if (!initUserPressedOrDraggedActive) {
+                    // console.log('initUserPressedOrDraggedActive')
+                    initUserPressedOrDragged(this)
+                    initUserPressedOrDraggedActive = true
+                }
+            },
+        })
+
+        let carouselIntervalId;
         
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/05/03/%E6%B7%BB%E5%8A%A0git%E4%BB%93%E5%BA%93%E5%90%8E%E6%B5%8B%E8%AF%95/">添加git仓库后测试</a>
-    </h1>
-  
+        // Loop to call the next cover article picture.
+        let autoCarousel = function () {
+            carouselIntervalId = setInterval(function () {
+                coverSlider.carousel('next');
+            }, 5000);
+        };
+        autoCarousel();
+        
 
-      </header>
+        function restartPlay() {
+            
+            clearInterval(carouselIntervalId);
+            autoCarousel();
+            
+        };
+
+        
+        // prev and next cover post.
+        $('#prev-cover').click(function () {
+            coverSlider.carousel('prev');
+            restartPlay();
+        });
+        $('#next-cover').click(function () {
+            coverSlider.carousel('next');
+            restartPlay();
+        });
+        
+    });
+</script>
+
+
+
+<main class="content">
+
     
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>&#96;</p>
-
-      
+    <div id="indexCard" class="index-card">
+        <div class="container ">
+            <div class="card">
+                <div class="card-content">
+                    
+                        <div class="dream">
+    
+    <div class="title center-align">
+        <i class="far fa-lightbulb"></i>&nbsp;&nbsp;我的梦想
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/05/03/%E6%B7%BB%E5%8A%A0git%E4%BB%93%E5%BA%93%E5%90%8E%E6%B5%8B%E8%AF%95/" data-id="cuidBefbiiwIdP_FIYrKBwJsP" data-title="添加git仓库后测试" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git%E6%B5%8B%E8%AF%95/" rel="tag">git测试</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-hexo搭建过程遇到的一些问题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/05/02/hexo%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" class="article-date">
-  <time class="dt-published" datetime="2026-05-02T11:23:00.000Z" itemprop="datePublished">2026-05-02</time>
-</a>
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/05/02/hexo%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">hexo搭建过程遇到的一些问题</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在搭建 Hexo 博客的过程中，遇到了一些问题和挑战，在此记录下来，方便以后查阅，也希望能帮助到同样在搭建博客的朋友们。</p>
-<h2 id="常见问题记录"><a href="#常见问题记录" class="headerlink" title="常见问题记录"></a>常见问题记录</h2><details>
-<summary>1. GitHub SSH 连接问题</summary>
-
-<p><strong>问题描述：</strong> 在使用 <code>hexo deploy</code> 部署到 GitHub 时，可能会遇到 SSH 连接失败的问题。</p>
-<p><strong>解决方案一：</strong><br>配置 SSH config 文件（路径：<code>C:\Users\用户名\.ssh\config</code>），添加以下内容：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">    Hostname ssh.github.com</span><br><span class="line">    Port 443</span><br></pre></td></tr></table></figure>
-
-<p><strong>解决方案二：</strong><br>将 SSH 协议改为 HTTPS 协议，修改 <code>_config.yml</code> 中的 <code>deploy</code> 配置：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/用户名/用户名.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure>
-<p>主要改动：<br>将 repo: <a href="mailto:&#x67;&#x69;&#x74;&#x40;&#x67;&#105;&#x74;&#104;&#x75;&#98;&#46;&#99;&#x6f;&#x6d;">git@github.com</a>:steabc123&#x2F;steabc123.github.io.git 改为 repo: <a target="_blank" rel="noopener" href="https://github.com/steabc123/steabc123.github.io.git">https://github.com/steabc123/steabc123.github.io.git</a><br>使用 HTTPS 的优点：<br>不受防火墙限制（使用 443 端口而不是 22 端口）<br>不需要配置 SSH key<br>更稳定可靠<br>注意事项： 使用 HTTPS 推送时，可能需要输入 GitHub 的用户名和密码（或个人访问令牌 Personal Access Token）。如果你还没有创建 Personal Access Token，可以：<br>访问 GitHub → Settings → Developer settings → Personal access tokens<br>生成一个新的 token（勾选 repo 权限）<br>推送时使用该 token 作为密码<br>修改完成后，再次运行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run deploy</span><br></pre></td></tr></table></figure>
-<p>这样可以解决某些网络环境下无法通过默认端口（22）连接 GitHub 的问题。</p>
-</details>
-
-<details>
-<summary>2. hexo是否必须全局安装</summary>
-
-<p><strong>问题描述：</strong> hexo是否必须全局安装</p>
-<p><strong>解决方案：</strong><br>hexo 是一个 Node.js 的项目，因此，你需要安装 Node.js 来使用它。</p>
-<p>hexo 命令行工具是一个 Node.js 项目，因此，你需要安装 Node.js 来使用它。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli </span><br></pre></td></tr></table></figure>
-
-<p>是一个全局安装命令。</p>
-<p>这里的 -g 是 –global 的缩写，两者功能完全相同。</p>
-<p>全局安装意味着什么？</p>
-<p>全局安装的包会被放置在系统级别的一个公共目录中，而不是某个特定项目的文件夹里。</p>
-<p>这样做的好处是，安装完成后，你就可以在命令行中的任何位置直接使用 hexo 命令来创建和管理博客，而无需在每个项目中都单独安装一次。</p>
-<p>💡 温馨提示<br>如果你在安装后遇到 hexo: command not found 或类似错误,这通常是因为系统的环境变量(PATH)没有配置好,导致系统找不到全局安装的命令。<br>你可以检查一下 Node.js 和 npm 的环境变量设置是否正确。</p>
-</details>
-
-<details>
-<summary>3. 解决Hexo初始化报错:目录非空&Node版本过低</summary>
-
-<p><strong>问题描述：</strong> 初始化Hexo时，报以下错误：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line">(base) PS G:\myblog&gt; hexo init</span><br><span class="line">FATAL G:\myblog not empty, please run `hexo init` on an empty folder and <span class="keyword">then</span> copy your files into it</span><br><span class="line">FATAL Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string">Error: target not empty</span></span><br><span class="line"><span class="string">    at Context.&lt;anonymous&gt; (F:</span></span><br><span class="line"><span class="string">ode-v20.12.2-x64</span></span><br><span class="line"><span class="string">odejs</span></span><br><span class="line"><span class="string">ode_global</span></span><br><span class="line"><span class="string">ode_modules\hexo-cli\dist\console\init.js:31:45)</span></span><br><span class="line"><span class="string">    at Generator.next (&lt;anonymous&gt;)</span></span><br><span class="line"><span class="string">    at F:</span></span><br><span class="line"><span class="string">ode-v20.12.2-x64</span></span><br><span class="line"><span class="string">odejs</span></span><br><span class="line"><span class="string">ode_global</span></span><br><span class="line"><span class="string">ode_modules\hexo-cli\dist\console\init.js:8:71</span></span><br><span class="line"><span class="string">    at new Promise (&lt;anonymous&gt;)</span></span><br><span class="line"><span class="string">    at __awaiter (F:</span></span><br><span class="line"><span class="string">ode-v20.12.2-x64</span></span><br><span class="line"><span class="string">odejs</span></span><br><span class="line"><span class="string">ode_global</span></span><br><span class="line"><span class="string">ode_modules\hexo-cli\dist\console\init.js:4:12)</span></span><br><span class="line"><span class="string">    at Context.initConsole (F:</span></span><br><span class="line"><span class="string">ode-v20.12.2-x64</span></span><br><span class="line"><span class="string">odejs</span></span><br><span class="line"><span class="string">ode_global</span></span><br><span class="line"><span class="string">ode_modules\hexo-cli\dist\console\init.js:24:12)</span></span><br><span class="line"><span class="string">    at Context.tryCatcher (F:</span></span><br><span class="line"><span class="string">ode-v20.12.2-x64</span></span><br><span class="line"><span class="string">odejs</span></span><br><span class="line"><span class="string">ode_global</span></span><br><span class="line"><span class="string">ode_modules\hexo-cli</span></span><br><span class="line"><span class="string">ode_modules\bluebird\js\release\util.js:16:23)</span></span><br><span class="line"><span class="string">    at Context.&lt;anonymous&gt; (F:</span></span><br><span class="line"><span class="string">ode-v20.12.2-x64</span></span><br><span class="line"><span class="string">odejs</span></span><br><span class="line"><span class="string">ode_global</span></span><br><span class="line"><span class="string">ode_modules\hexo-cli</span></span><br><span class="line"><span class="string">ode_modules\bluebird\js\release\method.js:15:34)</span></span><br><span class="line"><span class="string">    at F:</span></span><br><span class="line"><span class="string">ode-v20.12.2-x64</span></span><br><span class="line"><span class="string">odejs</span></span><br><span class="line"><span class="string">ode_global</span></span><br><span class="line"><span class="string">ode_modules\hexo-cli\dist\context.js:28:19</span></span><br><span class="line"><span class="string">    at Promise._execute (F:</span></span><br><span class="line"><span class="string">ode-v20.12.2-x64</span></span><br><span class="line"><span class="string">odejs</span></span><br><span class="line"><span class="string">ode_global</span></span><br><span class="line"><span class="string">ode_modules\hexo-cli</span></span><br><span class="line"><span class="string">ode_modules\bluebird\js\release\debuggability.js:384:9)</span></span><br><span class="line"><span class="string">    at Promise._resolveFromExecutor (F:</span></span><br><span class="line"><span class="string">ode-v20.12.2-x64</span></span><br><span class="line"><span class="string">odejs</span></span><br><span class="line"><span class="string">ode_global</span></span><br><span class="line"><span class="string">ode_modules\hexo-cli</span></span><br><span class="line"><span class="string">ode_modules\bluebird\js\release\promise.js:518:18)</span></span><br><span class="line"><span class="string">    at new Promise (F:</span></span><br><span class="line"><span class="string">ode-v20.12.2-x64</span></span><br><span class="line"><span class="string">odejs</span></span><br><span class="line"><span class="string">ode_global</span></span><br><span class="line"><span class="string">ode_modules\hexo-cli</span></span><br><span class="line"><span class="string">ode_modules\bluebird\js\release\promise.js:103:10)</span></span><br><span class="line"><span class="string">    at Context.call (F:</span></span><br><span class="line"><span class="string">ode-v20.12.2-x64</span></span><br><span class="line"><span class="string">odejs</span></span><br><span class="line"><span class="string">ode_global</span></span><br><span class="line"><span class="string">ode_modules\hexo-cli\dist\context.js:25:16)</span></span><br><span class="line"><span class="string">    at F:</span></span><br><span class="line"><span class="string">ode-v20.12.2-x64</span></span><br><span class="line"><span class="string">odejs</span></span><br><span class="line"><span class="string">ode_global</span></span><br><span class="line"><span class="string">ode_modules\hexo-cli\dist\hexo.js:56:21</span></span><br><span class="line"><span class="string">    at tryCatcher (F:</span></span><br><span class="line"><span class="string">ode-v20.12.2-x64</span></span><br><span class="line"><span class="string">odejs</span></span><br><span class="line"><span class="string">ode_global</span></span><br><span class="line"><span class="string">ode_modules\hexo-cli</span></span><br><span class="line"><span class="string">ode_modules\bluebird\js\release\util.js:16:23)</span></span><br><span class="line"><span class="string">    at Promise._settlePromiseFromHandler (F:</span></span><br><span class="line"><span class="string">ode-v20.12.2-x64</span></span><br><span class="line"><span class="string">odejs</span></span><br><span class="line"><span class="string">ode_global</span></span><br><span class="line"><span class="string">ode_modules\hexo-cli</span></span><br><span class="line"><span class="string">ode_modules\bluebird\js\release\promise.js:547:31)</span></span><br><span class="line"><span class="string">(base) PS G:\myblog&gt; hexo init</span></span><br><span class="line"><span class="string">INFO  Cloning hexo-starter https://github.com/hexojs/hexo-starter.git</span></span><br><span class="line"><span class="string">INFO  Install dependencies</span></span><br><span class="line"><span class="string">warning hexo &gt; moize@6.1.7: This library has been deprecated in favor of micro-memoize, which as-of version 5 incorporates most of the functionality that this library offers at nearly half the size and better speed.</span></span><br><span class="line"><span class="string">warning hexo-renderer-marked &gt; jsdom &gt; whatwg-encoding@3.1.1: Use @exodus/bytes instead for a more spec-conformant and faster implementation</span></span><br><span class="line"><span class="string">warning hexo-renderer-marked &gt; jsdom &gt; html-encoding-sniffer &gt; whatwg-encoding@3.1.1: Use @exodus/bytes instead for a more spec-conformant and faster implementation</span></span><br><span class="line"><span class="string">warning hexo-renderer-stylus &gt; stylus &gt; glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me</span></span><br><span class="line"><span class="string">warning hexo-renderer-stylus &gt; stylus &gt; glob &gt; inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.</span></span><br><span class="line"><span class="string">error hexo@8.1.1: The engine &quot;node&quot; is incompatible with this module. Expected version &quot;&gt;=20.19.0&quot;. Got &quot;20.12.2&quot;</span></span><br><span class="line"><span class="string">error Found incompatible module.</span></span><br><span class="line"><span class="string">WARN  Failed to install dependencies. Please run &#x27;</span>npm install<span class="string">&#x27; in &quot;G:\myblog&quot; folder.</span></span><br><span class="line"><span class="string">            &lt;/anonymous&gt;</span></span><br><span class="line"><span class="string">      &lt;/anonymous&gt;</span></span><br><span class="line"><span class="string">   &lt;/anonymous&gt;</span></span><br><span class="line"><span class="string">&lt;/anonymous&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>解决方案：</strong></p>
-<ol>
-<li>核心问题：Node.js 版本过低<br>这是导致你无法初始化成功的根本原因。<br>错误信息： <code>error hexo@8.1.1: The engine &quot;node&quot; is incompatible with this module. Expected version &quot;&gt;=20.19.0&quot;. Got &quot;20.12.2&quot;</code><br>原因分析： 你当前安装的 Node.js 版本是 20.12.2，但 Hexo 8.1.1 要求 Node.js 版本必须 大于等于 20.19.0。<br>解决方案： 你需要升级 Node.js。<br>推荐操作：<br>访问 Node.js 官网 或使用版本管理工具（如 nvm）。<br>下载并安装 LTS（长期支持）版本，确保版本号在 20.19.0 以上（例如 20.20.x 或更高）。<br>安装完成后，重启终端，运行 node -v 确认版本已更新。</li>
-</ol>
-<ul>
-<li>更新 Node.js 的方法 </li>
-<li>方法 1：使用 Node 版本管理器 (NVM) NVM 是一个流行的管理多个 Node.js 版本的工具。</li>
-</ul>
-<p>1、安装 NVM（如果尚未安装）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash</span><br></pre></td></tr></table></figure>
-<p>2、验证安装</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command -v nvm</span><br></pre></td></tr></table></figure>
-<p>3、更新 Node.js 列出可用版本</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm list-remote</span><br></pre></td></tr></table></figure>
-<p>安装最新版本</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install node</span><br></pre></td></tr></table></figure>
-<p>将其设置为默认版本</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm use node</span><br></pre></td></tr></table></figure>
-<p>方法 2：使用 Node.js 安装程序<br>如果您不使用 NVM，您可以直接从Node.js 官方网站获取安装程序。</p>
-<p>访问Node.js 下载页面。<br>选择长期支持 (LTS) 版本或当前版本。<br>下载安装程序并按照安装程序中显示的说明进行操作。(下载node-v24.15.0-x64.msi，直接 安装即可，安装完成后重启终端，运行 node -v 确认版本已更新。)<br>方法 3：通过包管理器更新<br>Windows： 对于版本管理，应该使用nvm-windows。</p>
-<p>macOS： 使用Homebrew更新 Node.js</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">brew update</span><br><span class="line"></span><br><span class="line">brew upgrade node</span><br></pre></td></tr></table></figure>
-<p>Linux： 使用 NodeSource 仓库</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://deb.nodesource.com/setup_22.x | sudo bash -</span><br><span class="line"></span><br><span class="line">sudo apt-get install -y nodejs</span><br></pre></td></tr></table></figure>
-<p>更新 NPM<br>与 Node.js 一样，在发布后更新 NPM 以及修复任何漏洞也至关重要。方法如下：</p>
-<ol>
-<li>全局更新<br>运行以下命令以全局更新 NPM</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g npm@latest</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>验证版本<br>检查已安装的版本</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm -v</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>故障排除<br>如果更新失败，您可以清除 NPM 缓存并重试</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm cache clean -f</span><br><span class="line"></span><br><span class="line">npm install -g npm@latest</span><br></pre></td></tr></table></figure>
-<p>更新时的最佳实践<br>备份您的项目： 与任何更改一样，可能会出现版本控制问题，因此请务必在进行更新之前备份您的项目。<br>在本地测试更新： 在本地或暂存服务器环境中检查和确认 Node.js&#x2F;NPM ，而不是在生产环境中。<br>使用版本管理工具： 有多个版本的 NVM，该工具使在它们之间切换变得容易。</p>
-<p><strong>2. 次要问题：目录非空</strong><br>   如果你在解决了 Node.js 版本问题后，再次运行命令遇到此报错。<br>   错误信息： FATAL G:\myblog not empty, please run \hexo init on an empty folder&#96;<br>   原因分析： Hexo 要求初始化的文件夹必须是空文件夹。你当前的 G:\myblog 文件夹中可能已经存在文件（比如你之前尝试初始化留下的 .git 文件夹，或者是 package.json 等）。<br>   解决方案：<br>   方案 A（推荐）： 删除 G:\myblog 文件夹下的所有内容（或者直接删除该文件夹），然后重新运行 hexo init。<br>   方案 B： 换一个全新的空文件夹路径运行命令，例如 G:\hexo_blog。</p>
-<h4 id="总结-你的主要阻碍是-Node-js-版本太低。Hexo-的新版本对环境要求更严格了-请务必先升级-Node-js-到-20-19-0-以上-然后再处理文件夹是否为空的问题。"><a href="#总结-你的主要阻碍是-Node-js-版本太低。Hexo-的新版本对环境要求更严格了-请务必先升级-Node-js-到-20-19-0-以上-然后再处理文件夹是否为空的问题。" class="headerlink" title="总结: 你的主要阻碍是 Node.js 版本太低。Hexo 的新版本对环境要求更严格了,请务必先升级 Node.js 到 20.19.0 以上,然后再处理文件夹是否为空的问题。"></a>总结: 你的主要阻碍是 Node.js 版本太低。Hexo 的新版本对环境要求更严格了,请务必先升级 Node.js 到 20.19.0 以上,然后再处理文件夹是否为空的问题。</h4></details>
-
-<details>
-<summary>4. 安装缺失的Hexo依赖包</summary>
-
-<p><strong>问题描述：</strong> 运行 hexo init 命令时，提示缺少依赖包。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">    (base) PS G:\myblog&gt; npm list -g --depth=0</span><br><span class="line">F:\node-v20.12.2-x64\nodejs\node_global</span><br><span class="line">+-- hexo-cli@4.3.2</span><br><span class="line">+-- webpack-cli@7.0.2</span><br><span class="line">+-- webpack@5.106.2</span><br><span class="line">+-- yarn@1.22.22</span><br><span class="line">`-- yrm@1.0.6</span><br><span class="line"></span><br><span class="line">(base) PS G:\myblog&gt; npm list --depth=0</span><br><span class="line">hexo-site@0.0.0 G:\myblog</span><br><span class="line">+-- UNMET DEPENDENCY hexo-generator-archive@^2.0.0</span><br><span class="line">+-- UNMET DEPENDENCY hexo-generator-category@^2.0.0</span><br><span class="line">+-- UNMET DEPENDENCY hexo-generator-index@^4.0.0</span><br><span class="line">+-- UNMET DEPENDENCY hexo-generator-tag@^2.0.0</span><br><span class="line">+-- UNMET DEPENDENCY hexo-renderer-ejs@^2.0.0</span><br><span class="line">+-- UNMET DEPENDENCY hexo-renderer-marked@^7.0.0</span><br><span class="line">+-- UNMET DEPENDENCY hexo-renderer-stylus@^3.0.1</span><br><span class="line">+-- UNMET DEPENDENCY hexo-server@^3.0.0</span><br><span class="line">+-- UNMET DEPENDENCY hexo-theme-landscape@^1.0.0</span><br><span class="line">`-- UNMET DEPENDENCY hexo@^8.0.0</span><br><span class="line"></span><br><span class="line">npm error code ELSPROBLEMS</span><br><span class="line">npm error missing: hexo-generator-archive@^2.0.0, required by hexo-site@0.0.0</span><br><span class="line">npm error missing: hexo-generator-category@^2.0.0, required by hexo-site@0.0.0</span><br><span class="line">npm error missing: hexo-generator-index@^4.0.0, required by hexo-site@0.0.0</span><br><span class="line">npm error missing: hexo-generator-tag@^2.0.0, required by hexo-site@0.0.0</span><br><span class="line">npm error missing: hexo-renderer-ejs@^2.0.0, required by hexo-site@0.0.0</span><br><span class="line">npm error missing: hexo-renderer-marked@^7.0.0, required by hexo-site@0.0.0</span><br><span class="line">npm error missing: hexo-renderer-stylus@^3.0.1, required by hexo-site@0.0.0</span><br><span class="line">npm error missing: hexo-server@^3.0.0, required by hexo-site@0.0.0</span><br><span class="line">npm error missing: hexo-theme-landscape@^1.0.0, required by hexo-site@0.0.0</span><br><span class="line">npm error missing: hexo@^8.0.0, required by hexo-site@0.0.0</span><br><span class="line">npm error A complete log of this run can be found in: F:\node-v20.12.2-x64\nodejs\node_cache\_logs\2026-05-02T09_34_22_209Z-debug-0.log</span><br></pre></td></tr></table></figure>
-
-<p><strong>解决方法：</strong></p>
-<p>从你提供的日志来看，问题非常明确：你的项目目录 G:\myblog 中缺少了所有必要的依赖包。<br>日志中大量的 UNMET DEPENDENCY 错误表明，虽然你的 package.json 文件里记录了需要 Hexo 及其相关插件，但实际的代码并没有下载到本地的 node_modules 文件夹中。这种情况通常发生在你刚克隆了一个项目或者刚初始化了 Hexo 博客之后。<br>要解决这个问题，你只需要在当前的 G:\myblog 目录下运行安装命令，让 npm 根据配置文件把缺失的包都下载下来。<br>请在终端中执行以下命令：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
-<p>命令执行后的预期结果：<br>npm 会自动下载 hexo 核心以及日志中显示缺失的所有插件（如 hexo-server, hexo-renderer-marked 等）。<br>下载完成后，你的项目目录下会生成一个 node_modules 文件夹。<br>再次运行 </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm list --depth=0</span><br></pre></td></tr></table></figure>
-<p>时，应该就不会再报 UNMET DEPENDENCY 的错误了。<br>安装完成后,你就可以尝试运行 Hexo 命令(如 hexo server 或 hexo g)来启动博客了。</p>
-</details>
-
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>搭建博客是一个不断学习和解决问题的过程，遇到问题不要着急，善用搜索引擎和官方文档，大部分问题都能找到解决方案。</p>
-
-      
+    <div class="row">
+        <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
+            不是每个人都应该像我这样去建造一座水晶大教堂，但是每个人都应该拥有自己的梦想，设计自己的梦想，追求自己的梦想，实现自己的梦想。梦想是生命的灵魂，是心灵的灯塔，是引导人走向成功的信仰。有了崇高的梦想，只要矢志不渝地追求，梦想就会成为现实，奋斗就会变成壮举，生命就会创造奇迹。——罗伯·舒乐
+        </div>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/05/02/hexo%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" data-id="cuidBUYJyk4PW1ra1O7Z0xgZo" data-title="hexo搭建过程遇到的一些问题" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="tag">博客搭建</a></li></ul>
+</div>
 
-    </footer>
-  </div>
-  
-</article>
+                    
+
+                    
+
+                    
+
+                    
+                    <div id="recommend-sections" class="recommend">
+                        
 
 
 
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/05/02/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2026-05-02T09:38:44.878Z" itemprop="datePublished">2026-05-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/05/02/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/05/02/hello-world/" data-id="cuidkGcl-Z-3SIUM4GxH7ou7o" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-</section>
-        
-          <aside id="sidebar">
-  
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a></li></ul>
-    </div>
-  </div>
 
-
-  
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub-Pages/" rel="tag">GitHub Pages</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git%E6%B5%8B%E8%AF%95/" rel="tag">git测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="tag">博客搭建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE/" rel="tag">域名配置</a></li></ul>
-    </div>
-  </div>
+
+    <!-- 所有文章卡片 -->
+    <article id="articles" class="container articles">
+        <div class="row article-row">
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2026/05/03/%E8%A7%A3%E5%86%B3%E7%BD%91%E7%AB%99%E6%A0%87%E7%AD%BE%E9%A1%B5%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="解决网站标签页图片不显示">
+                            
+                            <span class="card-title">解决网站标签页图片不显示</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                前言网站标签页图片不显示的原因通常是配置文件中的路径设置不正确。
+解决方法如下：
+在你的 _config.yml 中添加 theme_config，以覆盖主题的默认 favicon 设置，而无需修改任何主题文件。
+重新生成网站，现在 HTM
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-05-03
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    技术笔记
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Hexo/">
+                            <span class="chip bg-color">Hexo</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
+                            <span class="chip bg-color">博客搭建</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2026/05/03/%E8%A7%A3%E5%86%B3%E6%AF%8F%E6%AC%A1github%E9%83%A8%E7%BD%B2%E5%AE%8C%E6%88%90%E5%90%8E%E9%83%BD%E8%A6%81%E9%87%8D%E6%96%B0%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D%E7%9A%84%E9%97%AE%E9%A2%98%E7%9A%84%E6%B5%8B%E8%AF%95/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="解决每次github部署完成后都要重新绑定域名的问题">
+                            
+                            <span class="card-title">解决每次github部署完成后都要重新绑定域名的问题</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                前言在使用 Hexo 搭建博客并部署到 GitHub Pages 时，很多人会遇到一个问题：每次执行 hexo deploy 部署后，GitHub Pages 的自定义域名设置就会被清除，需要重新在 GitHub 仓库设置中绑定域名。
+这个
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-05-03
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    技术笔记
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Hexo/">
+                            <span class="chip bg-color">Hexo</span>
+                        </a>
+                        
+                        <a href="/tags/GitHub-Pages/">
+                            <span class="chip bg-color">GitHub Pages</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE/">
+                            <span class="chip bg-color">域名配置</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2026/05/03/%E6%B7%BB%E5%8A%A0git%E4%BB%93%E5%BA%93%E5%90%8E%E6%B5%8B%E8%AF%95/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="添加git仓库后测试">
+                            
+                            <span class="card-title">添加git仓库后测试</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                &#96;
+
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-05-03
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                steabc123
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/git%E6%B5%8B%E8%AF%95/">
+                            <span class="chip bg-color">git测试</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2026/05/02/hexo%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="hexo搭建过程遇到的一些问题">
+                            
+                            <span class="card-title">hexo搭建过程遇到的一些问题</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                前言在搭建 Hexo 博客的过程中，遇到了一些问题和挑战，在此记录下来，方便以后查阅，也希望能帮助到同样在搭建博客的朋友们。
+常见问题记录
+1. GitHub SSH 连接问题
+
+问题描述： 在使用 hexo deploy 部署到 GitH
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-05-02
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    技术笔记
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Hexo/">
+                            <span class="chip bg-color">Hexo</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
+                            <span class="chip bg-color">博客搭建</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2026/05/02/hello-world/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                            
+                            <span class="card-title">Hello World</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-05-02
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                steabc123
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+        </div>
+    </article>
+
+</main>
 
 
-  
+
+
+    <footer class="page-footer bg-color">
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/GitHub-Pages/" style="font-size: 10px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/git%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">git测试</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 15px;">博客搭建</a> <a href="/tags/%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE/" style="font-size: 10px;">域名配置</a>
-    </div>
-  </div>
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
 
-  
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/05/">May 2026</a></li></ul>
-    </div>
-  </div>
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
 
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
 
-  
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2026/05/03/%E8%A7%A3%E5%86%B3%E7%BD%91%E7%AB%99%E6%A0%87%E7%AD%BE%E9%A1%B5%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA/">解决网站标签页图片不显示</a>
-          </li>
-        
-          <li>
-            <a href="/2026/05/03/%E8%A7%A3%E5%86%B3%E6%AF%8F%E6%AC%A1github%E9%83%A8%E7%BD%B2%E5%AE%8C%E6%88%90%E5%90%8E%E9%83%BD%E8%A6%81%E9%87%8D%E6%96%B0%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D%E7%9A%84%E9%97%AE%E9%A2%98%E7%9A%84%E6%B5%8B%E8%AF%95/">解决每次github部署完成后都要重新绑定域名的问题</a>
-          </li>
-        
-          <li>
-            <a href="/2026/05/03/%E6%B7%BB%E5%8A%A0git%E4%BB%93%E5%BA%93%E5%90%8E%E6%B5%8B%E8%AF%95/">添加git仓库后测试</a>
-          </li>
-        
-          <li>
-            <a href="/2026/05/02/hexo%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">hexo搭建过程遇到的一些问题</a>
-          </li>
-        
-          <li>
-            <a href="/2026/05/02/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
     </div>
-  </div>
+</div>
 
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2026 steabc123<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2026</span>
+            
+            <a href="/about" target="_blank">steabc123</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/steabc123" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
     </div>
-  </div>
 </footer>
 
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
     
 
+    
+    
+    
 
-<script src="/js/jquery-3.6.4.min.js"></script>
+    <!-- 雪花特效 -->
+    
 
+    <!-- 鼠标星星特效 -->
+    
 
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
 
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
+    <!-- Baidu Analytics -->
 
+    <!-- Baidu Push -->
 
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
 
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
 
-<script src="/js/script.js"></script>
+    
 
+    
 
+    <!--腾讯兔小巢-->
+    
+    
 
+    
 
+    
 
-  </div>
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
 </body>
+
 </html>
