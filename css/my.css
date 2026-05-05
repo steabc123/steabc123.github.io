@@ -1,1 +1,4 @@
-/* Here is your custom css styles. */
+/* 橙色渐变 */
+.frind-card1 {
+    background-image: linear-gradient(to right, #f6d365 0%, #fda085 100%);
+}
