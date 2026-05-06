@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="切换matery主题踩坑总结, 我的小破站">
-    <meta name="description" content="前言最近给博客换了 hexo-theme-matery 主题，颜值确实高了不少，但部署到 GitHub Pages 时遇到了个让人头大的问题：GitHub 的 Secret Scanning 把我的推送给拦截了。\折腾了一下午才解决，记录一">
+    <meta name="keywords" content="给博客主页加了个萌娘计数器, 我的小破站">
+    <meta name="description" content="起因逛别人Github主页的时候看到有个挺有意思的访问量计数器，像素风格还能自动适配深色模式，看着比传统数字计数器顺眼多了。搜了一下发现是 Moe Counter，正好我自己也部署了一个 Cloudflare Workers 版本，已经在我">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>切换matery主题踩坑总结 | 我的小破站</title>
+    <title>给博客主页加了个萌娘计数器 | 我的小破站</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/cat.ico">
     
 
@@ -334,12 +334,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">切换matery主题踩坑总结</h1>
+                    <h1 class="description center-align post-title">给博客主页加了个萌娘计数器</h1>
                 </div>
             </div>
         </div>
@@ -367,12 +367,8 @@
                                 <span class="chip bg-color">Hexo</span>
                             </a>
                         
-                            <a href="/tags/GitHub-Pages/">
-                                <span class="chip bg-color">GitHub Pages</span>
-                            </a>
-                        
-                            <a href="/tags/%E4%B8%BB%E9%A2%98%E5%88%87%E6%8D%A2/">
-                                <span class="chip bg-color">主题切换</span>
+                            <a href="/tags/%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/">
+                                <span class="chip bg-color">博客美化</span>
                             </a>
                         
                     </div>
@@ -396,7 +392,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2026-05-05
+                    2026-05-06
                 </div>
                 
 
@@ -417,59 +413,35 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近给博客换了 hexo-theme-matery 主题，颜值确实高了不少，但部署到 GitHub Pages 时遇到了个让人头大的问题：<strong>GitHub 的 Secret Scanning 把我的推送给拦截了</strong>。\折腾了一下午才解决，记录一下踩坑过程，希望能帮到遇到同样问题的朋友。</p>
-<h2 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h2><p>执行 <code>hexo deploy</code> 后，报错信息如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">remote: error: GH013: Repository rule violations found <span class="keyword">for</span> refs/heads/main.</span><br><span class="line">remote: </span><br><span class="line">remote: - GITHUB PUSH PROTECTION</span><br><span class="line">remote:   —————————————————————————————————————————</span><br><span class="line">remote:     Resolve the following violations before pushing again</span><br><span class="line">remote: </span><br><span class="line">remote:     - Push cannot contain secrets</span><br><span class="line">remote: </span><br><span class="line">remote:       —— Tencent Cloud Secret ID ———————————————————————————</span><br><span class="line">remote:        locations:</span><br><span class="line">remote:          - commit: b39d474e080c28f5ee702ab6ffe2743823e6eb23</span><br><span class="line">remote:            path: libs/twikoo/twikoo.all.min.js:2</span><br></pre></td></tr></table></figure>
-
-<p>简单说就是：GitHub 认为我的代码里包含了腾讯云的 Secret ID，直接拒绝了推送。</p>
-<h2 id="问题定位"><a href="#问题定位" class="headerlink" title="问题定位"></a>问题定位</h2><p>一开始我也懵了，我哪来的腾讯云密钥？仔细一看报错路径：<code>libs/twikoo/twikoo.all.min.js</code>。</p>
-<p>这个文件是 Twikoo 评论系统的 SDK，里面集成了腾讯云的基础 SDK。GitHub 的 Secret Scanning 扫描到了一些类似 Secret ID 的特征字符串，触发了误报。</p>
-<p><strong>关键点</strong>：即使你只是用了 Twikoo 的官方 SDK，没有配置任何腾讯云密钥，这个误报依然会发生。因为 SDK 内部包含了腾讯云 SDK 的代码框架。</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="方案一：使用-CDN-链接（推荐）"><a href="#方案一：使用-CDN-链接（推荐）" class="headerlink" title="方案一：使用 CDN 链接（推荐）"></a>方案一：使用 CDN 链接（推荐）</h3><p>最直接的办法就是不把这个文件放进 Git 仓库，改用 CDN 加载。</p>
-<h4 id="1-修改主题配置"><a href="#1-修改主题配置" class="headerlink" title="1. 修改主题配置"></a>1. 修改主题配置</h4><p>编辑 <code>themes/hexo-theme-matery/_config.yml</code>，找到 twikoo 的配置项：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 原来的配置</span></span><br><span class="line"><span class="attr">libs:</span></span><br><span class="line">  <span class="attr">js:</span></span><br><span class="line">    <span class="attr">twikoo:</span> <span class="string">/libs/twikoo/twikoo.all.min.js</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 改为 CDN 链接</span></span><br><span class="line"><span class="attr">libs:</span></span><br><span class="line">  <span class="attr">js:</span></span><br><span class="line">    <span class="attr">twikoo:</span> <span class="string">https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="2-删除本地文件"><a href="#2-删除本地文件" class="headerlink" title="2. 删除本地文件"></a>2. 删除本地文件</h4><p>删除主题目录下的文件：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">themes/hexo-theme-matery/source/libs/twikoo/twikoo.all.min.js</span><br></pre></td></tr></table></figure>
-
-<p>这样 Hexo 生成静态文件时就不会再包含这个 JS 文件了。</p>
-<h4 id="3-清理-Git-历史"><a href="#3-清理-Git-历史" class="headerlink" title="3. 清理 Git 历史"></a>3. 清理 Git 历史</h4><p>如果之前已经提交过这个文件，光删除是不够的，它还在 Git 历史里。需要彻底清理：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> .deploy_git</span><br><span class="line">git filter-branch --force --index-filter <span class="string">&quot;git rm --cached --ignore-unmatch libs/twikoo/twikoo.all.min.js&quot;</span> --prune-empty HEAD</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong>注意</strong>：<code>.deploy_git</code> 是 Hexo 部署时使用的临时 Git 仓库，位于博客根目录下。</p>
-</blockquote>
-<h4 id="4-强制推送"><a href="#4-强制推送" class="headerlink" title="4. 强制推送"></a>4. 强制推送</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://github.com/你的用户名/你的仓库.git</span><br><span class="line">git push -f origin master:main</span><br></pre></td></tr></table></figure>
-
-<p>这里要注意分支映射，Hexo 默认推送到 <code>main</code> 分支，但本地可能是 <code>master</code>。</p>
-<h3 id="方案二：在-GitHub-上允许误报"><a href="#方案二：在-GitHub-上允许误报" class="headerlink" title="方案二：在 GitHub 上允许误报"></a>方案二：在 GitHub 上允许误报</h3><p>如果不想改配置，也可以去 GitHub 后台把这个检测标记为误报：</p>
-<p>访问报错信息中提供的链接：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/steabc123/steabc123.github.io/security/secret-scanning/unblock-secret/3DI75Z1ghEk2x8hBRdnv5fBcqTR</span><br></pre></td></tr></table></figure>
-
-<p>点击 “Allow secret” 即可。但这种方式不太推荐，毕竟每次更新都可能触发新的检测。</p>
-<h2 id="为什么推荐方案一？"><a href="#为什么推荐方案一？" class="headerlink" title="为什么推荐方案一？"></a>为什么推荐方案一？</h2><ol>
-<li><strong>避免误报</strong>：不再把包含敏感特征的第三方库提交到仓库，从根本上解决问题</li>
-<li><strong>减小仓库体积</strong>：<code>twikoo.all.min.js</code> 有 500+ KB，用 CDN 能显著减小仓库大小</li>
-<li><strong>自动更新</strong>：jsDelivr CDN 会自动提供最新版本，不用手动升级</li>
-<li><strong>加载速度</strong>：CDN 通常比 GitHub Pages 的加载速度更快</li>
+                <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>逛别人Github主页的时候看到有个挺有意思的访问量计数器，像素风格还能自动适配深色模式，看着比传统数字计数器顺眼多了。<br>搜了一下发现是 <a target="_blank" rel="noopener" href="https://github.com/journey-ad/Moe-Counter">Moe Counter</a>，正好我自己也部署了一个 Cloudflare Workers 版本，已经在我的Github主页运行，干脆直接用到自己博客上。</p>
+<h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><p>matery 主题本身没有预留自定义首页内容的配置项，但好在主题是用 EJS 模板引擎渲染的，改起来不算麻烦。基本思路就是：</p>
+<ol>
+<li>写一个 widget 组件来渲染计数器图片</li>
+<li>在主题配置文件里加上开关和 URL 配置</li>
+<li>把 widget 插到首页布局合适的位置</li>
 </ol>
-<h2 id="其他注意事项"><a href="#其他注意事项" class="headerlink" title="其他注意事项"></a>其他注意事项</h2><h3 id="关于-deploy-git-目录"><a href="#关于-deploy-git-目录" class="headerlink" title="关于 .deploy_git 目录"></a>关于 .deploy_git 目录</h3><p>Hexo 的 git 部署器会在博客根目录创建一个 <code>.deploy_git</code> 隐藏文件夹，这是实际执行 git push 的地方。很多人会忽略这个目录，导致清理历史时找错地方。</p>
-<h3 id="分支名称问题"><a href="#分支名称问题" class="headerlink" title="分支名称问题"></a>分支名称问题</h3><p>GitHub 现在默认主分支叫 <code>main</code>，但很多本地仓库还是 <code>master</code>。推送时需要做分支映射：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -f origin master:main</span><br></pre></td></tr></table></figure>
+<h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2><h3 id="1-创建-widget-组件"><a href="#1-创建-widget-组件" class="headerlink" title="1. 创建 widget 组件"></a>1. 创建 widget 组件</h3><p>在主题的 <code>layout/_widget/</code> 目录下新建 <code>moe-counter.ejs</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.moeCounter.enable) &#123; %&gt;</span><br><span class="line">&lt;div class=&quot;moe-counter-section&quot;&gt;</span><br><span class="line">    &lt;div style=&quot;text-align: center; margin: 20px 0;&quot;&gt;</span><br><span class="line">        &lt;img src=&quot;&lt;%= theme.moeCounter.url %&gt;&quot; alt=&quot;Moe Counter&quot; style=&quot;max-width: 100%; height: auto;&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
 
-<p>或者在 <code>_config.yml</code> 中明确指定：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/用户名/仓库.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span>  <span class="comment"># 确保和目标仓库一致</span></span><br></pre></td></tr></table></figure>
+<p>逻辑很简单，判断配置项是否开启，如果开启就渲染一个居中的图片容器。</p>
+<h3 id="2-添加主题配置"><a href="#2-添加主题配置" class="headerlink" title="2. 添加主题配置"></a>2. 添加主题配置</h3><p>在 <code>themes/hexo-theme-matery/_config.yml</code> 里加上配置项：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Moe Counter configuration</span></span><br><span class="line"><span class="comment"># 萌娘计数器配置</span></span><br><span class="line"><span class="attr">moeCounter:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">https://moe-counter-cf.steabc123.workers.dev/steabc123:github?theme=rule34&amp;length=7&amp;render=pixelated&amp;darkmode=auto</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="定期清理"><a href="#定期清理" class="headerlink" title="定期清理"></a>定期清理</h3><p>如果经常遇到类似问题，建议定期检查 <code>_config.yml</code> 中的 libs 配置，尽量使用 CDN 而不是本地文件。特别是：</p>
+<p>这里 URL 后面的参数可以按需调整：</p>
 <ul>
-<li>Valine</li>
-<li>Waline  </li>
-<li>Twikoo</li>
-<li>其他集成第三方服务的 SDK</li>
+<li><code>theme</code>: 计数器主题样式</li>
+<li><code>length</code>: 显示位数</li>
+<li><code>render</code>: 渲染方式（pixelated 是像素风格）</li>
+<li><code>darkmode</code>: 深色模式适配（auto 会自动跟随系统）</li>
 </ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这次踩坑的核心教训是：<strong>不要把所有第三方库都塞进 Git 仓库</strong>。对于大型的、可能触发安全扫描的 JS 库，优先使用 CDN 方案。</p>
-<p>另外，遇到问题时要仔细看报错信息。GitHub 其实已经把问题路径和解决方案链接都给出来了，顺着提示走能省不少时间。</p>
-<p>希望这篇文章能帮你少踩一个坑。如果有帮助，欢迎留言交流！</p>
+<h3 id="3-集成到首页布局"><a href="#3-集成到首页布局" class="headerlink" title="3. 集成到首页布局"></a>3. 集成到首页布局</h3><p>编辑 <code>themes/hexo-theme-matery/layout/index.ejs</code>，在首页卡片区域找到 dream 模块后面，插入我们的计数器：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.dream.enable) &#123; %&gt;</span><br><span class="line">    &lt;%- partial(&#x27;_widget/dream&#x27;) %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br><span class="line"></span><br><span class="line">&lt;% if (theme.moeCounter.enable) &#123; %&gt;</span><br><span class="line">    &lt;%- partial(&#x27;_widget/moe-counter&#x27;) %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br><span class="line"></span><br><span class="line">&lt;% if (theme.music.enable &amp;&amp; !theme.music.fixed) &#123; %&gt;</span><br><span class="line">    &lt;%- partial(&#x27;_widget/music&#x27;) %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这样计数器就会显示在”我的梦想”模块下方、音乐播放器上方的位置。</p>
+<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p><img src="https://moe-counter-cf.steabc123.workers.dev/steabc123:github?theme=rule34&length=7&render=pixelated&darkmode=auto" alt="Moe Counter cloudflare"></p>
+<p>现在每次访问主页都能看到实时更新的访问量统计，像素风格跟博客整体搭配起来还算协调。如果想关掉也很简单，把配置文件里的 <code>enable</code> 改成 <code>false</code> 就行。</p>
+<p>因为网络环境原因，我换成了原作者的计数器服务器，所以图片地址也换成了<a target="_blank" rel="noopener" href="https://count.getloli.com/%E7%89%88%E6%9C%AC%E3%80%82%E5%A6%82%E6%9E%9C%E4%BD%A0%E4%B9%9F%E6%83%B3%E7%94%A8%E8%BF%99%E4%B8%AA%E8%AE%A1%E6%95%B0%E5%99%A8%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%8F%82%E8%80%83%E6%88%91%E7%9A%84%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B%EF%BC%8C%E8%87%AA%E5%B7%B1%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%85%8D%E8%B4%B9%E7%9A%84">https://count.getloli.com/版本。如果你也想用这个计数器，可以参考我的部署教程，自己搭建一个免费的</a> Workers 版本。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>这种小功能的实现其实没什么技术含量，主要是熟悉一下 matery 主题的模板结构。EJS 模板的优势就在于可以直接在 HTML 里写条件判断和循环，改起来比较直观。如果以后想加其他自定义内容，照着这个套路往 <code>_widget</code> 目录扔组件就行了。</p>
 
                 
             </div>
@@ -496,7 +468,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://steabc123.github.io/2026/05/05/%E5%88%87%E6%8D%A2matery%E4%B8%BB%E9%A2%98%E8%B8%A9%E5%9D%91%E6%80%BB%E7%BB%93/">https://steabc123.github.io/2026/05/05/%E5%88%87%E6%8D%A2matery%E4%B8%BB%E9%A2%98%E8%B8%A9%E5%9D%91%E6%80%BB%E7%BB%93/</a>
+                    <a href="https://steabc123.github.io/2026/05/06/%E4%B8%BB%E9%A1%B5%E6%B7%BB%E5%8A%A0Moe-Counter/">https://steabc123.github.io/2026/05/06/%E4%B8%BB%E9%A1%B5%E6%B7%BB%E5%8A%A0Moe-Counter/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -538,12 +510,8 @@
                                     <span class="chip bg-color">Hexo</span>
                                 </a>
                             
-                                <a href="/tags/GitHub-Pages/">
-                                    <span class="chip bg-color">GitHub Pages</span>
-                                </a>
-                            
-                                <a href="/tags/%E4%B8%BB%E9%A2%98%E5%88%87%E6%8D%A2/">
-                                    <span class="chip bg-color">主题切换</span>
+                                <a href="/tags/%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/">
+                                    <span class="chip bg-color">博客美化</span>
                                 </a>
                             
                         </div>
@@ -622,9 +590,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2026/05/06/%E4%B8%BB%E9%A1%B5%E6%B7%BB%E5%8A%A0Moe-Counter/">
                     <div class="card-image">
@@ -642,9 +611,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2026-05-06
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-05-06
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -657,6 +626,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -679,13 +649,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2026/05/05/%E5%88%87%E6%8D%A2matery%E4%B8%BB%E9%A2%98%E6%B5%8B%E8%AF%95/">
+                <a href="/2026/05/05/%E5%88%87%E6%8D%A2matery%E4%B8%BB%E9%A2%98%E8%B8%A9%E5%9D%91%E6%80%BB%E7%BB%93/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Hexo 博客 matery 主题配置踩坑记录">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="切换matery主题踩坑总结">
                         
-                        <span class="card-title">Hexo 博客 matery 主题配置踩坑记录</span>
+                        <span class="card-title">切换matery主题踩坑总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -717,12 +687,12 @@
                         <span class="chip bg-color">Hexo</span>
                     </a>
                     
-                    <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
-                        <span class="chip bg-color">博客搭建</span>
-                    </a>
-                    
                     <a href="/tags/GitHub-Pages/">
                         <span class="chip bg-color">GitHub Pages</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%B8%BB%E9%A2%98%E5%88%87%E6%8D%A2/">
+                        <span class="chip bg-color">主题切换</span>
                     </a>
                     
                 </div>
