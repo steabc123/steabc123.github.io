@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="给博客主页加了个萌娘计数器, 我的小破站">
-    <meta name="description" content="起因逛别人Github主页的时候看到有个挺有意思的访问量计数器，像素风格还能自动适配深色模式，看着比传统数字计数器顺眼多了。搜了一下发现是 Moe Counter，正好我自己也部署了一个 Cloudflare Workers 版本，已经在我">
+    <meta name="keywords" content="基于vue3的MyBook前端实现, 我的小破站">
+    <meta name="description" content="基于Vue3的MyBook前端实现总结项目概述MyBook是一个基于Vue3 + Vite构建的前端书籍管理应用，主要功能是通过调用后端API获取并展示书籍列表。项目采用现代化的前端技术栈，结合Element Plus UI组件库，实现了简">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>给博客主页加了个萌娘计数器 | 我的小破站</title>
+    <title>基于vue3的MyBook前端实现 | 我的小破站</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/cat.ico">
     
 
@@ -334,12 +334,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">给博客主页加了个萌娘计数器</h1>
+                    <h1 class="description center-align post-title">基于vue3的MyBook前端实现</h1>
                 </div>
             </div>
         </div>
@@ -363,27 +363,18 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Hexo/">
-                                <span class="chip bg-color">Hexo</span>
+                            <a href="/tags/Vue3/">
+                                <span class="chip bg-color">Vue3</span>
                             </a>
                         
-                            <a href="/tags/%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/">
-                                <span class="chip bg-color">博客美化</span>
+                            <a href="/tags/ElementPlus/">
+                                <span class="chip bg-color">ElementPlus</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" class="post-category">
-                                技术笔记
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -392,7 +383,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2026-05-06
+                    2026-05-09
                 </div>
                 
 
@@ -413,35 +404,117 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>逛别人Github主页的时候看到有个挺有意思的访问量计数器，像素风格还能自动适配深色模式，看着比传统数字计数器顺眼多了。<br>搜了一下发现是 <a target="_blank" rel="noopener" href="https://github.com/journey-ad/Moe-Counter">Moe Counter</a>，正好我自己也部署了一个 Cloudflare Workers 版本，已经在我的Github主页运行，干脆直接用到自己博客上。</p>
-<h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><p>matery 主题本身没有预留自定义首页内容的配置项，但好在主题是用 EJS 模板引擎渲染的，改起来不算麻烦。基本思路就是：</p>
-<ol>
-<li>写一个 widget 组件来渲染计数器图片</li>
-<li>在主题配置文件里加上开关和 URL 配置</li>
-<li>把 widget 插到首页布局合适的位置</li>
-</ol>
-<h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2><h3 id="1-创建-widget-组件"><a href="#1-创建-widget-组件" class="headerlink" title="1. 创建 widget 组件"></a>1. 创建 widget 组件</h3><p>在主题的 <code>layout/_widget/</code> 目录下新建 <code>moe-counter.ejs</code>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.moeCounter.enable) &#123; %&gt;</span><br><span class="line">&lt;div class=&quot;moe-counter-section&quot;&gt;</span><br><span class="line">    &lt;div style=&quot;text-align: center; margin: 20px 0;&quot;&gt;</span><br><span class="line">        &lt;img src=&quot;&lt;%= theme.moeCounter.url %&gt;&quot; alt=&quot;Moe Counter&quot; style=&quot;max-width: 100%; height: auto;&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
-
-<p>逻辑很简单，判断配置项是否开启，如果开启就渲染一个居中的图片容器。</p>
-<h3 id="2-添加主题配置"><a href="#2-添加主题配置" class="headerlink" title="2. 添加主题配置"></a>2. 添加主题配置</h3><p>在 <code>themes/hexo-theme-matery/_config.yml</code> 里加上配置项：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Moe Counter configuration</span></span><br><span class="line"><span class="comment"># 萌娘计数器配置</span></span><br><span class="line"><span class="attr">moeCounter:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">https://moe-counter-cf.steabc123.workers.dev/steabc123:github?theme=rule34&amp;length=7&amp;render=pixelated&amp;darkmode=auto</span></span><br></pre></td></tr></table></figure>
-
-<p>这里 URL 后面的参数可以按需调整：</p>
-<ul>
-<li><code>theme</code>: 计数器主题样式</li>
-<li><code>length</code>: 显示位数</li>
-<li><code>render</code>: 渲染方式（pixelated 是像素风格）</li>
-<li><code>darkmode</code>: 深色模式适配（auto 会自动跟随系统）</li>
+                <h1 id="基于Vue3的MyBook前端实现总结"><a href="#基于Vue3的MyBook前端实现总结" class="headerlink" title="基于Vue3的MyBook前端实现总结"></a>基于Vue3的MyBook前端实现总结</h1><h2 id="项目概述"><a href="#项目概述" class="headerlink" title="项目概述"></a>项目概述</h2><p>MyBook是一个基于Vue3 + Vite构建的前端书籍管理应用，主要功能是通过调用后端API获取并展示书籍列表。项目采用现代化的前端技术栈，结合Element Plus UI组件库，实现了简洁高效的书籍数据展示界面。</p>
+<h2 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h2><h3 id="核心框架"><a href="#核心框架" class="headerlink" title="核心框架"></a>核心框架</h3><ul>
+<li><strong>Vue 3.5</strong>：采用Composition API和<code>&lt;script setup&gt;</code>语法糖，代码更简洁、类型推导更友好</li>
+<li><strong>Vite 8.0</strong>：下一代前端构建工具，提供极速的开发服务器启动和热更新体验</li>
 </ul>
-<h3 id="3-集成到首页布局"><a href="#3-集成到首页布局" class="headerlink" title="3. 集成到首页布局"></a>3. 集成到首页布局</h3><p>编辑 <code>themes/hexo-theme-matery/layout/index.ejs</code>，在首页卡片区域找到 dream 模块后面，插入我们的计数器：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.dream.enable) &#123; %&gt;</span><br><span class="line">    &lt;%- partial(&#x27;_widget/dream&#x27;) %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br><span class="line"></span><br><span class="line">&lt;% if (theme.moeCounter.enable) &#123; %&gt;</span><br><span class="line">    &lt;%- partial(&#x27;_widget/moe-counter&#x27;) %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br><span class="line"></span><br><span class="line">&lt;% if (theme.music.enable &amp;&amp; !theme.music.fixed) &#123; %&gt;</span><br><span class="line">    &lt;%- partial(&#x27;_widget/music&#x27;) %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="UI组件库"><a href="#UI组件库" class="headerlink" title="UI组件库"></a>UI组件库</h3><ul>
+<li><strong>Element Plus 2.13</strong>：基于Vue3的桌面端组件库，提供丰富的UI组件</li>
+</ul>
+<h3 id="HTTP请求"><a href="#HTTP请求" class="headerlink" title="HTTP请求"></a>HTTP请求</h3><ul>
+<li><strong>Axios 1.16</strong>：基于Promise的HTTP客户端，用于与后端SpringBoot服务通信</li>
+</ul>
+<h3 id="自动化工具"><a href="#自动化工具" class="headerlink" title="自动化工具"></a>自动化工具</h3><ul>
+<li><strong>unplugin-auto-import</strong>：自动导入Vue和Element Plus的API，减少手动import</li>
+<li><strong>unplugin-vue-components</strong>：自动按需导入Element Plus组件，优化打包体积</li>
+</ul>
+<h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">vuedemo/</span><br><span class="line">├── src/</span><br><span class="line">│   ├── components/</span><br><span class="line">│   │   └── HelloWorld.vue    # 核心业务组件（书籍列表）</span><br><span class="line">│   ├── assets/               # 静态资源</span><br><span class="line">│   ├── App.vue              # 根组件</span><br><span class="line">│   ├── main.js              # 应用入口</span><br><span class="line">│   └── style.css            # 全局样式</span><br><span class="line">├── vite.config.js           # Vite配置文件</span><br><span class="line">├── package.json             # 项目依赖配置</span><br><span class="line">└── index.html               # HTML模板</span><br></pre></td></tr></table></figure>
 
-<p>这样计数器就会显示在”我的梦想”模块下方、音乐播放器上方的位置。</p>
-<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p><img src="https://moe-counter-cf.steabc123.workers.dev/steabc123:github?theme=rule34&length=7&render=pixelated&darkmode=auto" alt="Moe Counter cloudflare"></p>
-<p>现在每次访问主页都能看到实时更新的访问量统计，像素风格跟博客整体搭配起来还算协调。如果想关掉也很简单，把配置文件里的 <code>enable</code> 改成 <code>false</code> 就行。</p>
-<p>因为网络环境原因，我换成了原作者的计数器服务器，所以图片地址也换成了<a target="_blank" rel="noopener" href="https://count.getloli.com/%E7%89%88%E6%9C%AC%E3%80%82%E5%A6%82%E6%9E%9C%E4%BD%A0%E4%B9%9F%E6%83%B3%E7%94%A8%E8%BF%99%E4%B8%AA%E8%AE%A1%E6%95%B0%E5%99%A8%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%8F%82%E8%80%83%E6%88%91%E7%9A%84%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B%EF%BC%8C%E8%87%AA%E5%B7%B1%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%85%8D%E8%B4%B9%E7%9A%84">https://count.getloli.com/版本。如果你也想用这个计数器，可以参考我的部署教程，自己搭建一个免费的</a> Workers 版本。</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>这种小功能的实现其实没什么技术含量，主要是熟悉一下 matery 主题的模板结构。EJS 模板的优势就在于可以直接在 HTML 里写条件判断和循环，改起来比较直观。如果以后想加其他自定义内容，照着这个套路往 <code>_widget</code> 目录扔组件就行了。</p>
+<h2 id="核心实现"><a href="#核心实现" class="headerlink" title="核心实现"></a>核心实现</h2><h3 id="1-项目初始化与配置"><a href="#1-项目初始化与配置" class="headerlink" title="1. 项目初始化与配置"></a>1. 项目初始化与配置</h3><h4 id="Vite配置（vite-config-js）"><a href="#Vite配置（vite-config-js）" class="headerlink" title="Vite配置（vite.config.js）"></a>Vite配置（vite.config.js）</h4><p>通过配置自动导入插件，实现开发效率的提升：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineConfig &#125; <span class="keyword">from</span> <span class="string">&#x27;vite&#x27;</span></span><br><span class="line"><span class="keyword">import</span> vue <span class="keyword">from</span> <span class="string">&#x27;@vitejs/plugin-vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">AutoImport</span> <span class="keyword">from</span> <span class="string">&#x27;unplugin-auto-import/vite&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Components</span> <span class="keyword">from</span> <span class="string">&#x27;unplugin-vue-components/vite&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">ElementPlusResolver</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;unplugin-vue-components/resolvers&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineConfig</span>(&#123;</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="title function_">vue</span>(),</span><br><span class="line">    <span class="title class_">AutoImport</span>(&#123;</span><br><span class="line">      <span class="attr">resolvers</span>: [<span class="title class_">ElementPlusResolver</span>()],</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="title class_">Components</span>(&#123;</span><br><span class="line">      <span class="attr">resolvers</span>: [<span class="title class_">ElementPlusResolver</span>()],</span><br><span class="line">    &#125;),</span><br><span class="line">  ],</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>这种配置的优势在于：</p>
+<ul>
+<li>无需手动引入Element Plus组件，直接使用即可</li>
+<li>自动导入Vue的响应式API（ref、reactive等）</li>
+<li>按需加载，减小最终打包体积</li>
+</ul>
+<h3 id="2-应用入口（main-js）"><a href="#2-应用入口（main-js）" class="headerlink" title="2. 应用入口（main.js）"></a>2. 应用入口（main.js）</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;./style.css&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="title function_">createApp</span>(<span class="title class_">App</span>).<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>简洁的入口文件，创建Vue应用实例并挂载到DOM。</p>
+<h3 id="3-根组件（App-vue）"><a href="#3-根组件（App-vue）" class="headerlink" title="3. 根组件（App.vue）"></a>3. 根组件（App.vue）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">import HelloWorld from &#x27;./components/HelloWorld.vue&#x27;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;HelloWorld /&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<p>采用<code>&lt;script setup&gt;</code>语法，直接引入并渲染子组件。</p>
+<h3 id="4-核心业务组件（HelloWorld-vue）"><a href="#4-核心业务组件（HelloWorld-vue）" class="headerlink" title="4. 核心业务组件（HelloWorld.vue）"></a>4. 核心业务组件（HelloWorld.vue）</h3><p>这是整个应用的核心，实现了书籍数据的获取和展示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123; ref, reactive &#125; from &#x27;vue&#x27;</span><br><span class="line">import axios from &#x27;axios&#x27;</span><br><span class="line"></span><br><span class="line">defineProps(&#123;</span><br><span class="line">  msg: String</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">const data = reactive(&#123;</span><br><span class="line">  books: []</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 获取书籍数据</span><br><span class="line">const getData = function() &#123;</span><br><span class="line">  axios(&#123;</span><br><span class="line">    url: &#x27;http://localhost:8080/book/books&#x27;,</span><br><span class="line">    method: &#x27;get&#x27;,</span><br><span class="line">    headers: &#123;</span><br><span class="line">      &quot;Access-Control-Allow-Origin&quot;: &quot;*&quot;,</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;).then((res) =&gt; &#123;</span><br><span class="line">    data.books = res.data</span><br><span class="line">    console.log(&#x27;请求成功:&#x27;, data.books)</span><br><span class="line">  &#125;).catch((error) =&gt; &#123;</span><br><span class="line">    console.error(&#x27;请求失败:&#x27;, error)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;h1&gt;&#123;&#123; msg &#125;&#125;&lt;/h1&gt;</span><br><span class="line">  &lt;h2&gt;我的书籍&lt;/h2&gt;</span><br><span class="line">  &lt;el-table :data=&quot;data.books&quot; style=&quot;width: 100%&quot;&gt;</span><br><span class="line">    &lt;el-table-column prop=&quot;book_id&quot; label=&quot;编号&quot; width=&quot;180&quot; /&gt;</span><br><span class="line">    &lt;el-table-column prop=&quot;book_title&quot; label=&quot;书名&quot; width=&quot;180&quot; /&gt;</span><br><span class="line">    &lt;el-table-column prop=&quot;book_author&quot; label=&quot;作者&quot; /&gt;</span><br><span class="line">  &lt;/el-table&gt;</span><br><span class="line">  &lt;el-button type=&quot;primary&quot; @click=&quot;getData&quot;&gt;查阅书籍&lt;/el-button&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="关键技术点解析"><a href="#关键技术点解析" class="headerlink" title="关键技术点解析"></a>关键技术点解析</h4><p><strong>响应式数据管理</strong></p>
+<p>使用<code>reactive</code>创建响应式对象存储书籍列表：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> data = <span class="title function_">reactive</span>(&#123;</span><br><span class="line">  <span class="attr">books</span>: []</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>相比<code>ref</code>，<code>reactive</code>更适合管理复杂对象，访问时无需<code>.value</code>。</p>
+<p><strong>异步数据请求</strong></p>
+<p>通过Axios发起GET请求获取后端数据：</p>
+<ul>
+<li>请求地址：<code>http://localhost:8080/book/books</code></li>
+<li>处理CORS跨域问题</li>
+<li>Promise链式调用处理成功和失败情况</li>
+</ul>
+<p><strong>Element Plus组件使用</strong></p>
+<ul>
+<li><code>el-table</code>：表格组件，展示书籍列表</li>
+<li><code>el-table-column</code>：定义表格列，绑定对应字段</li>
+<li><code>el-button</code>：触发数据加载的按钮</li>
+</ul>
+<h2 id="技术亮点"><a href="#技术亮点" class="headerlink" title="技术亮点"></a>技术亮点</h2><h3 id="1-Composition-API实践"><a href="#1-Composition-API实践" class="headerlink" title="1. Composition API实践"></a>1. Composition API实践</h3><p>采用Vue3的Composition API，逻辑组织更加灵活：</p>
+<ul>
+<li>数据声明集中在顶部</li>
+<li>方法定义清晰明了</li>
+<li>便于后续抽离为composable函数</li>
+</ul>
+<h3 id="2-自动化导入优化"><a href="#2-自动化导入优化" class="headerlink" title="2. 自动化导入优化"></a>2. 自动化导入优化</h3><p>通过unplugin系列插件实现：</p>
+<ul>
+<li>减少样板代码</li>
+<li>提升开发体验</li>
+<li>按需加载优化性能</li>
+</ul>
+<h3 id="3-响应式数据流"><a href="#3-响应式数据流" class="headerlink" title="3. 响应式数据流"></a>3. 响应式数据流</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">用户点击按钮 → 触发getData方法 → Axios发起请求 </span><br><span class="line">→ 接收响应数据 → 更新reactive对象 → 视图自动更新</span><br></pre></td></tr></table></figure>
+
+<p>完整的单向数据流，符合Vue的设计理念。</p>
+<h2 id="可优化方向"><a href="#可优化方向" class="headerlink" title="可优化方向"></a>可优化方向</h2><h3 id="1-生命周期管理"><a href="#1-生命周期管理" class="headerlink" title="1. 生命周期管理"></a>1. 生命周期管理</h3><p>当前需要手动点击按钮加载数据，可以改为组件挂载时自动加载：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; onMounted &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="title function_">onMounted</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">getData</span>()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-错误处理增强"><a href="#2-错误处理增强" class="headerlink" title="2. 错误处理增强"></a>2. 错误处理增强</h3><p>添加用户友好的错误提示：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">ElMessage</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;element-plus&#x27;</span></span><br><span class="line"></span><br><span class="line">.<span class="title function_">catch</span>(<span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="title class_">ElMessage</span>.<span class="title function_">error</span>(<span class="string">&#x27;获取书籍列表失败，请检查网络连接&#x27;</span>)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;请求失败:&#x27;</span>, error)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-加载状态管理"><a href="#3-加载状态管理" class="headerlink" title="3. 加载状态管理"></a>3. 加载状态管理</h3><p>添加loading状态提升用户体验：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> loading = <span class="title function_">ref</span>(<span class="literal">false</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> getData = <span class="keyword">async</span> <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  loading.<span class="property">value</span> = <span class="literal">true</span></span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> res = <span class="keyword">await</span> axios.<span class="title function_">get</span>(<span class="string">&#x27;http://localhost:8080/book/books&#x27;</span>)</span><br><span class="line">    data.<span class="property">books</span> = res.<span class="property">data</span></span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="title class_">ElMessage</span>.<span class="title function_">error</span>(<span class="string">&#x27;获取失败&#x27;</span>)</span><br><span class="line">  &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    loading.<span class="property">value</span> = <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>配合Element Plus的loading指令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-table v-loading=&quot;loading&quot; :data=&quot;data.books&quot;&gt;&lt;/el-table&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-环境变量配置"><a href="#4-环境变量配置" class="headerlink" title="4. 环境变量配置"></a>4. 环境变量配置</h3><p>将API地址提取到环境变量：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// .env.development</span></span><br><span class="line"><span class="variable constant_">VITE_API_BASE_URL</span>=<span class="attr">http</span>:<span class="comment">//localhost:8080</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 代码中使用</span></span><br><span class="line"><span class="keyword">const</span> baseURL = <span class="keyword">import</span>.<span class="property">meta</span>.<span class="property">env</span>.<span class="property">VITE_API_BASE_URL</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-封装API模块"><a href="#5-封装API模块" class="headerlink" title="5. 封装API模块"></a>5. 封装API模块</h3><p>将Axios请求封装为独立的API模块：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// api/book.js</span></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">getBooks</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> axios.<span class="title function_">get</span>(<span class="string">&#x27;/book/books&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-路由管理"><a href="#6-路由管理" class="headerlink" title="6. 路由管理"></a>6. 路由管理</h3><p>如果后续增加更多页面，建议引入Vue Router进行路由管理。</p>
+<h2 id="前后端联调注意事项"><a href="#前后端联调注意事项" class="headerlink" title="前后端联调注意事项"></a>前后端联调注意事项</h2><h3 id="CORS跨域问题"><a href="#CORS跨域问题" class="headerlink" title="CORS跨域问题"></a>CORS跨域问题</h3><p>前端运行在Vite默认端口（通常是5173），后端运行在8080端口，存在跨域问题。解决方案：</p>
+<p><strong>方案一：后端配置CORS</strong>（推荐）</p>
+<p>在SpringBoot后端添加跨域配置。</p>
+<p><strong>方案二：Vite代理配置</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vite.config.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineConfig</span>(&#123;</span><br><span class="line">  <span class="attr">server</span>: &#123;</span><br><span class="line">    <span class="attr">proxy</span>: &#123;</span><br><span class="line">      <span class="string">&#x27;/book&#x27;</span>: &#123;</span><br><span class="line">        <span class="attr">target</span>: <span class="string">&#x27;http://localhost:8080&#x27;</span>,</span><br><span class="line">        <span class="attr">changeOrigin</span>: <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>这样前端请求<code>/book/books</code>会被代理到后端，避免跨域问题。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>MyBook项目虽然功能简单，但涵盖了Vue3开发的核心知识点：</p>
+<ol>
+<li><strong>现代化技术栈</strong>：Vue3 + Vite + Element Plus的组合是当前Vue开发的主流选择</li>
+<li><strong>Composition API</strong>：提供了更好的逻辑组织和代码复用能力</li>
+<li><strong>自动化工具链</strong>：unplugin系列插件大幅提升开发效率</li>
+<li><strong>组件化思维</strong>：清晰的组件层级和职责划分</li>
+<li><strong>响应式原理</strong>：理解reactive和ref的使用场景</li>
+</ol>
+<p>对于初学者来说，这个项目是理解Vue3核心概念的很好起点。在此基础上可以继续扩展：</p>
+<ul>
+<li>添加书籍的增删改查功能</li>
+<li>实现搜索和筛选</li>
+<li>添加分页功能</li>
+<li>集成状态管理（Pinia）</li>
+<li>添加单元测试</li>
+</ul>
+<p>随着功能的迭代，逐步掌握Vue生态的更多工具和最佳实践。</p>
 
                 
             </div>
@@ -468,7 +541,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://steabc123.github.io/2026/05/06/%E4%B8%BB%E9%A1%B5%E6%B7%BB%E5%8A%A0Moe-Counter/">https://steabc123.github.io/2026/05/06/%E4%B8%BB%E9%A1%B5%E6%B7%BB%E5%8A%A0Moe-Counter/</a>
+                    <a href="https://steabc123.github.io/2026/05/09/%E5%9F%BA%E4%BA%8Evue3%E7%9A%84MyBook%E5%89%8D%E7%AB%AF%E5%AE%9E%E7%8E%B0/">https://steabc123.github.io/2026/05/09/%E5%9F%BA%E4%BA%8Evue3%E7%9A%84MyBook%E5%89%8D%E7%AB%AF%E5%AE%9E%E7%8E%B0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -506,12 +579,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Hexo/">
-                                    <span class="chip bg-color">Hexo</span>
+                                <a href="/tags/Vue3/">
+                                    <span class="chip bg-color">Vue3</span>
                                 </a>
                             
-                                <a href="/tags/%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/">
-                                    <span class="chip bg-color">博客美化</span>
+                                <a href="/tags/ElementPlus/">
+                                    <span class="chip bg-color">ElementPlus</span>
                                 </a>
                             
                         </div>
@@ -590,9 +663,60 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2026/05/09/%E5%9F%BA%E4%BA%8Evue3%E7%9A%84MyBook%E5%89%8D%E7%AB%AF%E5%AE%9E%E7%8E%B0/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="基于vue3的MyBook前端实现">
+                        
+                        <span class="card-title">基于vue3的MyBook前端实现</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-05-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            steabc123
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Vue3/">
+                        <span class="chip bg-color">Vue3</span>
+                    </a>
+                    
+                    <a href="/tags/ElementPlus/">
+                        <span class="chip bg-color">ElementPlus</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2026/05/09/%E5%9F%BA%E4%BA%8Espring-boot%E7%9A%84MyBook%E5%90%8E%E7%AB%AF%E5%AE%9E%E7%8E%B0/">
                     <div class="card-image">
@@ -610,9 +734,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2026-05-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-05-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -630,63 +754,6 @@
                     
                     <a href="/tags/MyBatis/">
                         <span class="chip bg-color">MyBatis</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2026/05/05/%E5%88%87%E6%8D%A2matery%E4%B8%BB%E9%A2%98%E8%B8%A9%E5%9D%91%E6%80%BB%E7%BB%93/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="切换matery主题踩坑总结">
-                        
-                        <span class="card-title">切换matery主题踩坑总结</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-05-05
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    技术笔记
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
-                    </a>
-                    
-                    <a href="/tags/GitHub-Pages/">
-                        <span class="chip bg-color">GitHub Pages</span>
-                    </a>
-                    
-                    <a href="/tags/%E4%B8%BB%E9%A2%98%E5%88%87%E6%8D%A2/">
-                        <span class="chip bg-color">主题切换</span>
                     </a>
                     
                 </div>

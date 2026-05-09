@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="给博客主页加了个萌娘计数器, 我的小破站">
-    <meta name="description" content="起因逛别人Github主页的时候看到有个挺有意思的访问量计数器，像素风格还能自动适配深色模式，看着比传统数字计数器顺眼多了。搜了一下发现是 Moe Counter，正好我自己也部署了一个 Cloudflare Workers 版本，已经在我">
+    <meta name="keywords" content="基于spring boot的MyBook后端实现, 我的小破站">
+    <meta name="description" content="Spring Boot + MyBatis 构建图书管理系统后端实战项目概述这是一个基于 Spring Boot 4.0.6 和 MyBatis 的图书管理后端服务，采用经典的三层架构设计，实现了图书数据的查询功能。项目使用 Java 17">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>给博客主页加了个萌娘计数器 | 我的小破站</title>
+    <title>基于spring boot的MyBook后端实现 | 我的小破站</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/cat.ico">
     
 
@@ -334,12 +334,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">给博客主页加了个萌娘计数器</h1>
+                    <h1 class="description center-align post-title">基于spring boot的MyBook后端实现</h1>
                 </div>
             </div>
         </div>
@@ -363,27 +363,18 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Hexo/">
-                                <span class="chip bg-color">Hexo</span>
+                            <a href="/tags/SpringBoot/">
+                                <span class="chip bg-color">SpringBoot</span>
                             </a>
                         
-                            <a href="/tags/%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/">
-                                <span class="chip bg-color">博客美化</span>
+                            <a href="/tags/MyBatis/">
+                                <span class="chip bg-color">MyBatis</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" class="post-category">
-                                技术笔记
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -392,7 +383,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2026-05-06
+                    2026-05-09
                 </div>
                 
 
@@ -413,35 +404,95 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>逛别人Github主页的时候看到有个挺有意思的访问量计数器，像素风格还能自动适配深色模式，看着比传统数字计数器顺眼多了。<br>搜了一下发现是 <a target="_blank" rel="noopener" href="https://github.com/journey-ad/Moe-Counter">Moe Counter</a>，正好我自己也部署了一个 Cloudflare Workers 版本，已经在我的Github主页运行，干脆直接用到自己博客上。</p>
-<h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><p>matery 主题本身没有预留自定义首页内容的配置项，但好在主题是用 EJS 模板引擎渲染的，改起来不算麻烦。基本思路就是：</p>
-<ol>
-<li>写一个 widget 组件来渲染计数器图片</li>
-<li>在主题配置文件里加上开关和 URL 配置</li>
-<li>把 widget 插到首页布局合适的位置</li>
-</ol>
-<h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2><h3 id="1-创建-widget-组件"><a href="#1-创建-widget-组件" class="headerlink" title="1. 创建 widget 组件"></a>1. 创建 widget 组件</h3><p>在主题的 <code>layout/_widget/</code> 目录下新建 <code>moe-counter.ejs</code>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.moeCounter.enable) &#123; %&gt;</span><br><span class="line">&lt;div class=&quot;moe-counter-section&quot;&gt;</span><br><span class="line">    &lt;div style=&quot;text-align: center; margin: 20px 0;&quot;&gt;</span><br><span class="line">        &lt;img src=&quot;&lt;%= theme.moeCounter.url %&gt;&quot; alt=&quot;Moe Counter&quot; style=&quot;max-width: 100%; height: auto;&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
-
-<p>逻辑很简单，判断配置项是否开启，如果开启就渲染一个居中的图片容器。</p>
-<h3 id="2-添加主题配置"><a href="#2-添加主题配置" class="headerlink" title="2. 添加主题配置"></a>2. 添加主题配置</h3><p>在 <code>themes/hexo-theme-matery/_config.yml</code> 里加上配置项：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Moe Counter configuration</span></span><br><span class="line"><span class="comment"># 萌娘计数器配置</span></span><br><span class="line"><span class="attr">moeCounter:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">https://moe-counter-cf.steabc123.workers.dev/steabc123:github?theme=rule34&amp;length=7&amp;render=pixelated&amp;darkmode=auto</span></span><br></pre></td></tr></table></figure>
-
-<p>这里 URL 后面的参数可以按需调整：</p>
-<ul>
-<li><code>theme</code>: 计数器主题样式</li>
-<li><code>length</code>: 显示位数</li>
-<li><code>render</code>: 渲染方式（pixelated 是像素风格）</li>
-<li><code>darkmode</code>: 深色模式适配（auto 会自动跟随系统）</li>
+                <h1 id="Spring-Boot-MyBatis-构建图书管理系统后端实战"><a href="#Spring-Boot-MyBatis-构建图书管理系统后端实战" class="headerlink" title="Spring Boot + MyBatis 构建图书管理系统后端实战"></a>Spring Boot + MyBatis 构建图书管理系统后端实战</h1><h2 id="项目概述"><a href="#项目概述" class="headerlink" title="项目概述"></a>项目概述</h2><p>这是一个基于 Spring Boot 4.0.6 和 MyBatis 的图书管理后端服务，采用经典的三层架构设计，实现了图书数据的查询功能。项目使用 Java 17，通过 RESTful API 为前端提供数据接口。</p>
+<h2 id="技术栈选型"><a href="#技术栈选型" class="headerlink" title="技术栈选型"></a>技术栈选型</h2><ul>
+<li><strong>核心框架</strong>: Spring Boot 4.0.6</li>
+<li><strong>持久层</strong>: MyBatis 4.0.1</li>
+<li><strong>数据库</strong>: MySQL (端口 3307, 数据库名 bookstore)</li>
+<li><strong>工具库</strong>: Lombok (简化实体类代码)</li>
+<li><strong>开发辅助</strong>: Spring Boot DevTools (热部署)</li>
+<li><strong>构建工具</strong>: Maven</li>
 </ul>
-<h3 id="3-集成到首页布局"><a href="#3-集成到首页布局" class="headerlink" title="3. 集成到首页布局"></a>3. 集成到首页布局</h3><p>编辑 <code>themes/hexo-theme-matery/layout/index.ejs</code>，在首页卡片区域找到 dream 模块后面，插入我们的计数器：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.dream.enable) &#123; %&gt;</span><br><span class="line">    &lt;%- partial(&#x27;_widget/dream&#x27;) %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br><span class="line"></span><br><span class="line">&lt;% if (theme.moeCounter.enable) &#123; %&gt;</span><br><span class="line">    &lt;%- partial(&#x27;_widget/moe-counter&#x27;) %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br><span class="line"></span><br><span class="line">&lt;% if (theme.music.enable &amp;&amp; !theme.music.fixed) &#123; %&gt;</span><br><span class="line">    &lt;%- partial(&#x27;_widget/music&#x27;) %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">com.gk.mybook</span><br><span class="line">├── MybookApplication.java      # 启动类</span><br><span class="line">├── action/                      # 控制层</span><br><span class="line">│   └── BookAction.java</span><br><span class="line">├── service/                     # 业务层</span><br><span class="line">│   ├── IBookService.java       # 服务接口</span><br><span class="line">│   └── impl/</span><br><span class="line">│       └── BookService.java    # 服务实现</span><br><span class="line">├── mapper/                      # 数据访问层</span><br><span class="line">│   └── BookMapper.java</span><br><span class="line">├── bean/                        # 实体类</span><br><span class="line">│   └── Book.java</span><br><span class="line">└── config/                      # 配置类</span><br><span class="line">└── CorsConfig.java         # 跨域配置</span><br></pre></td></tr></table></figure>
 
-<p>这样计数器就会显示在”我的梦想”模块下方、音乐播放器上方的位置。</p>
-<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p><img src="https://moe-counter-cf.steabc123.workers.dev/steabc123:github?theme=rule34&length=7&render=pixelated&darkmode=auto" alt="Moe Counter cloudflare"></p>
-<p>现在每次访问主页都能看到实时更新的访问量统计，像素风格跟博客整体搭配起来还算协调。如果想关掉也很简单，把配置文件里的 <code>enable</code> 改成 <code>false</code> 就行。</p>
-<p>因为网络环境原因，我换成了原作者的计数器服务器，所以图片地址也换成了<a target="_blank" rel="noopener" href="https://count.getloli.com/%E7%89%88%E6%9C%AC%E3%80%82%E5%A6%82%E6%9E%9C%E4%BD%A0%E4%B9%9F%E6%83%B3%E7%94%A8%E8%BF%99%E4%B8%AA%E8%AE%A1%E6%95%B0%E5%99%A8%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%8F%82%E8%80%83%E6%88%91%E7%9A%84%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B%EF%BC%8C%E8%87%AA%E5%B7%B1%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%85%8D%E8%B4%B9%E7%9A%84">https://count.getloli.com/版本。如果你也想用这个计数器，可以参考我的部署教程，自己搭建一个免费的</a> Workers 版本。</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>这种小功能的实现其实没什么技术含量，主要是熟悉一下 matery 主题的模板结构。EJS 模板的优势就在于可以直接在 HTML 里写条件判断和循环，改起来比较直观。如果以后想加其他自定义内容，照着这个套路往 <code>_widget</code> 目录扔组件就行了。</p>
+<h2 id="核心实现解析"><a href="#核心实现解析" class="headerlink" title="核心实现解析"></a>核心实现解析</h2><h3 id="1-启动类配置"><a href="#1-启动类配置" class="headerlink" title="1. 启动类配置"></a>1. 启动类配置</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@MapperScan(value = &#123;&quot;com.gk.mybook.mapper&quot;&#125;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MybookApplication</span> &#123;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">SpringApplication.run(MybookApplication.class, args);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>关键点：</p>
+<ul>
+<li><code>@SpringBootApplication</code> 启用自动配置</li>
+<li><code>@MapperScan</code> 扫描 Mapper 接口，避免在每个 Mapper 上单独添加注解</li>
+</ul>
+<h3 id="2-实体类设计"><a href="#2-实体类设计" class="headerlink" title="2. 实体类设计"></a>2. 实体类设计</h3><p>使用 Lombok 大幅简化代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Setter</span></span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Book</span> &#123;</span><br><span class="line"><span class="keyword">private</span> Integer book_id;</span><br><span class="line"><span class="keyword">private</span> String book_title;</span><br><span class="line"><span class="keyword">private</span> String book_author;</span><br><span class="line"><span class="keyword">private</span> Double book_price;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>: 这里同时使用了 <code>@Data</code> 和单独的 <code>@Setter</code>、<code>@Getter</code>，实际上 <code>@Data</code> 已经包含了这些注解，可以精简为只保留 <code>@Data</code>、<code>@NoArgsConstructor</code> 和 <code>@AllArgsConstructor</code>。</p>
+<h3 id="3-数据访问层-Mapper"><a href="#3-数据访问层-Mapper" class="headerlink" title="3. 数据访问层 (Mapper)"></a>3. 数据访问层 (Mapper)</h3><p><strong>接口定义</strong>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Mapper</span></span><br><span class="line"><span class="meta">@Repository</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">BookMapper</span> &#123;</span><br><span class="line">List&lt;Book&gt; <span class="title function_">getAllBooks</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>XML 映射文件</strong> (<code>BookMapper.xml</code>):</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">&quot;com.gk.mybook.mapper.BookMapper&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;getAllBooks&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;com.gk.mybook.bean.Book&quot;</span>&gt;</span></span><br><span class="line">SELECT book_id, book_title, book_author, book_price FROM book</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>MyBatis 的核心优势在于 SQL 与代码分离，便于维护和优化复杂查询。</p>
+<h3 id="4-业务逻辑层-Service"><a href="#4-业务逻辑层-Service" class="headerlink" title="4. 业务逻辑层 (Service)"></a>4. 业务逻辑层 (Service)</h3><p>采用接口 + 实现类的标准模式：</p>
+<p><strong>接口</strong>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">IBookService</span> &#123;</span><br><span class="line">List&lt;Book&gt; <span class="title function_">getBooks</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>实现类</strong>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BookService</span> <span class="keyword">implements</span> <span class="title class_">IBookService</span> &#123;</span><br><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> BookMapper bookMapper;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> List&lt;Book&gt; <span class="title function_">getBooks</span><span class="params">()</span> &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="built_in">this</span>.bookMapper.getAllBooks();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当前实现较为简单，直接透传 Mapper 结果。实际项目中可在此层添加业务校验、数据转换、事务控制等逻辑。</p>
+<h3 id="5-控制层-Controller"><a href="#5-控制层-Controller" class="headerlink" title="5. 控制层 (Controller)"></a>5. 控制层 (Controller)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/book&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BookAction</span> &#123;</span><br><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> IBookService bookService;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/books&quot;)</span></span><br><span class="line">List&lt;Book&gt; <span class="title function_">getBooks</span><span class="params">()</span>&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="built_in">this</span>.bookService.getBooks();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>@RestController</code> &#x3D; <code>@Controller</code> + <code>@ResponseBody</code>，直接返回 JSON 数据</li>
+<li>访问路径: <code>GET /book/books</code></li>
+</ul>
+<h3 id="6-跨域配置"><a href="#6-跨域配置" class="headerlink" title="6. 跨域配置"></a>6. 跨域配置</h3><p>前后端分离架构必须处理 CORS 问题：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CorsConfig</span> &#123;</span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line">CorsFilter <span class="title function_">corsFilter</span><span class="params">()</span> &#123;</span><br><span class="line"><span class="type">CorsConfiguration</span> <span class="variable">configuration</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CorsConfiguration</span>();</span><br><span class="line">configuration.setAllowedOriginPatterns(Collections.singletonList(<span class="string">&quot;*&quot;</span>));</span><br><span class="line">configuration.setAllowedMethods(Collections.singletonList(<span class="string">&quot;*&quot;</span>));</span><br><span class="line">configuration.setAllowedHeaders(Collections.singletonList(<span class="string">&quot;*&quot;</span>));</span><br><span class="line">configuration.setAllowCredentials(<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line"><span class="type">UrlBasedCorsConfigurationSource</span> <span class="variable">source</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">UrlBasedCorsConfigurationSource</span>();</span><br><span class="line">source.registerCorsConfiguration(<span class="string">&quot;/**&quot;</span>, configuration);</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">CorsFilter</span>(source);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>允许所有来源、方法和请求头，支持携带凭证（Cookie）。生产环境建议限制具体的域名。</p>
+<h3 id="7-配置文件"><a href="#7-配置文件" class="headerlink" title="7. 配置文件"></a>7. 配置文件</h3><p><code>application.properties</code>:</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring.application.name</span>=<span class="string">MyBook</span></span><br><span class="line"><span class="attr">spring.datasource.driver-class-name</span>=<span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line"><span class="attr">spring.datasource.url</span>=<span class="string">jdbc:mysql://localhost:3307/bookstore?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=PRC</span></span><br><span class="line"><span class="attr">spring.datasource.username</span>=<span class="string">root</span></span><br><span class="line"><span class="attr">spring.datasource.password</span>=<span class="string">666</span></span><br><span class="line"><span class="attr">mybatis.mapper-locations</span>=<span class="string">classpath:com.gk.mybook.mapper/*.xml</span></span><br></pre></td></tr></table></figure>
+
+<p>关键配置项：</p>
+<ul>
+<li>数据库连接信息（注意端口是 3307 而非常规的 3306）</li>
+<li>MyBatis XML 映射文件位置</li>
+</ul>
+<h2 id="架构特点"><a href="#架构特点" class="headerlink" title="架构特点"></a>架构特点</h2><h3 id="分层清晰"><a href="#分层清晰" class="headerlink" title="分层清晰"></a>分层清晰</h3><ul>
+<li><strong>表现层</strong> (Action): 处理 HTTP 请求，参数校验</li>
+<li><strong>业务层</strong> (Service): 业务逻辑编排，事务控制</li>
+<li><strong>持久层</strong> (Mapper): 数据库操作</li>
+</ul>
+<h3 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h3><p>全程使用 Spring 的 <code>@Autowired</code> 实现组件装配，降低耦合度。</p>
+<h3 id="约定优于配置"><a href="#约定优于配置" class="headerlink" title="约定优于配置"></a>约定优于配置</h3><ul>
+<li>MyBatis 的 XML 命名空间与 Mapper 接口全限定名一致</li>
+<li>Mapper 方法名与 XML 中的 SQL ID 对应</li>
+</ul>
+<h2 id="可优化点"><a href="#可优化点" class="headerlink" title="可优化点"></a>可优化点</h2><h3 id="1-统一响应格式"><a href="#1-统一响应格式" class="headerlink" title="1. 统一响应格式"></a>1. 统一响应格式</h3><p>当前直接返回 <code>List&lt;Book&gt;</code>，建议封装统一响应对象：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Result</span>&lt;T&gt; &#123;</span><br><span class="line"><span class="keyword">private</span> Integer code;</span><br><span class="line"><span class="keyword">private</span> String message;</span><br><span class="line"><span class="keyword">private</span> T data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-异常处理"><a href="#2-异常处理" class="headerlink" title="2. 异常处理"></a>2. 异常处理</h3><p>添加全局异常处理器：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestControllerAdvice</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GlobalExceptionHandler</span> &#123;</span><br><span class="line"><span class="meta">@ExceptionHandler(Exception.class)</span></span><br><span class="line"><span class="keyword">public</span> Result&lt;?&gt; handleException(Exception e) &#123;</span><br><span class="line"><span class="comment">// 统一异常处理</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-减少-Lombok-冗余"><a href="#3-减少-Lombok-冗余" class="headerlink" title="3. 减少 Lombok 冗余"></a>3. 减少 Lombok 冗余</h3><p><code>Book</code> 类中的 <code>@Setter</code> 和 <code>@Getter</code> 可以移除，<code>@Data</code> 已包含。</p>
+<h3 id="4-Controller-方法规范化"><a href="#4-Controller-方法规范化" class="headerlink" title="4. Controller 方法规范化"></a>4. Controller 方法规范化</h3><p>建议使用明确的 HTTP 方法注解：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;/books&quot;)</span>  <span class="comment">// 替代 @RequestMapping</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-日志记录"><a href="#5-日志记录" class="headerlink" title="5. 日志记录"></a>5. 日志记录</h3><p>在 Service 层添加必要的日志输出，便于排查问题。</p>
+<h3 id="6-分页支持"><a href="#6-分页支持" class="headerlink" title="6. 分页支持"></a>6. 分页支持</h3><p>查询全部数据在实际场景中不现实，应添加分页参数：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Book&gt; <span class="title function_">getBooks</span><span class="params">(<span class="type">int</span> pageNum, <span class="type">int</span> pageSize)</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="运行测试"><a href="#运行测试" class="headerlink" title="运行测试"></a>运行测试</h2><p>启动应用后，访问 <code>http://localhost:8080/book/books</code> 即可获取图书列表的 JSON 数据。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这个项目展示了 Spring Boot + MyBatis 的标准开发流程：</p>
+<ol>
+<li>定义实体类映射数据库表</li>
+<li>编写 Mapper 接口和 XML 实现数据访问</li>
+<li>通过 Service 层组织业务逻辑</li>
+<li>用 Controller 暴露 REST API</li>
+<li>配置跨域支持前后端分离</li>
+</ol>
+<p>虽然功能简单，但涵盖了后端开发的核心要素。在此基础上可以继续扩展增删改、条件查询、分页、权限控制等功能，逐步完善为一个完整的图书管理系统。</p>
 
                 
             </div>
@@ -468,7 +519,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://steabc123.github.io/2026/05/06/%E4%B8%BB%E9%A1%B5%E6%B7%BB%E5%8A%A0Moe-Counter/">https://steabc123.github.io/2026/05/06/%E4%B8%BB%E9%A1%B5%E6%B7%BB%E5%8A%A0Moe-Counter/</a>
+                    <a href="https://steabc123.github.io/2026/05/09/%E5%9F%BA%E4%BA%8Espring-boot%E7%9A%84MyBook%E5%90%8E%E7%AB%AF%E5%AE%9E%E7%8E%B0/">https://steabc123.github.io/2026/05/09/%E5%9F%BA%E4%BA%8Espring-boot%E7%9A%84MyBook%E5%90%8E%E7%AB%AF%E5%AE%9E%E7%8E%B0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -506,12 +557,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Hexo/">
-                                    <span class="chip bg-color">Hexo</span>
+                                <a href="/tags/SpringBoot/">
+                                    <span class="chip bg-color">SpringBoot</span>
                                 </a>
                             
-                                <a href="/tags/%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/">
-                                    <span class="chip bg-color">博客美化</span>
+                                <a href="/tags/MyBatis/">
+                                    <span class="chip bg-color">MyBatis</span>
                                 </a>
                             
                         </div>
@@ -594,13 +645,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2026/05/09/%E5%9F%BA%E4%BA%8Espring-boot%E7%9A%84MyBook%E5%90%8E%E7%AB%AF%E5%AE%9E%E7%8E%B0/">
+                <a href="/2026/05/09/%E5%9F%BA%E4%BA%8Evue3%E7%9A%84MyBook%E5%89%8D%E7%AB%AF%E5%AE%9E%E7%8E%B0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="基于spring boot的MyBook后端实现">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="基于vue3的MyBook前端实现">
                         
-                        <span class="card-title">基于spring boot的MyBook后端实现</span>
+                        <span class="card-title">基于vue3的MyBook前端实现</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -624,12 +675,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/SpringBoot/">
-                        <span class="chip bg-color">SpringBoot</span>
+                    <a href="/tags/Vue3/">
+                        <span class="chip bg-color">Vue3</span>
                     </a>
                     
-                    <a href="/tags/MyBatis/">
-                        <span class="chip bg-color">MyBatis</span>
+                    <a href="/tags/ElementPlus/">
+                        <span class="chip bg-color">ElementPlus</span>
                     </a>
                     
                 </div>
@@ -643,13 +694,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2026/05/05/%E5%88%87%E6%8D%A2matery%E4%B8%BB%E9%A2%98%E8%B8%A9%E5%9D%91%E6%80%BB%E7%BB%93/">
+                <a href="/2026/05/06/%E4%B8%BB%E9%A1%B5%E6%B7%BB%E5%8A%A0Moe-Counter/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="切换matery主题踩坑总结">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="给博客主页加了个萌娘计数器">
                         
-                        <span class="card-title">切换matery主题踩坑总结</span>
+                        <span class="card-title">给博客主页加了个萌娘计数器</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -660,7 +711,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-05-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-05-06
                             </span>
                         <span class="publish-author">
                             
@@ -681,12 +732,8 @@
                         <span class="chip bg-color">Hexo</span>
                     </a>
                     
-                    <a href="/tags/GitHub-Pages/">
-                        <span class="chip bg-color">GitHub Pages</span>
-                    </a>
-                    
-                    <a href="/tags/%E4%B8%BB%E9%A2%98%E5%88%87%E6%8D%A2/">
-                        <span class="chip bg-color">主题切换</span>
+                    <a href="/tags/%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/">
+                        <span class="chip bg-color">博客美化</span>
                     </a>
                     
                 </div>
