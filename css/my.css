@@ -41,3 +41,24 @@ body.DarkMode .card-content {
 .carousel-item.bg-cover {
     background-color: transparent !important;
 }
+
+/* 完全移除 banner 区域的紫色渐变遮罩 */
+.bg-cover {
+    background-color: transparent !important;
+}
+
+/* 移除彩虹动画效果 */
+.bg-cover:after {
+    -webkit-animation: none !important;
+    animation: none !important;
+    background: transparent !important;
+}
+
+.bg-cover:before {
+    background: transparent !important;
+}
+
+/* 确保首页 banner 区域完全透明 */
+.pd-header {
+    background: transparent !important;
+}
