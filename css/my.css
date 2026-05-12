@@ -37,14 +37,23 @@ body.DarkMode .card-content {
     display: none !important;
 }
 
-/* 轮播项背景透明 */
+/* 轮播项背景透明 - 保留半透明白色蒙层 */
 .carousel-item.bg-cover {
-    background-color: transparent !important;
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+/* carousel-post 也设置为透明 */
+.carousel-item.carousel-post.bg-cover {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 /* 完全移除 banner 区域的紫色渐变遮罩 */
 .bg-cover {
-    background-color: rgba(255, 255, 255, 0.3) !important;
+    background-color: transparent !important;
 }
 
 /* 移除彩虹动画效果 */
@@ -67,4 +76,22 @@ body.DarkMode .card-content {
 .bg-cover .container {
     position: relative;
     z-index: 2;
+}
+
+/* 轮播图文字颜色调整 - 确保在半透明背景上可读 */
+.carousel-item.bg-cover .title,
+.carousel-item.bg-cover .description {
+    color: #333 !important;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* 轮播按钮样式优化 */
+.carousel-control {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.carousel-control:hover {
+    background-color: rgba(0, 0, 0, 0.4) !important;
 }
