@@ -648,7 +648,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["Hexo","博客搭建","GitHub Pages","博客美化","主题切换","Vue3","ElementPlus","域名配置","SpringBoot","MyBatis"]
+                data: ["Hexo","博客搭建","GitHub Pages","博客美化","主题切换","SpringBoot","MyBatis","Vue3","ElementPlus","git测试"]
             }
         ],
         yAxis: [
@@ -861,24 +861,6 @@
             
             
             
-            <a href="/tags/Vue3/">
-                <span class="chip center-align waves-effect waves-light chip-default">Vue3</span>
-            </a>
-            
-            
-            
-            <a href="/tags/ElementPlus/">
-                <span class="chip center-align waves-effect waves-light chip-default">ElementPlus</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE/">
-                <span class="chip center-align waves-effect waves-light chip-default">域名配置</span>
-            </a>
-            
-            
-            
             <a href="/tags/SpringBoot/">
                 <span class="chip center-align waves-effect waves-light chip-default">SpringBoot</span>
             </a>
@@ -891,8 +873,26 @@
             
             
             
+            <a href="/tags/Vue3/">
+                <span class="chip center-align waves-effect waves-light chip-default">Vue3</span>
+            </a>
+            
+            
+            
+            <a href="/tags/ElementPlus/">
+                <span class="chip center-align waves-effect waves-light chip-default">ElementPlus</span>
+            </a>
+            
+            
+            
             <a href="/tags/git%E6%B5%8B%E8%AF%95/">
                 <span class="chip center-align waves-effect waves-light chip-default">git测试</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE/">
+                <span class="chip center-align waves-effect waves-light chip-default">域名配置</span>
             </a>
             
             
@@ -1226,6 +1226,15 @@ $(function () {
 
     
     
+    
+        
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/sakura.js"><\/script>');
+            }
+        </script>
     
 
     <!-- 雪花特效 -->
