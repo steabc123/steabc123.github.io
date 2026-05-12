@@ -4,8 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="基于vue3的MyBook前端实现, 我的小破站">
-    <meta name="description" content="基于Vue3的MyBook前端实现总结项目概述MyBook是一个基于Vue3 + Vite构建的前端书籍管理应用，主要功能是通过调用后端API获取并展示书籍列表。项目采用现代化的前端技术栈，结合Element Plus UI组件库，实现了简">
+    <meta name="keywords" content="移除Hexo博客首页轮播图片功能, 我的小破站">
+    <meta name="description" content="前言在使用 Hexo + Matery 主题搭建博客的过程中，我发现首页的轮播图功能虽然炫酷，但并不是我需要的。我希望首页更加简洁清爽，因此决定移除轮播图片功能，只保留一个半透明的静态 banner 区域。
+需求分析我的目标是：
+
+✅ 完全">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +20,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>基于vue3的MyBook前端实现 | 我的小破站</title>
+    <title>移除Hexo博客首页轮播图片功能 | 我的小破站</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/cat.ico">
     
     <style>
@@ -343,12 +346,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">基于vue3的MyBook前端实现</h1>
+                    <h1 class="description center-align post-title">移除Hexo博客首页轮播图片功能</h1>
                 </div>
             </div>
         </div>
@@ -372,12 +375,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Vue3/">
-                                <span class="chip bg-color">Vue3</span>
+                            <a href="/tags/Hexo/">
+                                <span class="chip bg-color">Hexo</span>
                             </a>
                         
-                            <a href="/tags/ElementPlus/">
-                                <span class="chip bg-color">ElementPlus</span>
+                            <a href="/tags/%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/">
+                                <span class="chip bg-color">博客美化</span>
+                            </a>
+                        
+                            <a href="/tags/Matery%E4%B8%BB%E9%A2%98/">
+                                <span class="chip bg-color">Matery主题</span>
                             </a>
                         
                     </div>
@@ -401,7 +408,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2026-05-09
+                    2026-05-12
                 </div>
                 
 
@@ -422,117 +429,79 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="基于Vue3的MyBook前端实现总结"><a href="#基于Vue3的MyBook前端实现总结" class="headerlink" title="基于Vue3的MyBook前端实现总结"></a>基于Vue3的MyBook前端实现总结</h1><h2 id="项目概述"><a href="#项目概述" class="headerlink" title="项目概述"></a>项目概述</h2><p>MyBook是一个基于Vue3 + Vite构建的前端书籍管理应用，主要功能是通过调用后端API获取并展示书籍列表。项目采用现代化的前端技术栈，结合Element Plus UI组件库，实现了简洁高效的书籍数据展示界面。</p>
-<h2 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h2><h3 id="核心框架"><a href="#核心框架" class="headerlink" title="核心框架"></a>核心框架</h3><ul>
-<li><strong>Vue 3.5</strong>：采用Composition API和<code>&lt;script setup&gt;</code>语法糖，代码更简洁、类型推导更友好</li>
-<li><strong>Vite 8.0</strong>：下一代前端构建工具，提供极速的开发服务器启动和热更新体验</li>
-</ul>
-<h3 id="UI组件库"><a href="#UI组件库" class="headerlink" title="UI组件库"></a>UI组件库</h3><ul>
-<li><strong>Element Plus 2.13</strong>：基于Vue3的桌面端组件库，提供丰富的UI组件</li>
-</ul>
-<h3 id="HTTP请求"><a href="#HTTP请求" class="headerlink" title="HTTP请求"></a>HTTP请求</h3><ul>
-<li><strong>Axios 1.16</strong>：基于Promise的HTTP客户端，用于与后端SpringBoot服务通信</li>
-</ul>
-<h3 id="自动化工具"><a href="#自动化工具" class="headerlink" title="自动化工具"></a>自动化工具</h3><ul>
-<li><strong>unplugin-auto-import</strong>：自动导入Vue和Element Plus的API，减少手动import</li>
-<li><strong>unplugin-vue-components</strong>：自动按需导入Element Plus组件，优化打包体积</li>
-</ul>
-<h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">vuedemo/</span><br><span class="line">├── src/</span><br><span class="line">│   ├── components/</span><br><span class="line">│   │   └── HelloWorld.vue    # 核心业务组件（书籍列表）</span><br><span class="line">│   ├── assets/               # 静态资源</span><br><span class="line">│   ├── App.vue              # 根组件</span><br><span class="line">│   ├── main.js              # 应用入口</span><br><span class="line">│   └── style.css            # 全局样式</span><br><span class="line">├── vite.config.js           # Vite配置文件</span><br><span class="line">├── package.json             # 项目依赖配置</span><br><span class="line">└── index.html               # HTML模板</span><br></pre></td></tr></table></figure>
-
-<h2 id="核心实现"><a href="#核心实现" class="headerlink" title="核心实现"></a>核心实现</h2><h3 id="1-项目初始化与配置"><a href="#1-项目初始化与配置" class="headerlink" title="1. 项目初始化与配置"></a>1. 项目初始化与配置</h3><h4 id="Vite配置（vite-config-js）"><a href="#Vite配置（vite-config-js）" class="headerlink" title="Vite配置（vite.config.js）"></a>Vite配置（vite.config.js）</h4><p>通过配置自动导入插件，实现开发效率的提升：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineConfig &#125; <span class="keyword">from</span> <span class="string">&#x27;vite&#x27;</span></span><br><span class="line"><span class="keyword">import</span> vue <span class="keyword">from</span> <span class="string">&#x27;@vitejs/plugin-vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">AutoImport</span> <span class="keyword">from</span> <span class="string">&#x27;unplugin-auto-import/vite&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Components</span> <span class="keyword">from</span> <span class="string">&#x27;unplugin-vue-components/vite&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">ElementPlusResolver</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;unplugin-vue-components/resolvers&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineConfig</span>(&#123;</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="title function_">vue</span>(),</span><br><span class="line">    <span class="title class_">AutoImport</span>(&#123;</span><br><span class="line">      <span class="attr">resolvers</span>: [<span class="title class_">ElementPlusResolver</span>()],</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="title class_">Components</span>(&#123;</span><br><span class="line">      <span class="attr">resolvers</span>: [<span class="title class_">ElementPlusResolver</span>()],</span><br><span class="line">    &#125;),</span><br><span class="line">  ],</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>这种配置的优势在于：</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在使用 Hexo + Matery 主题搭建博客的过程中，我发现首页的轮播图功能虽然炫酷，但并不是我需要的。我希望首页更加简洁清爽，因此决定移除轮播图片功能，只保留一个半透明的静态 banner 区域。</p>
+<h2 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h2><p>我的目标是：</p>
 <ul>
-<li>无需手动引入Element Plus组件，直接使用即可</li>
-<li>自动导入Vue的响应式API（ref、reactive等）</li>
-<li>按需加载，减小最终打包体积</li>
+<li>✅ 完全移除首页的轮播图片功能</li>
+<li>✅ 保留原有的标题、描述、按钮等元素</li>
+<li>✅ 使用半透明背景，不遮挡页面背景图</li>
+<li>✅ 简化代码，提高加载性能</li>
 </ul>
-<h3 id="2-应用入口（main-js）"><a href="#2-应用入口（main-js）" class="headerlink" title="2. 应用入口（main.js）"></a>2. 应用入口（main.js）</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;./style.css&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="title function_">createApp</span>(<span class="title class_">App</span>).<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h2><h3 id="1-修改主题配置文件"><a href="#1-修改主题配置文件" class="headerlink" title="1. 修改主题配置文件"></a>1. 修改主题配置文件</h3><p>首先检查 <code>_config.yml</code> 中的配置：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme_config:</span></span><br><span class="line">  <span class="attr">favicon:</span> <span class="string">/cat.ico</span></span><br><span class="line">  <span class="attr">cover:</span></span><br><span class="line">    <span class="attr">useConfig:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span>  <span class="comment"># 保持启用，但实际不使用轮播</span></span><br></pre></td></tr></table></figure>
 
-<p>简洁的入口文件，创建Vue应用实例并挂载到DOM。</p>
-<h3 id="3-根组件（App-vue）"><a href="#3-根组件（App-vue）" class="headerlink" title="3. 根组件（App.vue）"></a>3. 根组件（App.vue）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">import HelloWorld from &#x27;./components/HelloWorld.vue&#x27;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;HelloWorld /&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
-
-<p>采用<code>&lt;script setup&gt;</code>语法，直接引入并渲染子组件。</p>
-<h3 id="4-核心业务组件（HelloWorld-vue）"><a href="#4-核心业务组件（HelloWorld-vue）" class="headerlink" title="4. 核心业务组件（HelloWorld.vue）"></a>4. 核心业务组件（HelloWorld.vue）</h3><p>这是整个应用的核心，实现了书籍数据的获取和展示：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123; ref, reactive &#125; from &#x27;vue&#x27;</span><br><span class="line">import axios from &#x27;axios&#x27;</span><br><span class="line"></span><br><span class="line">defineProps(&#123;</span><br><span class="line">  msg: String</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">const data = reactive(&#123;</span><br><span class="line">  books: []</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 获取书籍数据</span><br><span class="line">const getData = function() &#123;</span><br><span class="line">  axios(&#123;</span><br><span class="line">    url: &#x27;http://localhost:8080/book/books&#x27;,</span><br><span class="line">    method: &#x27;get&#x27;,</span><br><span class="line">    headers: &#123;</span><br><span class="line">      &quot;Access-Control-Allow-Origin&quot;: &quot;*&quot;,</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;).then((res) =&gt; &#123;</span><br><span class="line">    data.books = res.data</span><br><span class="line">    console.log(&#x27;请求成功:&#x27;, data.books)</span><br><span class="line">  &#125;).catch((error) =&gt; &#123;</span><br><span class="line">    console.error(&#x27;请求失败:&#x27;, error)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;h1&gt;&#123;&#123; msg &#125;&#125;&lt;/h1&gt;</span><br><span class="line">  &lt;h2&gt;我的书籍&lt;/h2&gt;</span><br><span class="line">  &lt;el-table :data=&quot;data.books&quot; style=&quot;width: 100%&quot;&gt;</span><br><span class="line">    &lt;el-table-column prop=&quot;book_id&quot; label=&quot;编号&quot; width=&quot;180&quot; /&gt;</span><br><span class="line">    &lt;el-table-column prop=&quot;book_title&quot; label=&quot;书名&quot; width=&quot;180&quot; /&gt;</span><br><span class="line">    &lt;el-table-column prop=&quot;book_author&quot; label=&quot;作者&quot; /&gt;</span><br><span class="line">  &lt;/el-table&gt;</span><br><span class="line">  &lt;el-button type=&quot;primary&quot; @click=&quot;getData&quot;&gt;查阅书籍&lt;/el-button&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="关键技术点解析"><a href="#关键技术点解析" class="headerlink" title="关键技术点解析"></a>关键技术点解析</h4><p><strong>响应式数据管理</strong></p>
-<p>使用<code>reactive</code>创建响应式对象存储书籍列表：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> data = <span class="title function_">reactive</span>(&#123;</span><br><span class="line">  <span class="attr">books</span>: []</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>相比<code>ref</code>，<code>reactive</code>更适合管理复杂对象，访问时无需<code>.value</code>。</p>
-<p><strong>异步数据请求</strong></p>
-<p>通过Axios发起GET请求获取后端数据：</p>
-<ul>
-<li>请求地址：<code>http://localhost:8080/book/books</code></li>
-<li>处理CORS跨域问题</li>
-<li>Promise链式调用处理成功和失败情况</li>
-</ul>
-<p><strong>Element Plus组件使用</strong></p>
-<ul>
-<li><code>el-table</code>：表格组件，展示书籍列表</li>
-<li><code>el-table-column</code>：定义表格列，绑定对应字段</li>
-<li><code>el-button</code>：触发数据加载的按钮</li>
-</ul>
-<h2 id="技术亮点"><a href="#技术亮点" class="headerlink" title="技术亮点"></a>技术亮点</h2><h3 id="1-Composition-API实践"><a href="#1-Composition-API实践" class="headerlink" title="1. Composition API实践"></a>1. Composition API实践</h3><p>采用Vue3的Composition API，逻辑组织更加灵活：</p>
-<ul>
-<li>数据声明集中在顶部</li>
-<li>方法定义清晰明了</li>
-<li>便于后续抽离为composable函数</li>
-</ul>
-<h3 id="2-自动化导入优化"><a href="#2-自动化导入优化" class="headerlink" title="2. 自动化导入优化"></a>2. 自动化导入优化</h3><p>通过unplugin系列插件实现：</p>
-<ul>
-<li>减少样板代码</li>
-<li>提升开发体验</li>
-<li>按需加载优化性能</li>
-</ul>
-<h3 id="3-响应式数据流"><a href="#3-响应式数据流" class="headerlink" title="3. 响应式数据流"></a>3. 响应式数据流</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">用户点击按钮 → 触发getData方法 → Axios发起请求 </span><br><span class="line">→ 接收响应数据 → 更新reactive对象 → 视图自动更新</span><br></pre></td></tr></table></figure>
-
-<p>完整的单向数据流，符合Vue的设计理念。</p>
-<h2 id="可优化方向"><a href="#可优化方向" class="headerlink" title="可优化方向"></a>可优化方向</h2><h3 id="1-生命周期管理"><a href="#1-生命周期管理" class="headerlink" title="1. 生命周期管理"></a>1. 生命周期管理</h3><p>当前需要手动点击按钮加载数据，可以改为组件挂载时自动加载：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; onMounted &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="title function_">onMounted</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">getData</span>()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-错误处理增强"><a href="#2-错误处理增强" class="headerlink" title="2. 错误处理增强"></a>2. 错误处理增强</h3><p>添加用户友好的错误提示：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">ElMessage</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;element-plus&#x27;</span></span><br><span class="line"></span><br><span class="line">.<span class="title function_">catch</span>(<span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="title class_">ElMessage</span>.<span class="title function_">error</span>(<span class="string">&#x27;获取书籍列表失败，请检查网络连接&#x27;</span>)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;请求失败:&#x27;</span>, error)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-加载状态管理"><a href="#3-加载状态管理" class="headerlink" title="3. 加载状态管理"></a>3. 加载状态管理</h3><p>添加loading状态提升用户体验：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> loading = <span class="title function_">ref</span>(<span class="literal">false</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> getData = <span class="keyword">async</span> <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  loading.<span class="property">value</span> = <span class="literal">true</span></span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> res = <span class="keyword">await</span> axios.<span class="title function_">get</span>(<span class="string">&#x27;http://localhost:8080/book/books&#x27;</span>)</span><br><span class="line">    data.<span class="property">books</span> = res.<span class="property">data</span></span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="title class_">ElMessage</span>.<span class="title function_">error</span>(<span class="string">&#x27;获取失败&#x27;</span>)</span><br><span class="line">  &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    loading.<span class="property">value</span> = <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>配合Element Plus的loading指令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vue</span><br><span class="line">&lt;el-table v-loading=&quot;loading&quot; :data=&quot;data.books&quot;&gt;&lt;/el-table&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-环境变量配置"><a href="#4-环境变量配置" class="headerlink" title="4. 环境变量配置"></a>4. 环境变量配置</h3><p>将API地址提取到环境变量：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// .env.development</span></span><br><span class="line"><span class="variable constant_">VITE_API_BASE_URL</span>=<span class="attr">http</span>:<span class="comment">//localhost:8080</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 代码中使用</span></span><br><span class="line"><span class="keyword">const</span> baseURL = <span class="keyword">import</span>.<span class="property">meta</span>.<span class="property">env</span>.<span class="property">VITE_API_BASE_URL</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="5-封装API模块"><a href="#5-封装API模块" class="headerlink" title="5. 封装API模块"></a>5. 封装API模块</h3><p>将Axios请求封装为独立的API模块：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// api/book.js</span></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">getBooks</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> axios.<span class="title function_">get</span>(<span class="string">&#x27;/book/books&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="6-路由管理"><a href="#6-路由管理" class="headerlink" title="6. 路由管理"></a>6. 路由管理</h3><p>如果后续增加更多页面，建议引入Vue Router进行路由管理。</p>
-<h2 id="前后端联调注意事项"><a href="#前后端联调注意事项" class="headerlink" title="前后端联调注意事项"></a>前后端联调注意事项</h2><h3 id="CORS跨域问题"><a href="#CORS跨域问题" class="headerlink" title="CORS跨域问题"></a>CORS跨域问题</h3><p>前端运行在Vite默认端口（通常是5173），后端运行在8080端口，存在跨域问题。解决方案：</p>
-<p><strong>方案一：后端配置CORS</strong>（推荐）</p>
-<p>在SpringBoot后端添加跨域配置。</p>
-<p><strong>方案二：Vite代理配置</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vite.config.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineConfig</span>(&#123;</span><br><span class="line">  <span class="attr">server</span>: &#123;</span><br><span class="line">    <span class="attr">proxy</span>: &#123;</span><br><span class="line">      <span class="string">&#x27;/book&#x27;</span>: &#123;</span><br><span class="line">        <span class="attr">target</span>: <span class="string">&#x27;http://localhost:8080&#x27;</span>,</span><br><span class="line">        <span class="attr">changeOrigin</span>: <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>这样前端请求<code>/book/books</code>会被代理到后端，避免跨域问题。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>MyBook项目虽然功能简单，但涵盖了Vue3开发的核心知识点：</p>
+<h3 id="2-修改-index-cover-ejs-模板文件"><a href="#2-修改-index-cover-ejs-模板文件" class="headerlink" title="2. 修改 index-cover.ejs 模板文件"></a>2. 修改 index-cover.ejs 模板文件</h3><p>文件位置：<code>themes/hexo-theme-matery/layout/_partial/index-cover.ejs</code></p>
+<p><strong>主要改动：</strong></p>
 <ol>
-<li><strong>现代化技术栈</strong>：Vue3 + Vite + Element Plus的组合是当前Vue开发的主流选择</li>
-<li><strong>Composition API</strong>：提供了更好的逻辑组织和代码复用能力</li>
-<li><strong>自动化工具链</strong>：unplugin系列插件大幅提升开发效率</li>
-<li><strong>组件化思维</strong>：清晰的组件层级和职责划分</li>
-<li><strong>响应式原理</strong>：理解reactive和ref的使用场景</li>
-</ol>
-<p>对于初学者来说，这个项目是理解Vue3核心概念的很好起点。在此基础上可以继续扩展：</p>
+<li><p><strong>删除获取封面文章的逻辑</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 删除以下代码 --&gt;</span><br><span class="line">&lt;%</span><br><span class="line">var coverPosts = [];</span><br><span class="line">site.posts.forEach(function (post) &#123;</span><br><span class="line">    if (post.cover) &#123;</span><br><span class="line">        coverPosts.push(post);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">var coverPostsCount = coverPosts.length;</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>将轮播容器改为普通 div</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 原来 --&gt;</span><br><span class="line">&lt;div class=&quot;carousel carousel-slider center index-cover&quot; data-indicators=&quot;true&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;carousel-item white-text bg-cover about-cover&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 修改后 --&gt;</span><br><span class="line">&lt;div class=&quot;bg-cover index-cover&quot; style=&quot;margin-top: -64px;&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;container&quot;&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>删除所有文章轮播项</strong></p>
 <ul>
-<li>添加书籍的增删改查功能</li>
-<li>实现搜索和筛选</li>
-<li>添加分页功能</li>
-<li>集成状态管理（Pinia）</li>
-<li>添加单元测试</li>
+<li>移除了第 48-105 行的文章轮播循环代码</li>
+<li>只保留第一个”关于”页面的内容</li>
 </ul>
-<p>随着功能的迭代，逐步掌握Vue生态的更多工具和最佳实践。</p>
+</li>
+<li><p><strong>删除 JavaScript 轮播逻辑</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 删除以下所有 JS 代码 --&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    $(function () &#123;</span><br><span class="line">        let coverSlider = $(&#x27;.carousel&#x27;);</span><br><span class="line">        // ... 所有轮播相关的 JS 代码</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="3-优化-CSS-样式"><a href="#3-优化-CSS-样式" class="headerlink" title="3. 优化 CSS 样式"></a>3. 优化 CSS 样式</h3><p>文件位置：<code>source/css/my.css</code></p>
+<p>添加以下样式：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 首页封面区域透明效果 - 已移除轮播功能 */</span></span><br><span class="line"><span class="selector-class">.bg-cover</span><span class="selector-class">.index-cover</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.15</span>) <span class="meta">!important</span>;</span><br><span class="line">    <span class="attribute">backdrop-filter</span>: <span class="built_in">blur</span>(<span class="number">5px</span>);</span><br><span class="line">    -webkit-<span class="attribute">backdrop-filter</span>: <span class="built_in">blur</span>(<span class="number">5px</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 移除封面区域的渐变遮罩 */</span></span><br><span class="line"><span class="selector-class">.bg-cover</span><span class="selector-class">.index-cover</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-class">.bg-cover</span><span class="selector-class">.index-cover</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: none <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="效果对比"><a href="#效果对比" class="headerlink" title="效果对比"></a>效果对比</h2><h3 id="修改前"><a href="#修改前" class="headerlink" title="修改前"></a>修改前</h3><ul>
+<li>❌ 自动轮播多张封面图片</li>
+<li>❌ 有左右切换按钮</li>
+<li>❌ 有指示器 dots</li>
+<li>❌ 需要加载大量图片和 JavaScript</li>
+<li>❌ 代码复杂（51行）</li>
+</ul>
+<h3 id="修改后"><a href="#修改后" class="headerlink" title="修改后"></a>修改后</h3><ul>
+<li>✅ 静态显示，无轮播</li>
+<li>✅ 无切换按钮和指示器</li>
+<li>✅ 15%白色半透明背景 + 毛玻璃效果</li>
+<li>✅ 不遮挡 background 背景图</li>
+<li>✅ 代码简洁（26行，减少49%）</li>
+<li>✅ 保留了所有原有功能（标题、按钮、社交链接等）</li>
+</ul>
+<h2 id="技术要点"><a href="#技术要点" class="headerlink" title="技术要点"></a>技术要点</h2><h3 id="1-半透明背景实现"><a href="#1-半透明背景实现" class="headerlink" title="1. 半透明背景实现"></a>1. 半透明背景实现</h3><p>使用 <code>rgba(255, 255, 255, 0.15)</code> 实现15%的白色透明度，配合 <code>backdrop-filter: blur(5px)</code> 实现毛玻璃效果。</p>
+<h3 id="2-移除渐变遮罩"><a href="#2-移除渐变遮罩" class="headerlink" title="2. 移除渐变遮罩"></a>2. 移除渐变遮罩</h3><p>Matery 主题默认会在 <code>.bg-cover</code> 上添加彩虹渐变动画（通过 <code>:before</code> 和 <code>:after</code> 伪元素），需要将其隐藏：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.bg-cover</span><span class="selector-class">.index-cover</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-class">.bg-cover</span><span class="selector-class">.index-cover</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: none <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-保留原有功能"><a href="#3-保留原有功能" class="headerlink" title="3. 保留原有功能"></a>3. 保留原有功能</h3><p>虽然移除了轮播，但以下功能都完整保留：</p>
+<ul>
+<li>博客标题和副标题（支持打字机效果）</li>
+<li>“开始阅读”按钮</li>
+<li>GitHub 按钮</li>
+<li>社交链接图标</li>
+<li>Moe Counter 访问计数器</li>
+</ul>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li><strong>清理缓存</strong>：修改后需要执行 <code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</code> 才能看到效果</li>
+<li><strong>不影响其他页面</strong>：只对首页生效，其他页面的 banner 不受影响</li>
+<li><strong>备份原文件</strong>：建议在修改前备份原始文件</li>
+<li><strong>主题更新</strong>：如果将来更新主题，可能需要重新应用这些修改</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过这次修改，我成功地将首页从复杂的轮播图改为了简洁的静态 banner，不仅提升了视觉效果，还减少了不必要的资源加载，提高了页面性能。半透明的设计既保持了现代感，又不会遮挡精心选择的背景图。</p>
+<p>如果你也喜欢简洁的风格，不妨试试这个方案！</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">Hexo 官方文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery">Matery 主题文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://caniuse.com/css-backdrop-filter">CSS backdrop-filter 兼容性</a></li>
+</ul>
 
                 
             </div>
@@ -559,7 +528,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://steabc123.github.io/2026/05/09/%E5%9F%BA%E4%BA%8Evue3%E7%9A%84MyBook%E5%89%8D%E7%AB%AF%E5%AE%9E%E7%8E%B0/">https://steabc123.github.io/2026/05/09/%E5%9F%BA%E4%BA%8Evue3%E7%9A%84MyBook%E5%89%8D%E7%AB%AF%E5%AE%9E%E7%8E%B0/</a>
+                    <a href="https://steabc123.github.io/2026/05/12/%E7%A7%BB%E9%99%A4Hexo%E5%8D%9A%E5%AE%A2%E9%A6%96%E9%A1%B5%E8%BD%AE%E6%92%AD%E5%9B%BE%E7%89%87%E5%8A%9F%E8%83%BD/">https://steabc123.github.io/2026/05/12/%E7%A7%BB%E9%99%A4Hexo%E5%8D%9A%E5%AE%A2%E9%A6%96%E9%A1%B5%E8%BD%AE%E6%92%AD%E5%9B%BE%E7%89%87%E5%8A%9F%E8%83%BD/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -597,12 +566,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Vue3/">
-                                    <span class="chip bg-color">Vue3</span>
+                                <a href="/tags/Hexo/">
+                                    <span class="chip bg-color">Hexo</span>
                                 </a>
                             
-                                <a href="/tags/ElementPlus/">
-                                    <span class="chip bg-color">ElementPlus</span>
+                                <a href="/tags/%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/">
+                                    <span class="chip bg-color">博客美化</span>
+                                </a>
+                            
+                                <a href="/tags/Matery%E4%B8%BB%E9%A2%98/">
+                                    <span class="chip bg-color">Matery主题</span>
                                 </a>
                             
                         </div>
@@ -681,9 +654,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2026/05/12/%E7%A7%BB%E9%99%A4Hexo%E5%8D%9A%E5%AE%A2%E9%A6%96%E9%A1%B5%E8%BD%AE%E6%92%AD%E5%9B%BE%E7%89%87%E5%8A%9F%E8%83%BD/">
                     <div class="card-image">
@@ -701,9 +675,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2026-05-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-05-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -716,6 +690,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -742,13 +717,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2026/05/09/%E5%9F%BA%E4%BA%8Espring-boot%E7%9A%84MyBook%E5%90%8E%E7%AB%AF%E5%AE%9E%E7%8E%B0/">
+                <a href="/2026/05/09/%E5%9F%BA%E4%BA%8Evue3%E7%9A%84MyBook%E5%89%8D%E7%AB%AF%E5%AE%9E%E7%8E%B0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="基于spring boot的MyBook后端实现">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="基于vue3的MyBook前端实现">
                         
-                        <span class="card-title">基于spring boot的MyBook后端实现</span>
+                        <span class="card-title">基于vue3的MyBook前端实现</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -776,12 +751,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/SpringBoot/">
-                        <span class="chip bg-color">SpringBoot</span>
+                    <a href="/tags/Vue3/">
+                        <span class="chip bg-color">Vue3</span>
                     </a>
                     
-                    <a href="/tags/MyBatis/">
-                        <span class="chip bg-color">MyBatis</span>
+                    <a href="/tags/ElementPlus/">
+                        <span class="chip bg-color">ElementPlus</span>
                     </a>
                     
                 </div>
