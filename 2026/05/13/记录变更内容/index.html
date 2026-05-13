@@ -440,10 +440,11 @@ GitHub链接更新：将默认的主题作者GitHub链接替换为您的个人�
 <li><strong>其他启用功能</strong>：如音乐播放器（<code>music.enable: true</code>）、萌娘计数器（<code>moeCounter.enable: true</code>）、樱花效果（<code>sakura.enable: true</code>）等，可能根据您的需求调整。</li>
 </ul>
 <h3 id="2-自定义CSS样式（source-css-my-css）"><a href="#2-自定义CSS样式（source-css-my-css）" class="headerlink" title="2. 自定义CSS样式（source/css/my.css）"></a>2. <strong>自定义CSS样式</strong>（<code>source/css/my.css</code>）</h3><ul>
-<li>添加了半透明效果：文章卡片和内容区域使用<code>rgba</code>背景色和<code>backdrop-filter</code>模糊。</li>
-<li>暗色模式适配：为DarkMode下的卡片和内容区域调整背景色。</li>
-<li>Banner动画恢复：为轮播图添加彩虹渐变动画遮罩。</li>
-<li>布局调整：确保首页Banner区域正常显示。</li>
+<li><strong>透明效果</strong>：文章卡片使用透明背景（<code>background-color: transparent</code>）、细边框（<code>border: 1px solid rgba(255, 255, 255, 0.2)</code>）、阴影和模糊效果（<code>backdrop-filter: blur(10px)</code>），营造玻璃态视觉。</li>
+<li><strong>悬停动画</strong>：鼠标悬停时边框更明显、阴影增强，并有轻微上移效果。</li>
+<li><strong>暗色模式适配</strong>：在DarkMode下调整边框颜色和阴影深度。</li>
+<li><strong>Banner动画恢复</strong>：为轮播图添加彩虹渐变动画遮罩。</li>
+<li><strong>布局调整</strong>：确保首页Banner区域正常显示。</li>
 </ul>
 <h3 id="3-页面配置"><a href="#3-页面配置" class="headerlink" title="3. 页面配置"></a>3. <strong>页面配置</strong></h3><ul>
 <li><strong>分类和标签页面</strong>：在<code>source/categories/index.md</code>和<code>source/tags/index.md</code>中添加了必要的front-matter字段（如<code>type</code>和<code>layout</code>），确保页面正确渲染。</li>
