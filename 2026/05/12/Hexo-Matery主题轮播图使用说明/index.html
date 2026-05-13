@@ -4,10 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hexo Matery主题轮播图使用说明, 我的小破站">
-    <meta name="description" content="轮播图功能已恢复首页轮播图功能已经完全恢复！现在你可以通过以下方式使用轮播图功能。
-如何让文章出现在轮播图中方法一：在文章 Front-matter 中设置 cover在你的文章开头添加 cover: true：
-1234567---tit">
+    <meta name="keywords" content="Matery主题轮播图折腾记：从移除到恢复的完整过程, 我的小破站">
+    <meta name="description" content="今天把Matery主题的首页轮播图折腾了一圈，从移除到恢复，中间还遇到了彩虹遮罩不显示的问题。记录一下具体改了哪些文件，方便以后查阅，也希望能帮到遇到同样问题的朋友。
+先说结论如果你只是想使用轮播图，只需要在文章的 Front-matter">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hexo Matery主题轮播图使用说明 | 我的小破站</title>
+    <title>Matery主题轮播图折腾记：从移除到恢复的完整过程 | 我的小破站</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/cat.ico">
     
     <style>
@@ -345,12 +344,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hexo Matery主题轮播图使用说明</h1>
+                    <h1 class="description center-align post-title">Matery主题轮播图折腾记：从移除到恢复的完整过程</h1>
                 </div>
             </div>
         </div>
@@ -382,8 +381,8 @@
                                 <span class="chip bg-color">Matery主题</span>
                             </a>
                         
-                            <a href="/tags/%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE/">
-                                <span class="chip bg-color">博客配置</span>
+                            <a href="/tags/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">
+                                <span class="chip bg-color">踩坑记录</span>
                             </a>
                         
                     </div>
@@ -428,65 +427,164 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="轮播图功能已恢复"><a href="#轮播图功能已恢复" class="headerlink" title="轮播图功能已恢复"></a>轮播图功能已恢复</h2><p>首页轮播图功能已经完全恢复！现在你可以通过以下方式使用轮播图功能。</p>
-<h2 id="如何让文章出现在轮播图中"><a href="#如何让文章出现在轮播图中" class="headerlink" title="如何让文章出现在轮播图中"></a>如何让文章出现在轮播图中</h2><h3 id="方法一：在文章-Front-matter-中设置-cover"><a href="#方法一：在文章-Front-matter-中设置-cover" class="headerlink" title="方法一：在文章 Front-matter 中设置 cover"></a>方法一：在文章 Front-matter 中设置 cover</h3><p>在你的文章开头添加 <code>cover: true</code>：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">你的文章标题</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2026-05-12 16:00:00</span></span><br><span class="line"><span class="attr">tags:</span> [<span class="string">标签1</span>, <span class="string">标签2</span>]</span><br><span class="line"><span class="attr">categories:</span> [<span class="string">分类</span>]</span><br><span class="line"><span class="attr">cover:</span> <span class="literal">true</span>  <span class="comment"># 添加这一行</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+                <p>今天把Matery主题的首页轮播图折腾了一圈，从移除到恢复，中间还遇到了彩虹遮罩不显示的问题。记录一下具体改了哪些文件，方便以后查阅，也希望能帮到遇到同样问题的朋友。</p>
+<h2 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h2><p>如果你只是想<strong>使用轮播图</strong>，只需要在文章的 Front-matter 里加一行 <code>cover: true</code> 就行。但如果你想<strong>定制轮播图的样式</strong>（比如移除或恢复），就需要修改几个关键文件。</p>
+<h2 id="如何启用轮播图"><a href="#如何启用轮播图" class="headerlink" title="如何启用轮播图"></a>如何启用轮播图</h2><p>这是最简单的部分。在你的文章开头加上：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">文章标题</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2026-05-12</span></span><br><span class="line"><span class="attr">cover:</span> <span class="literal">true</span>  <span class="comment"># 就加这一行</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="方法二：指定自定义封面图片"><a href="#方法二：指定自定义封面图片" class="headerlink" title="方法二：指定自定义封面图片"></a>方法二：指定自定义封面图片</h3><p>如果你想为文章指定特定的封面图片：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">你的文章标题</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2026-05-12 16:00:00</span></span><br><span class="line"><span class="attr">cover:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">coverImg:</span> <span class="string">/medias/featureimages/0.jpg</span>  <span class="comment"># 自定义封面图片路径</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+<p>想指定封面图片的话：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">cover:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">coverImg:</span> <span class="string">/medias/featureimages/0.jpg</span></span><br></pre></td></tr></table></figure>
 
-<p>或者使用 <code>img</code> 属性：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">你的文章标题</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2026-05-12 16:00:00</span></span><br><span class="line"><span class="attr">cover:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">img:</span> <span class="string">/path/to/your/image.jpg</span>  <span class="comment"># 也可以使用 img 属性</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+<p>主题自带了24张默认图片，路径是 <code>/medias/featureimages/0.jpg</code> 到 <code>23.jpg</code>，随便挑一张用就行。</p>
+<p>配置项在 <code>themes/hexo-theme-matery/_config.yml</code> 的第62-67行：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">cover:</span></span><br><span class="line">  <span class="attr">showPrevNext:</span> <span class="literal">true</span>      <span class="comment"># 左右切换按钮</span></span><br><span class="line">  <span class="attr">showIndicators:</span> <span class="literal">true</span>    <span class="comment"># 底部小圆点</span></span><br><span class="line">  <span class="attr">autoLoop:</span> <span class="literal">true</span>         <span class="comment"># 自动轮播</span></span><br><span class="line">  <span class="attr">duration:</span> <span class="number">120</span>          <span class="comment"># 切换动画时间（毫秒）</span></span><br><span class="line">  <span class="attr">intervalTime:</span> <span class="number">5000</span>     <span class="comment"># 轮播间隔（毫秒）</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="轮播图配置说明"><a href="#轮播图配置说明" class="headerlink" title="轮播图配置说明"></a>轮播图配置说明</h2><p>轮播图的配置在 <code>themes/hexo-theme-matery/_config.yml</code> 文件中：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">cover:</span></span><br><span class="line">  <span class="attr">showPrevNext:</span> <span class="literal">true</span>        <span class="comment"># 是否显示左右切换按钮</span></span><br><span class="line">  <span class="attr">showIndicators:</span> <span class="literal">true</span>      <span class="comment"># 是否显示指示器（小圆点）</span></span><br><span class="line">  <span class="attr">autoLoop:</span> <span class="literal">true</span>           <span class="comment"># 是否自动轮播</span></span><br><span class="line">  <span class="attr">duration:</span> <span class="number">120</span>            <span class="comment"># 切换动画持续时间（毫秒）</span></span><br><span class="line">  <span class="attr">intervalTime:</span> <span class="number">5000</span>       <span class="comment"># 自动切换间隔时间（毫秒）</span></span><br><span class="line">  <span class="attr">useConfig:</span> <span class="literal">false</span>         <span class="comment"># 是否使用配置文件方式</span></span><br></pre></td></tr></table></figure>
+<h2 id="移除轮播图（改造成静态Banner）"><a href="#移除轮播图（改造成静态Banner）" class="headerlink" title="移除轮播图（改造成静态Banner）"></a>移除轮播图（改造成静态Banner）</h2><h3 id="为什么要移除？"><a href="#为什么要移除？" class="headerlink" title="为什么要移除？"></a>为什么要移除？</h3><p>一开始我觉得轮播图太花哨，想要个简洁的静态banner，半透明背景，不遮挡页面背景图。</p>
+<h3 id="需要修改的文件"><a href="#需要修改的文件" class="headerlink" title="需要修改的文件"></a>需要修改的文件</h3><h4 id="1-修改模板文件"><a href="#1-修改模板文件" class="headerlink" title="1. 修改模板文件"></a>1. 修改模板文件</h4><p><strong>文件：</strong> <code>themes/hexo-theme-matery/layout/_partial/index-cover.ejs</code></p>
+<p><strong>操作：</strong> 把整个文件内容替换成下面的代码（原来有169行，改成26行）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;bg-cover index-cover&quot; style=&quot;margin-top: -64px;&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;container&quot;&gt;</span><br><span class="line">        &lt;%- partial(&#x27;_partial/bg-cover-content&#x27;) %&gt;</span><br><span class="line"></span><br><span class="line">        &lt;div class=&quot;cover-btns&quot;&gt;</span><br><span class="line">            &lt;a href=&quot;&lt;%=</span><br><span class="line">                    [theme.dream, theme.music, theme.video, theme.recommend]</span><br><span class="line">                            .some(i=&gt;i.enable)? &quot;#indexCard&quot;: &quot;#articles&quot;</span><br><span class="line">                    %&gt;&quot; class=&quot;waves-effect waves-light btn&quot;&gt;</span><br><span class="line">                &lt;i class=&quot;fa fa-angle-double-down&quot;&gt;&lt;/i&gt;&lt;%- __(&#x27;startRead&#x27;) %&gt;</span><br><span class="line">            &lt;/a&gt;</span><br><span class="line"></span><br><span class="line">            &lt;% if (theme.indexbtn &amp;&amp; theme.indexbtn.enable) &#123; %&gt;</span><br><span class="line">                &lt;a href=&quot;&lt;%- url_for(theme.indexbtn.url) %&gt;&quot; class=&quot;waves-effect waves-light btn&quot; target=&quot;_blank&quot;&gt;</span><br><span class="line">                    &lt;i class=&quot;&lt;%- theme.indexbtn.icon %&gt;&quot;&gt;&lt;/i&gt;&lt;%= theme.indexbtn.name %&gt;</span><br><span class="line">                &lt;/a&gt;</span><br><span class="line">            &lt;% &#125; else if (theme.githubLink.enable) &#123; %&gt;</span><br><span class="line">                &lt;a href=&quot;&lt;%- theme.githubLink.url %&gt;&quot; class=&quot;waves-effect waves-light btn&quot; target=&quot;_blank&quot;&gt;</span><br><span class="line">                    &lt;i class=&quot;fab fa-github %&gt;&quot;&gt;&lt;/i&gt;&lt;%= theme.githubLink.title %&gt;</span><br><span class="line">                &lt;/a&gt;</span><br><span class="line">            &lt;% &#125; %&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;cover-social-link&quot;&gt;&lt;%- partial(&#x27;_partial/social-link&#x27;) %&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 
-<h2 id="高级配置：使用-data-covers-json"><a href="#高级配置：使用-data-covers-json" class="headerlink" title="高级配置：使用 _data&#x2F;covers.json"></a>高级配置：使用 _data&#x2F;covers.json</h2><p>如果你想要更精细地控制轮播图，可以启用 <code>useConfig: true</code>，然后在 <code>source/_data/covers.json</code> 中配置：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">[</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;post&quot;</span><span class="punctuation">:</span> <span class="string">&quot;基于spring-boot的MyBook后端实现&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;cover&quot;</span><span class="punctuation">:</span> <span class="string">&quot;/medias/featureimages/0.jpg&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;reason&quot;</span><span class="punctuation">:</span> <span class="string">&quot;推荐这篇文章介绍Spring Boot后端开发&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;post&quot;</span><span class="punctuation">:</span> <span class="string">&quot;基于vue3的MyBook前端实现&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;cover&quot;</span><span class="punctuation">:</span> <span class="string">&quot;/medias/featureimages/1.jpg&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;reason&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Vue3前端开发的完整实践&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
-
-<p>然后将主题配置改为：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">cover:</span></span><br><span class="line">  <span class="attr">useConfig:</span> <span class="literal">true</span>  <span class="comment"># 改为 true</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="示例：为现有文章添加封面"><a href="#示例：为现有文章添加封面" class="headerlink" title="示例：为现有文章添加封面"></a>示例：为现有文章添加封面</h2><p>你可以选择几篇重要的文章添加封面，例如：</p>
-<h3 id="1-MyBook后端实现"><a href="#1-MyBook后端实现" class="headerlink" title="1. MyBook后端实现"></a>1. MyBook后端实现</h3><p>编辑 <code>source/_posts/基于spring-boot的MyBook后端实现.md</code>：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">基于spring</span> <span class="string">boot的MyBook后端实现</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2026-05-09 09:51:25</span></span><br><span class="line"><span class="attr">tags:</span> [<span class="string">SpringBoot</span>,<span class="string">MyBatis</span>]</span><br><span class="line"><span class="attr">categories:</span> [<span class="string">技术笔记</span>]</span><br><span class="line"><span class="attr">cover:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">coverImg:</span> <span class="string">/medias/featureimages/5.jpg</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-MyBook前端实现"><a href="#2-MyBook前端实现" class="headerlink" title="2. MyBook前端实现"></a>2. MyBook前端实现</h3><p>编辑 <code>source/_posts/基于vue3的MyBook前端实现.md</code>：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">基于vue3的MyBook前端实现</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2026-05-09 10:00:00</span></span><br><span class="line"><span class="attr">tags:</span> [<span class="string">Vue3</span>,<span class="string">ElementPlus</span>]</span><br><span class="line"><span class="attr">categories:</span> [<span class="string">技术笔记</span>]</span><br><span class="line"><span class="attr">cover:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">coverImg:</span> <span class="string">/medias/featureimages/6.jpg</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="3-Hexo搭建问题总结"><a href="#3-Hexo搭建问题总结" class="headerlink" title="3. Hexo搭建问题总结"></a>3. Hexo搭建问题总结</h3><p>编辑 <code>source/_posts/hexo搭建过程遇到的一些问题.md</code>：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">hexo搭建过程遇到的一些问题</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2026-05-02 19:23:00</span></span><br><span class="line"><span class="attr">tags:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Hexo</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">博客搭建</span></span><br><span class="line"><span class="attr">categories:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">技术笔记</span></span><br><span class="line"><span class="attr">cover:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">coverImg:</span> <span class="string">/medias/featureimages/7.jpg</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="可用的封面图片"><a href="#可用的封面图片" class="headerlink" title="可用的封面图片"></a>可用的封面图片</h2><p>Matery 主题提供了 24 张默认的封面图片，位于：</p>
+<p><strong>删掉了什么：</strong></p>
 <ul>
-<li><code>/medias/featureimages/0.jpg</code> 到 <code>/medias/featureimages/23.jpg</code></li>
+<li>获取封面文章的JavaScript逻辑（第1-10行）</li>
+<li>轮播容器和左右切换按钮（第12-20行）</li>
+<li>所有文章轮播项的循环代码（第48-105行）</li>
+<li>整个轮播的JavaScript初始化代码（第108-168行）</li>
 </ul>
-<p>你也可以使用自己的图片：</p>
+<p><strong>保留了什么：</strong></p>
+<ul>
+<li>博客标题和副标题</li>
+<li>“开始阅读”按钮</li>
+<li>GitHub按钮</li>
+<li>社交链接</li>
+</ul>
+<h4 id="2-添加自定义CSS"><a href="#2-添加自定义CSS" class="headerlink" title="2. 添加自定义CSS"></a>2. 添加自定义CSS</h4><p><strong>文件：</strong> <code>source/css/my.css</code></p>
+<p><strong>添加以下代码：</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 首页banner半透明效果 */</span></span><br><span class="line"><span class="selector-class">.bg-cover</span><span class="selector-class">.index-cover</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.15</span>) <span class="meta">!important</span>;</span><br><span class="line">    <span class="attribute">backdrop-filter</span>: <span class="built_in">blur</span>(<span class="number">5px</span>);</span><br><span class="line">    -webkit-<span class="attribute">backdrop-filter</span>: <span class="built_in">blur</span>(<span class="number">5px</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 移除渐变遮罩 */</span></span><br><span class="line"><span class="selector-class">.bg-cover</span><span class="selector-class">.index-cover</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-class">.bg-cover</span><span class="selector-class">.index-cover</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: none <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样就能得到半透明的静态banner，不会遮挡背景图。</p>
+<h2 id="恢复轮播图"><a href="#恢复轮播图" class="headerlink" title="恢复轮播图"></a>恢复轮播图</h2><h3 id="为什么要恢复？"><a href="#为什么要恢复？" class="headerlink" title="为什么要恢复？"></a>为什么要恢复？</h3><p>后来发现轮播图其实挺有用的，可以突出几篇重要文章，而且去掉之后感觉首页少了点活力。</p>
+<h3 id="需要修改的文件-1"><a href="#需要修改的文件-1" class="headerlink" title="需要修改的文件"></a>需要修改的文件</h3><h4 id="1-恢复模板文件"><a href="#1-恢复模板文件" class="headerlink" title="1. 恢复模板文件"></a>1. 恢复模板文件</h4><p><strong>文件：</strong> <code>themes/hexo-theme-matery/layout/_partial/index-cover.ejs</code></p>
+<p><strong>操作：</strong> 把之前简化的代码删掉，恢复成完整的169行代码。完整代码太长就不贴了，主要包含：</p>
+<ul>
+<li>第1-10行：获取设置了 <code>cover: true</code> 的文章</li>
+<li>第12-20行：轮播容器和左右切换按钮</li>
+<li>第22-46行：第一个”关于”页面的banner</li>
+<li>第48-105行：文章轮播项的循环</li>
+<li>第108-168行：轮播的JavaScript初始化代码</li>
+</ul>
+<p>如果不确定怎么恢复，可以从Matery主题的GitHub仓库重新下载这个文件。</p>
+<h4 id="2-恢复彩虹渐变遮罩"><a href="#2-恢复彩虹渐变遮罩" class="headerlink" title="2. 恢复彩虹渐变遮罩"></a>2. 恢复彩虹渐变遮罩</h4><p><strong>文件：</strong> <code>source/css/my.css</code></p>
+<p><strong>删除之前添加的半透明样式，改成：</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 彩虹渐变遮罩 - 适配轮播图结构 */</span></span><br><span class="line"><span class="selector-class">.carousel-item</span><span class="selector-class">.bg-cover</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    -webkit-<span class="attribute">animation</span>: rainbow <span class="number">60s</span> infinite;</span><br><span class="line">    <span class="attribute">animation</span>: rainbow <span class="number">60s</span> infinite;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.carousel-item</span><span class="selector-class">.bg-cover</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-class">.carousel-item</span><span class="selector-class">.bg-cover</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">z-index</span>: <span class="number">1</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.carousel-item</span><span class="selector-class">.bg-cover</span> <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">    <span class="attribute">z-index</span>: <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>关键点：</strong> 选择器要用 <code>.carousel-item.bg-cover</code>，不能用 <code>.bg-cover</code>。因为轮播图里，<code>.bg-cover</code> 是 <code>.carousel-item</code> 的子元素，直接用 <code>.bg-cover</code> 选不中。</p>
+<p>彩虹动画的定义在主题自带的 <code>themes/hexo-theme-matery/source/css/matery.css</code> 第596-686行，不用自己写。</p>
+<h2 id="遇到的坑"><a href="#遇到的坑" class="headerlink" title="遇到的坑"></a>遇到的坑</h2><h2 id="彩虹渐变遮罩的恢复"><a href="#彩虹渐变遮罩的恢复" class="headerlink" title="彩虹渐变遮罩的恢复"></a>彩虹渐变遮罩的恢复</h2><h3 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h3><p>之前为了去掉轮播图，我在 <code>my.css</code> 里加了这段代码来隐藏遮罩：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.bg-cover</span><span class="selector-class">.index-cover</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-class">.bg-cover</span><span class="selector-class">.index-cover</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: none <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>现在要恢复轮播图，这段代码就得删掉，不然遮罩层还是被隐藏了。</p>
+<h3 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a>具体操作</h3><p><strong>文件位置：</strong> <code>source/css/my.css</code></p>
+<p><strong>步骤1：删除禁用遮罩的代码</strong></p>
+<p>找到并删除下面这几行（大概在文件的第30-45行左右）：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 首页封面区域透明效果 - 已移除轮播功能 */</span></span><br><span class="line"><span class="selector-class">.bg-cover</span><span class="selector-class">.index-cover</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.15</span>) <span class="meta">!important</span>;</span><br><span class="line">    <span class="attribute">backdrop-filter</span>: <span class="built_in">blur</span>(<span class="number">5px</span>);</span><br><span class="line">    -webkit-<span class="attribute">backdrop-filter</span>: <span class="built_in">blur</span>(<span class="number">5px</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 移除封面区域的渐变遮罩 */</span></span><br><span class="line"><span class="selector-class">.bg-cover</span><span class="selector-class">.index-cover</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-class">.bg-cover</span><span class="selector-class">.index-cover</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: none <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>步骤2：添加正确的遮罩样式</strong></p>
+<p>在同一个文件里添加：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 彩虹渐变遮罩 - 适配轮播图结构 */</span></span><br><span class="line"><span class="selector-class">.carousel-item</span><span class="selector-class">.bg-cover</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    -webkit-<span class="attribute">animation</span>: rainbow <span class="number">60s</span> infinite;</span><br><span class="line">    <span class="attribute">animation</span>: rainbow <span class="number">60s</span> infinite;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.carousel-item</span><span class="selector-class">.bg-cover</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-class">.carousel-item</span><span class="selector-class">.bg-cover</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">z-index</span>: <span class="number">1</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.carousel-item</span><span class="selector-class">.bg-cover</span> <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">    <span class="attribute">z-index</span>: <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>关键点说明：</strong></p>
 <ol>
-<li>将图片放到 <code>source/medias/</code> 目录下</li>
-<li>在文章中引用：<code>coverImg: /medias/your-image.jpg</code></li>
-</ol>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
-<li><strong>至少需要一篇设置了 <code>cover: true</code> 的文章</strong>，否则轮播图只会显示默认的关于页面</li>
-<li><strong>建议使用横版图片</strong>作为封面，比例约为 16:9 或 3:2</li>
-<li><strong>图片大小建议控制在 500KB 以内</strong>，以提升加载速度</li>
-<li><strong>修改后需要重新生成</strong>：<code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</code></li>
-</ol>
-<h2 id="轮播图效果"><a href="#轮播图效果" class="headerlink" title="轮播图效果"></a>轮播图效果</h2><p>恢复后的轮播图具有以下特性：</p>
-<ul>
-<li>✅ 自动轮播（每5秒切换一次）</li>
-<li>✅ 左右切换按钮</li>
-<li>✅ 底部指示器（小圆点）</li>
-<li>✅ 触摸&#x2F;拖动支持</li>
-<li>✅ 平滑过渡动画</li>
-<li>✅ 响应式设计</li>
-</ul>
-<h2 id="关闭某篇文章的轮播"><a href="#关闭某篇文章的轮播" class="headerlink" title="关闭某篇文章的轮播"></a>关闭某篇文章的轮播</h2><p>如果之前设置了 <code>cover: true</code>，但现在不想让它出现在轮播图中，只需改为：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">cover:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<li><p><strong>选择器必须是 <code>.carousel-item.bg-cover</code></strong></p>
+<p>这是最容易踩坑的地方。轮播图的HTML结构是这样的：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel carousel-slider&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel-item bg-cover&quot;</span>&gt;</span>  <span class="comment">&lt;!-- 注意这里有两个class --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>或者直接删除 <code>cover</code> 这一行。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>轮播图功能已经完全恢复，你只需要在想要展示的文章中添加 <code>cover: true</code> 即可。建议选择 3-5 篇重要或精彩的文章作为轮播内容，这样既能突出优质内容，又不会让轮播图过于冗长。</p>
-<p>祝你使用愉快！🎉</p>
+<p>如果只用 <code>.bg-cover:after</code>，浏览器找不到的，因为 <code>.bg-cover</code> 外面还包着一层 <code>.carousel-item</code>。必须写成 <code>.carousel-item.bg-cover:after</code> 才能选中。</p>
+</li>
+<li><p><strong>不用重复定义动画</strong></p>
+<p><code>rainbow</code> 动画已经在主题的 <code>matery.css</code> 里定义好了（第596-686行），我们只需要调用就行，不用再写一遍 <code>@keyframes</code>。</p>
+</li>
+<li><p><strong>z-index层级很重要</strong></p>
+<ul>
+<li>遮罩层（<code>:before</code> 和 <code>:after</code>）的 <code>z-index: 1</code></li>
+<li>内容容器（<code>.container</code>）的 <code>z-index: 2</code></li>
+</ul>
+<p>这样文字和按钮才能在遮罩上面显示出来，不然就被盖住了。</p>
+</li>
+</ol>
+<h3 id="验证是否成功"><a href="#验证是否成功" class="headerlink" title="验证是否成功"></a>验证是否成功</h3><p>改完保存后：</p>
+<ol>
+<li>运行 <code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</code></li>
+<li>打开 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a></li>
+<li><strong>按 <code>Ctrl + F5</code> 硬刷新</strong>（这一步很关键！）</li>
+<li>应该能看到banner上有紫色到粉色的渐变遮罩，并且会慢慢变色</li>
+</ol>
+<p>如果还是看不到：</p>
+<ul>
+<li>按 <code>F12</code> 打开开发者工具</li>
+<li>切换到 Elements 标签</li>
+<li>找到 <code>&lt;div class=&quot;carousel-item bg-cover&quot;&gt;</code> 这个元素</li>
+<li>看它的 <code>:after</code> 伪元素有没有应用 <code>animation: rainbow 60s infinite</code></li>
+<li>检查有没有其他CSS规则把它覆盖了（比如 <code>display: none</code>）</li>
+</ul>
+<h2 id="其他常见问题"><a href="#其他常见问题" class="headerlink" title="其他常见问题"></a>其他常见问题</h2><h3 id="Edge浏览器不显示遮罩"><a href="#Edge浏览器不显示遮罩" class="headerlink" title="Edge浏览器不显示遮罩"></a>Edge浏览器不显示遮罩</h3><p><strong>现象：</strong> Firefox正常，Edge和Chrome看不到彩虹渐变。</p>
+<p><strong>原因：</strong> 浏览器缓存了旧的CSS文件。</p>
+<p><strong>解决：</strong> 硬刷新就行。</p>
+<ul>
+<li>Windows: <code>Ctrl + F5</code></li>
+<li>Mac: <code>Cmd + Shift + R</code></li>
+</ul>
+<p>我之前以为是兼容性问题，加了一堆 <code>-moz-</code>、<code>-o-</code> 前缀，结果发现根本没必要。现代浏览器都支持标准CSS动画，清除缓存就好了。</p>
+<p><strong>教训：</strong> 遇到显示问题先清缓存，别急着改代码。</p>
+<h2 id="快速对照表"><a href="#快速对照表" class="headerlink" title="快速对照表"></a>快速对照表</h2><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>修改的文件</th>
+<th>具体位置</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>启用轮播图</td>
+<td>文章Front-matter</td>
+<td>添加 <code>cover: true</code></td>
+<td>最简单的方式</td>
+</tr>
+<tr>
+<td>移除轮播图</td>
+<td><code>index-cover.ejs</code></td>
+<td>整个文件简化成26行</td>
+<td>删除轮播逻辑</td>
+</tr>
+<tr>
+<td>移除轮播图</td>
+<td><code>my.css</code></td>
+<td>添加半透明样式</td>
+<td>可选，美化用</td>
+</tr>
+<tr>
+<td>恢复轮播图</td>
+<td><code>index-cover.ejs</code></td>
+<td>恢复完整169行代码</td>
+<td>从GitHub重新下载</td>
+</tr>
+<tr>
+<td>恢复遮罩</td>
+<td><code>my.css</code></td>
+<td>添加 <code>.carousel-item.bg-cover</code> 样式</td>
+<td>注意选择器</td>
+</tr>
+</tbody></table>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>折腾这一圈下来，有几个心得：</p>
+<ol>
+<li><strong>改之前先备份</strong>：特别是模板文件，改错了很难找回</li>
+<li><strong>善用开发者工具</strong>：F12看DOM结构和CSS应用情况，比瞎猜快多了</li>
+<li><strong>缓存是大坑</strong>：CSS改了不生效，90%是缓存问题，先硬刷新试试</li>
+<li><strong>保持代码简洁</strong>：不要为了兼容性加一堆没用的前缀，现在浏览器都很标准了</li>
+</ol>
+<p>轮播图本身不难配置，难的是理解它的DOM结构和CSS选择器的关系。搞清楚这一点，想怎么改就怎么改。</p>
+<p>希望这篇记录能帮到你！</p>
 
                 
             </div>
@@ -559,8 +657,8 @@
                                     <span class="chip bg-color">Matery主题</span>
                                 </a>
                             
-                                <a href="/tags/%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE/">
-                                    <span class="chip bg-color">博客配置</span>
+                                <a href="/tags/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">
+                                    <span class="chip bg-color">踩坑记录</span>
                                 </a>
                             
                         </div>
@@ -648,9 +746,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Hexo Matery主题轮播图使用说明">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Matery主题轮播图折腾记：从移除到恢复的完整过程">
                         
-                        <span class="card-title">Hexo Matery主题轮播图使用说明</span>
+                        <span class="card-title">Matery主题轮播图折腾记：从移除到恢复的完整过程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -687,8 +785,8 @@
                         <span class="chip bg-color">Matery主题</span>
                     </a>
                     
-                    <a href="/tags/%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE/">
-                        <span class="chip bg-color">博客配置</span>
+                    <a href="/tags/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">
+                        <span class="chip bg-color">踩坑记录</span>
                     </a>
                     
                 </div>
