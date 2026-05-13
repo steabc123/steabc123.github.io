@@ -26,29 +26,3 @@ body.DarkMode .card-content {
     background-color: rgba(30, 30, 30, 0.7) !important;
 }
 
-/* 完全移除 banner 区域的紫色渐变遮罩 */
-.bg-cover {
-    background-color: transparent !important;
-}
-
-/* 移除彩虹动画效果 */
-.bg-cover:after {
-    -webkit-animation: none !important;
-    animation: none !important;
-    background: transparent !important;
-}
-
-.bg-cover:before {
-    background: transparent !important;
-}
-
-/* 确保首页 banner 区域显示半透明白色 */
-.pd-header {
-    background: transparent !important;
-}
-
-/* 首页 banner 半透明白色蒙层 */
-.bg-cover .container {
-    position: relative;
-    z-index: 2;
-}
