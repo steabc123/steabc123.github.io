@@ -26,19 +26,6 @@ body.DarkMode .card-content {
     background-color: rgba(30, 30, 30, 0.7) !important;
 }
 
-/* 首页封面区域透明效果 - 已移除轮播功能 */
-.bg-cover.index-cover {
-    background-color: rgba(255, 255, 255, 0.15) !important;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-}
-
-/* 移除封面区域的渐变遮罩 */
-.bg-cover.index-cover:before,
-.bg-cover.index-cover:after {
-    display: none !important;
-}
-
 /* 完全移除 banner 区域的紫色渐变遮罩 */
 .bg-cover {
     background-color: transparent !important;

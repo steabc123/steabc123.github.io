@@ -4,10 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hexo 博客 matery 主题配置踩坑记录, 我的小破站">
-    <meta name="description" content="前言最近把博客主题从默认的 landscape 换成了 matery，过程中遇到了一些配置问题，这里记录一下关键的配置步骤，避免以后重复踩坑。
-分类和标签页面配置创建分类和标签页面时，很多人会漏掉关键字段，导致页面无法正常显示。
-分类页面在">
+    <meta name="keywords" content="Hexo Matery主题轮播图使用说明, 我的小破站">
+    <meta name="description" content="轮播图功能已恢复首页轮播图功能已经完全恢复！现在你可以通过以下方式使用轮播图功能。
+如何让文章出现在轮播图中方法一：在文章 Front-matter 中设置 cover在你的文章开头添加 cover: true：
+1234567---tit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +19,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hexo 博客 matery 主题配置踩坑记录 | 我的小破站</title>
+    <title>Hexo Matery主题轮播图使用说明 | 我的小破站</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/cat.ico">
     
     <style>
@@ -345,12 +345,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hexo 博客 matery 主题配置踩坑记录</h1>
+                    <h1 class="description center-align post-title">Hexo Matery主题轮播图使用说明</h1>
                 </div>
             </div>
         </div>
@@ -378,12 +378,12 @@
                                 <span class="chip bg-color">Hexo</span>
                             </a>
                         
-                            <a href="/tags/GitHub-Pages/">
-                                <span class="chip bg-color">GitHub Pages</span>
+                            <a href="/tags/Matery%E4%B8%BB%E9%A2%98/">
+                                <span class="chip bg-color">Matery主题</span>
                             </a>
                         
-                            <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
-                                <span class="chip bg-color">博客搭建</span>
+                            <a href="/tags/%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE/">
+                                <span class="chip bg-color">博客配置</span>
                             </a>
                         
                     </div>
@@ -407,7 +407,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2026-05-05
+                    2026-05-12
                 </div>
                 
 
@@ -428,35 +428,65 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近把博客主题从默认的 landscape 换成了 matery，过程中遇到了一些配置问题，这里记录一下关键的配置步骤，避免以后重复踩坑。</p>
-<h2 id="分类和标签页面配置"><a href="#分类和标签页面配置" class="headerlink" title="分类和标签页面配置"></a>分类和标签页面配置</h2><p>创建分类和标签页面时，很多人会漏掉关键字段，导致页面无法正常显示。</p>
-<h3 id="分类页面"><a href="#分类页面" class="headerlink" title="分类页面"></a>分类页面</h3><p>在 <code>source/categories/index.md</code> 中，必须包含以下配置：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">categories</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2026-05-05 12:50:23</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&quot;categories&quot;</span></span><br><span class="line"><span class="attr">layout:</span> <span class="string">&quot;categories&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+                <h2 id="轮播图功能已恢复"><a href="#轮播图功能已恢复" class="headerlink" title="轮播图功能已恢复"></a>轮播图功能已恢复</h2><p>首页轮播图功能已经完全恢复！现在你可以通过以下方式使用轮播图功能。</p>
+<h2 id="如何让文章出现在轮播图中"><a href="#如何让文章出现在轮播图中" class="headerlink" title="如何让文章出现在轮播图中"></a>如何让文章出现在轮播图中</h2><h3 id="方法一：在文章-Front-matter-中设置-cover"><a href="#方法一：在文章-Front-matter-中设置-cover" class="headerlink" title="方法一：在文章 Front-matter 中设置 cover"></a>方法一：在文章 Front-matter 中设置 cover</h3><p>在你的文章开头添加 <code>cover: true</code>：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">你的文章标题</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2026-05-12 16:00:00</span></span><br><span class="line"><span class="attr">tags:</span> [<span class="string">标签1</span>, <span class="string">标签2</span>]</span><br><span class="line"><span class="attr">categories:</span> [<span class="string">分类</span>]</span><br><span class="line"><span class="attr">cover:</span> <span class="literal">true</span>  <span class="comment"># 添加这一行</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="标签页面"><a href="#标签页面" class="headerlink" title="标签页面"></a>标签页面</h3><p>在 <code>source/tags/index.md</code> 中，同样需要完整配置：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">tags</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2026-05-05 12:51:03</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&quot;tags&quot;</span></span><br><span class="line"><span class="attr">layout:</span> <span class="string">&quot;tags&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+<h3 id="方法二：指定自定义封面图片"><a href="#方法二：指定自定义封面图片" class="headerlink" title="方法二：指定自定义封面图片"></a>方法二：指定自定义封面图片</h3><p>如果你想为文章指定特定的封面图片：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">你的文章标题</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2026-05-12 16:00:00</span></span><br><span class="line"><span class="attr">cover:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">coverImg:</span> <span class="string">/medias/featureimages/0.jpg</span>  <span class="comment"># 自定义封面图片路径</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
 
-<p><strong>关键点：</strong></p>
+<p>或者使用 <code>img</code> 属性：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">你的文章标题</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2026-05-12 16:00:00</span></span><br><span class="line"><span class="attr">cover:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">img:</span> <span class="string">/path/to/your/image.jpg</span>  <span class="comment"># 也可以使用 img 属性</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="轮播图配置说明"><a href="#轮播图配置说明" class="headerlink" title="轮播图配置说明"></a>轮播图配置说明</h2><p>轮播图的配置在 <code>themes/hexo-theme-matery/_config.yml</code> 文件中：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">cover:</span></span><br><span class="line">  <span class="attr">showPrevNext:</span> <span class="literal">true</span>        <span class="comment"># 是否显示左右切换按钮</span></span><br><span class="line">  <span class="attr">showIndicators:</span> <span class="literal">true</span>      <span class="comment"># 是否显示指示器（小圆点）</span></span><br><span class="line">  <span class="attr">autoLoop:</span> <span class="literal">true</span>           <span class="comment"># 是否自动轮播</span></span><br><span class="line">  <span class="attr">duration:</span> <span class="number">120</span>            <span class="comment"># 切换动画持续时间（毫秒）</span></span><br><span class="line">  <span class="attr">intervalTime:</span> <span class="number">5000</span>       <span class="comment"># 自动切换间隔时间（毫秒）</span></span><br><span class="line">  <span class="attr">useConfig:</span> <span class="literal">false</span>         <span class="comment"># 是否使用配置文件方式</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="高级配置：使用-data-covers-json"><a href="#高级配置：使用-data-covers-json" class="headerlink" title="高级配置：使用 _data&#x2F;covers.json"></a>高级配置：使用 _data&#x2F;covers.json</h2><p>如果你想要更精细地控制轮播图，可以启用 <code>useConfig: true</code>，然后在 <code>source/_data/covers.json</code> 中配置：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">[</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;post&quot;</span><span class="punctuation">:</span> <span class="string">&quot;基于spring-boot的MyBook后端实现&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;cover&quot;</span><span class="punctuation">:</span> <span class="string">&quot;/medias/featureimages/0.jpg&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;reason&quot;</span><span class="punctuation">:</span> <span class="string">&quot;推荐这篇文章介绍Spring Boot后端开发&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;post&quot;</span><span class="punctuation">:</span> <span class="string">&quot;基于vue3的MyBook前端实现&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;cover&quot;</span><span class="punctuation">:</span> <span class="string">&quot;/medias/featureimages/1.jpg&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;reason&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Vue3前端开发的完整实践&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
+
+<p>然后将主题配置改为：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">cover:</span></span><br><span class="line">  <span class="attr">useConfig:</span> <span class="literal">true</span>  <span class="comment"># 改为 true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="示例：为现有文章添加封面"><a href="#示例：为现有文章添加封面" class="headerlink" title="示例：为现有文章添加封面"></a>示例：为现有文章添加封面</h2><p>你可以选择几篇重要的文章添加封面，例如：</p>
+<h3 id="1-MyBook后端实现"><a href="#1-MyBook后端实现" class="headerlink" title="1. MyBook后端实现"></a>1. MyBook后端实现</h3><p>编辑 <code>source/_posts/基于spring-boot的MyBook后端实现.md</code>：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">基于spring</span> <span class="string">boot的MyBook后端实现</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2026-05-09 09:51:25</span></span><br><span class="line"><span class="attr">tags:</span> [<span class="string">SpringBoot</span>,<span class="string">MyBatis</span>]</span><br><span class="line"><span class="attr">categories:</span> [<span class="string">技术笔记</span>]</span><br><span class="line"><span class="attr">cover:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">coverImg:</span> <span class="string">/medias/featureimages/5.jpg</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-MyBook前端实现"><a href="#2-MyBook前端实现" class="headerlink" title="2. MyBook前端实现"></a>2. MyBook前端实现</h3><p>编辑 <code>source/_posts/基于vue3的MyBook前端实现.md</code>：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">基于vue3的MyBook前端实现</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2026-05-09 10:00:00</span></span><br><span class="line"><span class="attr">tags:</span> [<span class="string">Vue3</span>,<span class="string">ElementPlus</span>]</span><br><span class="line"><span class="attr">categories:</span> [<span class="string">技术笔记</span>]</span><br><span class="line"><span class="attr">cover:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">coverImg:</span> <span class="string">/medias/featureimages/6.jpg</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Hexo搭建问题总结"><a href="#3-Hexo搭建问题总结" class="headerlink" title="3. Hexo搭建问题总结"></a>3. Hexo搭建问题总结</h3><p>编辑 <code>source/_posts/hexo搭建过程遇到的一些问题.md</code>：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">hexo搭建过程遇到的一些问题</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2026-05-02 19:23:00</span></span><br><span class="line"><span class="attr">tags:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Hexo</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">博客搭建</span></span><br><span class="line"><span class="attr">categories:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">技术笔记</span></span><br><span class="line"><span class="attr">cover:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">coverImg:</span> <span class="string">/medias/featureimages/7.jpg</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="可用的封面图片"><a href="#可用的封面图片" class="headerlink" title="可用的封面图片"></a>可用的封面图片</h2><p>Matery 主题提供了 24 张默认的封面图片，位于：</p>
 <ul>
-<li><code>type</code> 字段告诉 Hexo 这是什么类型的页面</li>
-<li><code>layout</code> 字段指定使用哪个模板渲染</li>
-<li>两个字段缺一不可，否则页面会是空白</li>
+<li><code>/medias/featureimages/0.jpg</code> 到 <code>/medias/featureimages/23.jpg</code></li>
 </ul>
-<h2 id="修改-GitHub-链接"><a href="#修改-GitHub-链接" class="headerlink" title="修改 GitHub 链接"></a>修改 GitHub 链接</h2><p>matery 主题默认配置的是主题作者的 GitHub 链接，需要改成自己的。主要在主题的 <code>_config.yml</code> 中修改三处：</p>
-<h3 id="1-首页-Banner-按钮"><a href="#1-首页-Banner-按钮" class="headerlink" title="1. 首页 Banner 按钮"></a>1. 首页 Banner 按钮</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">indexbtn:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">Github</span></span><br><span class="line">  <span class="attr">icon:</span> <span class="string">fab</span> <span class="string">fa-github-alt</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">https://github.com/steabc123</span>  <span class="comment"># 改成自己的</span></span><br></pre></td></tr></table></figure>
+<p>你也可以使用自己的图片：</p>
+<ol>
+<li>将图片放到 <code>source/medias/</code> 目录下</li>
+<li>在文章中引用：<code>coverImg: /medias/your-image.jpg</code></li>
+</ol>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li><strong>至少需要一篇设置了 <code>cover: true</code> 的文章</strong>，否则轮播图只会显示默认的关于页面</li>
+<li><strong>建议使用横版图片</strong>作为封面，比例约为 16:9 或 3:2</li>
+<li><strong>图片大小建议控制在 500KB 以内</strong>，以提升加载速度</li>
+<li><strong>修改后需要重新生成</strong>：<code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</code></li>
+</ol>
+<h2 id="轮播图效果"><a href="#轮播图效果" class="headerlink" title="轮播图效果"></a>轮播图效果</h2><p>恢复后的轮播图具有以下特性：</p>
+<ul>
+<li>✅ 自动轮播（每5秒切换一次）</li>
+<li>✅ 左右切换按钮</li>
+<li>✅ 底部指示器（小圆点）</li>
+<li>✅ 触摸&#x2F;拖动支持</li>
+<li>✅ 平滑过渡动画</li>
+<li>✅ 响应式设计</li>
+</ul>
+<h2 id="关闭某篇文章的轮播"><a href="#关闭某篇文章的轮播" class="headerlink" title="关闭某篇文章的轮播"></a>关闭某篇文章的轮播</h2><p>如果之前设置了 <code>cover: true</code>，但现在不想让它出现在轮播图中，只需改为：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">cover:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="2-社交链接"><a href="#2-社交链接" class="headerlink" title="2. 社交链接"></a>2. 社交链接</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">socialLink:</span></span><br><span class="line">  <span class="attr">github:</span> <span class="string">https://github.com/steabc123</span>  <span class="comment"># 改成自己的</span></span><br><span class="line">  <span class="attr">email:</span> <span class="string">your-email@example.com</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="3-Header-角标"><a href="#3-Header-角标" class="headerlink" title="3. Header 角标"></a>3. Header 角标</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">githubLink:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">https://github.com/steabc123</span>  <span class="comment"># 改成自己的</span></span><br><span class="line">  <span class="attr">title:</span> <span class="string">Fork</span> <span class="string">Me</span></span><br></pre></td></tr></table></figure>
-
-<p>改完这三处，页面上所有的 GitHub 链接就都指向自己的主页了。</p>
-<h2 id="部署验证"><a href="#部署验证" class="headerlink" title="部署验证"></a>部署验证</h2><p>配置完成后，执行以下命令重新生成和部署：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>或者简写为：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo cl &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>matery 主题的配置其实不难，关键是要看清楚文档，该填的字段别漏掉。特别是分类和标签页面的 <code>type</code> 和 <code>layout</code> 字段，少了任何一个都会导致页面渲染异常。</p>
+<p>或者直接删除 <code>cover</code> 这一行。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>轮播图功能已经完全恢复，你只需要在想要展示的文章中添加 <code>cover: true</code> 即可。建议选择 3-5 篇重要或精彩的文章作为轮播内容，这样既能突出优质内容，又不会让轮播图过于冗长。</p>
+<p>祝你使用愉快！🎉</p>
 
                 
             </div>
@@ -483,7 +513,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://steabc123.github.io/2026/05/05/%E5%88%87%E6%8D%A2matery%E4%B8%BB%E9%A2%98%E6%B5%8B%E8%AF%95/">https://steabc123.github.io/2026/05/05/%E5%88%87%E6%8D%A2matery%E4%B8%BB%E9%A2%98%E6%B5%8B%E8%AF%95/</a>
+                    <a href="https://steabc123.github.io/2026/05/12/Hexo-Matery%E4%B8%BB%E9%A2%98%E8%BD%AE%E6%92%AD%E5%9B%BE%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/">https://steabc123.github.io/2026/05/12/Hexo-Matery%E4%B8%BB%E9%A2%98%E8%BD%AE%E6%92%AD%E5%9B%BE%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -525,12 +555,12 @@
                                     <span class="chip bg-color">Hexo</span>
                                 </a>
                             
-                                <a href="/tags/GitHub-Pages/">
-                                    <span class="chip bg-color">GitHub Pages</span>
+                                <a href="/tags/Matery%E4%B8%BB%E9%A2%98/">
+                                    <span class="chip bg-color">Matery主题</span>
                                 </a>
                             
-                                <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
-                                    <span class="chip bg-color">博客搭建</span>
+                                <a href="/tags/%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE/">
+                                    <span class="chip bg-color">博客配置</span>
                                 </a>
                             
                         </div>
@@ -609,17 +639,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2026/05/05/%E5%88%87%E6%8D%A2matery%E4%B8%BB%E9%A2%98%E8%B8%A9%E5%9D%91%E6%80%BB%E7%BB%93/">
+                <a href="/2026/05/12/Hexo-Matery%E4%B8%BB%E9%A2%98%E8%BD%AE%E6%92%AD%E5%9B%BE%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="切换matery主题踩坑总结">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Hexo Matery主题轮播图使用说明">
                         
-                        <span class="card-title">切换matery主题踩坑总结</span>
+                        <span class="card-title">Hexo Matery主题轮播图使用说明</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -629,9 +660,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2026-05-05
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-05-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -644,6 +675,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -651,12 +683,12 @@
                         <span class="chip bg-color">Hexo</span>
                     </a>
                     
-                    <a href="/tags/GitHub-Pages/">
-                        <span class="chip bg-color">GitHub Pages</span>
+                    <a href="/tags/Matery%E4%B8%BB%E9%A2%98/">
+                        <span class="chip bg-color">Matery主题</span>
                     </a>
                     
-                    <a href="/tags/%E4%B8%BB%E9%A2%98%E5%88%87%E6%8D%A2/">
-                        <span class="chip bg-color">主题切换</span>
+                    <a href="/tags/%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE/">
+                        <span class="chip bg-color">博客配置</span>
                     </a>
                     
                 </div>
@@ -670,13 +702,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2026/05/03/%E8%A7%A3%E5%86%B3%E7%BD%91%E7%AB%99%E6%A0%87%E7%AD%BE%E9%A1%B5%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA/">
+                <a href="/2026/05/12/%E7%A7%BB%E9%99%A4Hexo%E5%8D%9A%E5%AE%A2%E9%A6%96%E9%A1%B5%E8%BD%AE%E6%92%AD%E5%9B%BE%E7%89%87%E5%8A%9F%E8%83%BD/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="解决网站标签页图片不显示">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="移除Hexo博客首页轮播图片功能">
                         
-                        <span class="card-title">解决网站标签页图片不显示</span>
+                        <span class="card-title">移除Hexo博客首页轮播图片功能</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -687,7 +719,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-05-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-05-12
                             </span>
                         <span class="publish-author">
                             
@@ -708,8 +740,12 @@
                         <span class="chip bg-color">Hexo</span>
                     </a>
                     
-                    <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
-                        <span class="chip bg-color">博客搭建</span>
+                    <a href="/tags/Matery%E4%B8%BB%E9%A2%98/">
+                        <span class="chip bg-color">Matery主题</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/">
+                        <span class="chip bg-color">博客美化</span>
                     </a>
                     
                 </div>
