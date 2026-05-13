@@ -26,27 +26,14 @@ body.DarkMode .card-content {
     background-color: rgba(30, 30, 30, 0.7) !important;
 }
 
-/* 恢复首页 banner 的彩虹渐变动画遮罩 */
-.bg-cover {
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: 60vh;
-    padding: 0;
-    border: 0;
-    overflow: hidden;
-    background-position: center center;
-    background-size: cover;
-    transform: translate3d(0px, 0px, 0px);
-}
-
-.bg-cover:after {
+/* 恢复首页 banner 的彩虹渐变动画遮罩 - 适配轮播图结构 */
+.carousel-item.bg-cover:after {
     -webkit-animation: rainbow 60s infinite;
     animation: rainbow 60s infinite;
 }
 
-.bg-cover:before,
-.bg-cover:after {
+.carousel-item.bg-cover:before,
+.carousel-item.bg-cover:after {
     position: absolute;
     z-index: 1;
     width: 100%;
@@ -57,7 +44,7 @@ body.DarkMode .card-content {
     content: "";
 }
 
-.bg-cover .container {
+.carousel-item.bg-cover .container {
     position: relative;
     color: #fff;
     z-index: 2;
