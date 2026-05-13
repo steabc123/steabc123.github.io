@@ -1,57 +1,57 @@
-/* 文章卡片半透明效果 */
-.card {
-    background-color: rgba(255, 255, 255, 0.85) !important;
+/* 文章卡片透明效果 - 重写实现 */
+.articles .card,
+.index-card .card {
+    background-color: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
 
-/* 文章内容区域半透明 */
-.card-content {
-    background-color: rgba(255, 255, 255, 0.7) !important;
+.articles .card:hover,
+.index-card .card:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
 }
 
-/* 首页推荐文章卡片 */
+/* 文章内容区域透明 */
+.articles .card-content,
+.index-card .card-content {
+    background-color: transparent !important;
+    border-radius: 0 0 8px 8px;
+}
+
+/* 首页推荐文章卡片透明 */
 .recommend .card {
-    background-color: rgba(255, 255, 255, 0.85) !important;
+    background-color: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
 
-/* 暗色模式下的半透明效果 */
-body.DarkMode .card {
-    background-color: rgba(30, 30, 30, 0.85) !important;
+.recommend .card:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
 }
 
-body.DarkMode .card-content {
-    background-color: rgba(30, 30, 30, 0.7) !important;
+/* 暗色模式下的透明效果 */
+body.DarkMode .articles .card,
+body.DarkMode .index-card .card,
+body.DarkMode .recommend .card {
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* 恢复首页 banner 的彩虹渐变动画遮罩 - 适配轮播图结构 */
-.carousel-item.bg-cover:after {
-    -webkit-animation: rainbow 60s infinite;
-    animation: rainbow 60s infinite;
+body.DarkMode .articles .card:hover,
+body.DarkMode .index-card .card:hover,
+body.DarkMode .recommend .card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
 }
-
-.carousel-item.bg-cover:before,
-.carousel-item.bg-cover:after {
-    position: absolute;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    display: block;
-    left: 0;
-    top: 0;
-    content: "";
-}
-
-.carousel-item.bg-cover .container {
-    position: relative;
-    color: #fff;
-    z-index: 2;
-}
-
-/* 确保首页 banner 区域显示正常 */
-.pd-header {
-    margin-top: -64px;
-}
-
