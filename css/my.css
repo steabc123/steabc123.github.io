@@ -1,7 +1,7 @@
-/* 文章卡片透明效果 - 重写实现 */
+/* 文章卡片半透明效果 - 重写实现 */
 .articles .card,
 .index-card .card {
-    background-color: transparent !important;
+    background-color: rgba(255, 255, 255, 0.9) !important;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -12,21 +12,22 @@
 
 .articles .card:hover,
 .index-card .card:hover {
+    background-color: rgba(255, 255, 255, 0.95) !important;
     border-color: rgba(255, 255, 255, 0.4);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
     transform: translateY(-2px);
 }
 
-/* 文章内容区域透明 */
+/* 文章内容区域半透明 */
 .articles .card-content,
 .index-card .card-content {
-    background-color: transparent !important;
+    background-color: rgba(255, 255, 255, 0.9) !important;
     border-radius: 0 0 8px 8px;
 }
 
-/* 首页推荐文章卡片透明 */
+/* 首页推荐文章卡片半透明 */
 .recommend .card {
-    background-color: transparent !important;
+    background-color: rgba(255, 255, 255, 0.9) !important;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -36,15 +37,17 @@
 }
 
 .recommend .card:hover {
+    background-color: rgba(255, 255, 255, 0.95) !important;
     border-color: rgba(255, 255, 255, 0.4);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
     transform: translateY(-2px);
 }
 
-/* 暗色模式下的透明效果 */
+/* 暗色模式下的半透明效果 */
 body.DarkMode .articles .card,
 body.DarkMode .index-card .card,
 body.DarkMode .recommend .card {
+    background-color: rgba(0, 0, 0, 0.8) !important;
     border-color: rgba(255, 255, 255, 0.1);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
@@ -52,6 +55,13 @@ body.DarkMode .recommend .card {
 body.DarkMode .articles .card:hover,
 body.DarkMode .index-card .card:hover,
 body.DarkMode .recommend .card:hover {
+    background-color: rgba(0, 0, 0, 0.9) !important;
     border-color: rgba(255, 255, 255, 0.2);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* 暗色模式下的内容区域 */
+body.DarkMode .articles .card-content,
+body.DarkMode .index-card .card-content {
+    background-color: rgba(0, 0, 0, 0.8) !important;
 }
