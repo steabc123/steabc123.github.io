@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>我的小破站</title>
+    <link>https://steabc123.github.io/</link>
+    <description>My Blog</description>
+    <language>zh-CN</language>
+    <copyright>All rights reserved 2026, steabc123</copyright>
+    <lastBuildDate>Sun, 24 May 2026 12:17:11 GMT</lastBuildDate>
+    <generator>Hexo</generator>
+    <image>
+      <url>https://steabc123.github.io/cat.ico</url>
+      <title>我的小破站</title>
+      <link>https://steabc123.github.io/</link>
+    </image>
+    <atom:link href="https://steabc123.github.io/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>【数据结构-串】手算KMP算法的next和nextval数组</title>
+      <link>https://steabc123.github.io/2026/05/22/%E3%80%90%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E4%B8%B2%E3%80%91%E6%89%8B%E7%AE%97KMP%E7%AE%97%E6%B3%95%E7%9A%84next%E5%92%8Cnextval%E6%95%B0%E7%BB%84/</link>
+      <description>
+        <![CDATA[<h1 id="手算KMP算法的next数组"><a href="#手算KMP算法的next数组" class="headerlink" title="手算KMP算法的next数组"></a>手算KMP算法的next数组</h1><p><img src="/KMP-1.jpg"]]>
+      </description>
+      <author>steabc123</author>
+      <category domain="https://steabc123.github.io/categories/408/">408</category>
+      <category domain="https://steabc123.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</category>
+      <pubDate>Fri, 22 May 2026 14:18:38 GMT</pubDate>
+    </item>
+    <item>
+      <title>记录变更内容</title>
+      <link>https://steabc123.github.io/2026/05/14/%E8%AE%B0%E5%BD%95%E5%8F%98%E6%9B%B4%E5%86%85%E5%AE%B9/</link>
+      <description>
+        <![CDATA[<p>是的，您已经更改了Matery主题。主要更改包括以下内容：</p>
+<h3 id="1-配置文件修改（themes-hexo-theme-matery-config-yml）"><a]]>
+      </description>
+      <author>steabc123</author>
+      <category domain="https://steabc123.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</category>
+      <category domain="https://steabc123.github.io/tags/Hexo/">Hexo</category>
+      <category domain="https://steabc123.github.io/tags/Matery%E4%B8%BB%E9%A2%98/">Matery主题</category>
+      <pubDate>Thu, 14 May 2026 04:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Matery主题轮播图折腾记：从移除到恢复的完整过程</title>
+      <link>https://steabc123.github.io/2026/05/12/Hexo-Matery%E4%B8%BB%E9%A2%98%E8%BD%AE%E6%92%AD%E5%9B%BE%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/</link>
+      <description>
+        <![CDATA[<p>今天把Matery主题的首页轮播图折腾了一圈，从移除到恢复，中间还遇到了彩虹遮罩不显示的问题。记录一下具体改了哪些文件，方便以后查阅，也希望能帮到遇到同样问题的朋友。</p>
+<h2 id="先说结论"><a href="#先说结论" class="headerlink"]]>
+      </description>
+      <author>steabc123</author>
+      <category domain="https://steabc123.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</category>
+      <category domain="https://steabc123.github.io/tags/Hexo/">Hexo</category>
+      <category domain="https://steabc123.github.io/tags/Matery%E4%B8%BB%E9%A2%98/">Matery主题</category>
+      <category domain="https://steabc123.github.io/tags/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">踩坑记录</category>
+      <pubDate>Tue, 12 May 2026 08:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>移除Hexo博客首页轮播图片功能</title>
+      <link>https://steabc123.github.io/2026/05/12/%E7%A7%BB%E9%99%A4Hexo%E5%8D%9A%E5%AE%A2%E9%A6%96%E9%A1%B5%E8%BD%AE%E6%92%AD%E5%9B%BE%E7%89%87%E5%8A%9F%E8%83%BD/</link>
+      <description>
+        <![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在使用 Hexo + Matery]]>
+      </description>
+      <author>steabc123</author>
+      <category domain="https://steabc123.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</category>
+      <category domain="https://steabc123.github.io/tags/Hexo/">Hexo</category>
+      <category domain="https://steabc123.github.io/tags/Matery%E4%B8%BB%E9%A2%98/">Matery主题</category>
+      <category domain="https://steabc123.github.io/tags/%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/">博客美化</category>
+      <pubDate>Tue, 12 May 2026 07:30:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>基于vue3的MyBook前端实现</title>
+      <link>https://steabc123.github.io/2026/05/09/%E5%9F%BA%E4%BA%8Evue3%E7%9A%84MyBook%E5%89%8D%E7%AB%AF%E5%AE%9E%E7%8E%B0/</link>
+      <description>
+        <![CDATA[<h1 id="基于Vue3的MyBook前端实现总结"><a href="#基于Vue3的MyBook前端实现总结" class="headerlink" title="基于Vue3的MyBook前端实现总结"></a>基于Vue3的MyBook前端实现总结</h1><h2]]>
+      </description>
+      <author>steabc123</author>
+      <category domain="https://steabc123.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</category>
+      <category domain="https://steabc123.github.io/tags/Vue3/">Vue3</category>
+      <category domain="https://steabc123.github.io/tags/ElementPlus/">ElementPlus</category>
+      <pubDate>Sat, 09 May 2026 01:51:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>基于spring boot的MyBook后端实现</title>
+      <link>https://steabc123.github.io/2026/05/09/%E5%9F%BA%E4%BA%8Espring-boot%E7%9A%84MyBook%E5%90%8E%E7%AB%AF%E5%AE%9E%E7%8E%B0/</link>
+      <description>
+        <![CDATA[<h1 id="Spring-Boot-MyBatis-构建图书管理系统后端实战"><a href="#Spring-Boot-MyBatis-构建图书管理系统后端实战" class="headerlink" title="Spring Boot + MyBatis]]>
+      </description>
+      <author>steabc123</author>
+      <category domain="https://steabc123.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</category>
+      <category domain="https://steabc123.github.io/tags/SpringBoot/">SpringBoot</category>
+      <category domain="https://steabc123.github.io/tags/MyBatis/">MyBatis</category>
+      <pubDate>Sat, 09 May 2026 01:51:25 GMT</pubDate>
+    </item>
+    <item>
+      <title>给博客主页加了个萌娘计数器</title>
+      <link>https://steabc123.github.io/2026/05/06/%E4%B8%BB%E9%A1%B5%E6%B7%BB%E5%8A%A0Moe-Counter/</link>
+      <description>
+        <![CDATA[<h2 id="起因"><a href="#起因" class="headerlink"]]>
+      </description>
+      <author>steabc123</author>
+      <category domain="https://steabc123.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</category>
+      <category domain="https://steabc123.github.io/tags/Hexo/">Hexo</category>
+      <category domain="https://steabc123.github.io/tags/%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/">博客美化</category>
+      <pubDate>Wed, 06 May 2026 11:40:21 GMT</pubDate>
+    </item>
+    <item>
+      <title>切换matery主题踩坑总结</title>
+      <link>https://steabc123.github.io/2026/05/05/%E5%88%87%E6%8D%A2matery%E4%B8%BB%E9%A2%98%E8%B8%A9%E5%9D%91%E6%80%BB%E7%BB%93/</link>
+      <description>
+        <![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近给博客换了 hexo-theme-matery 主题，颜值确实高了不少，但部署到 GitHub Pages]]>
+      </description>
+      <author>steabc123</author>
+      <category domain="https://steabc123.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</category>
+      <category domain="https://steabc123.github.io/tags/Hexo/">Hexo</category>
+      <category domain="https://steabc123.github.io/tags/GitHub-Pages/">GitHub Pages</category>
+      <category domain="https://steabc123.github.io/tags/%E4%B8%BB%E9%A2%98%E5%88%87%E6%8D%A2/">主题切换</category>
+      <pubDate>Tue, 05 May 2026 05:17:16 GMT</pubDate>
+    </item>
+    <item>
+      <title>Hexo 博客 matery 主题配置踩坑记录</title>
+      <link>https://steabc123.github.io/2026/05/05/%E5%88%87%E6%8D%A2matery%E4%B8%BB%E9%A2%98%E6%B5%8B%E8%AF%95/</link>
+      <description>
+        <![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近把博客主题从默认的 landscape 换成了]]>
+      </description>
+      <author>steabc123</author>
+      <category domain="https://steabc123.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</category>
+      <category domain="https://steabc123.github.io/tags/Hexo/">Hexo</category>
+      <category domain="https://steabc123.github.io/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</category>
+      <category domain="https://steabc123.github.io/tags/GitHub-Pages/">GitHub Pages</category>
+      <pubDate>Tue, 05 May 2026 05:14:29 GMT</pubDate>
+    </item>
+    <item>
+      <title>解决网站标签页图片不显示</title>
+      <link>https://steabc123.github.io/2026/05/03/%E8%A7%A3%E5%86%B3%E7%BD%91%E7%AB%99%E6%A0%87%E7%AD%BE%E9%A1%B5%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA/</link>
+      <description>
+        <![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>网站标签页图片不显示的原因通常是配置文件中的路径设置不正确。</p>
+<h2 id="解决方法如下："><a]]>
+      </description>
+      <author>steabc123</author>
+      <category domain="https://steabc123.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</category>
+      <category domain="https://steabc123.github.io/tags/Hexo/">Hexo</category>
+      <category domain="https://steabc123.github.io/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</category>
+      <pubDate>Sun, 03 May 2026 09:10:24 GMT</pubDate>
+    </item>
+    <item>
+      <title>解决每次github部署完成后都要重新绑定域名的问题</title>
+      <link>https://steabc123.github.io/2026/05/03/%E8%A7%A3%E5%86%B3%E6%AF%8F%E6%AC%A1github%E9%83%A8%E7%BD%B2%E5%AE%8C%E6%88%90%E5%90%8E%E9%83%BD%E8%A6%81%E9%87%8D%E6%96%B0%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D%E7%9A%84%E9%97%AE%E9%A2%98%E7%9A%84%E6%B5%8B%E8%AF%95/</link>
+      <description>
+        <![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在使用 Hexo 搭建博客并部署到 GitHub Pages 时，很多人会遇到一个问题：每次执行 <code>hexo]]>
+      </description>
+      <author>steabc123</author>
+      <category domain="https://steabc123.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</category>
+      <category domain="https://steabc123.github.io/tags/Hexo/">Hexo</category>
+      <category domain="https://steabc123.github.io/tags/GitHub-Pages/">GitHub Pages</category>
+      <category domain="https://steabc123.github.io/tags/%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE/">域名配置</category>
+      <pubDate>Sun, 03 May 2026 02:52:02 GMT</pubDate>
+    </item>
+    <item>
+      <title>添加git仓库后测试</title>
+      <link>https://steabc123.github.io/2026/05/03/%E6%B7%BB%E5%8A%A0git%E4%BB%93%E5%BA%93%E5%90%8E%E6%B5%8B%E8%AF%95/</link>
+      <description>
+        <![CDATA[<p>&#96;</p>]]>
+      </description>
+      <author>steabc123</author>
+      <category domain="https://steabc123.github.io/tags/git%E6%B5%8B%E8%AF%95/">git测试</category>
+      <pubDate>Sun, 03 May 2026 02:41:01 GMT</pubDate>
+    </item>
+    <item>
+      <title>hexo搭建过程遇到的一些问题</title>
+      <link>https://steabc123.github.io/2026/05/02/hexo%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/</link>
+      <description>
+        <![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在搭建 Hexo 博客的过程中，遇到了一些问题和挑战，在此记录下来，方便以后查阅，也希望能帮助到同样在搭建博客的朋友们。</p>
+<h2]]>
+      </description>
+      <author>steabc123</author>
+      <category domain="https://steabc123.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</category>
+      <category domain="https://steabc123.github.io/tags/Hexo/">Hexo</category>
+      <category domain="https://steabc123.github.io/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</category>
+      <pubDate>Sat, 02 May 2026 11:23:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Hello World</title>
+      <link>https://steabc123.github.io/2026/05/02/hello-world/</link>
+      <description>
+        <![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a>]]>
+      </description>
+      <author>steabc123</author>
+      <pubDate>Sat, 02 May 2026 09:38:44 GMT</pubDate>
+    </item>
+  </channel>
+</rss>
