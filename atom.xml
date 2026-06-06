@@ -11,7 +11,23 @@
   <rights>All rights reserved 2026, steabc123</rights>
   <subtitle>My Blog</subtitle>
   <title>我的小破站</title>
-  <updated>2026-05-26T09:21:42.687Z</updated>
+  <updated>2026-06-06T07:46:47.887Z</updated>
+  <entry>
+    <author>
+      <name>steabc123</name>
+    </author>
+    <category term="安全启动证书" scheme="https://steabc123.github.io/categories/%E5%AE%89%E5%85%A8%E5%90%AF%E5%8A%A8%E8%AF%81%E4%B9%A6/"/>
+    <category term="Windows 11" scheme="https://steabc123.github.io/tags/Windows-11/"/>
+    <category term="安全启动" scheme="https://steabc123.github.io/tags/%E5%AE%89%E5%85%A8%E5%90%AF%E5%8A%A8/"/>
+    <category term="证书更新" scheme="https://steabc123.github.io/tags/%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%96%B0/"/>
+    <category term="踩坑经验" scheme="https://steabc123.github.io/tags/%E8%B8%A9%E5%9D%91%E7%BB%8F%E9%AA%8C/"/>
+    <id>https://steabc123.github.io/2026/06/06/windows-11-%E5%AE%89%E5%85%A8%E5%90%AF%E5%8A%A8%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%96%B0%E7%9A%84%E8%B8%A9%E5%9D%91%E5%B8%96/</id>
+    <link href="https://steabc123.github.io/2026/06/06/windows-11-%E5%AE%89%E5%85%A8%E5%90%AF%E5%8A%A8%E8%AF%81%E4%B9%A6%E6%9B%B4%E6%96%B0%E7%9A%84%E8%B8%A9%E5%9D%91%E5%B8%96/"/>
+    <published>2026-06-06T07:10:37.000Z</published>
+    <summary>最近在更新 Windows 11 的安全启动证书时遇到了一些问题，想在这里记录一下我的踩坑经历，希望能帮助到有类似问题的朋友。</summary>
+    <title>windows 11 安全启动证书更新的踩坑帖</title>
+    <updated>2026-06-06T07:46:47.887Z</updated>
+  </entry>
   <entry>
     <author>
       <name>steabc123</name>
